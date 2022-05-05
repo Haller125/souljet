@@ -1,0 +1,24 @@
+body{
+    background-image: linear-gradient(rgba(4,9,30,0.1),rgba(4,9,30,0.1)),url(../Images/purple-mountains.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+#regForm {   
+    background: #efefef;  
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+
+.line-box {   
+    background: #BCBCBC; 
+}
+
+.line {    
+    background: #A6B1E1;  
+} 
+
+button:hover {  
+    background: #424874;  
+    color: #ffffff; 
+}

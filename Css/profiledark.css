@@ -1,0 +1,104 @@
+body{
+    /*
+    background-color: #1a1a1a
+    */
+     background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
+     background-position: center;
+     background-size: cover;
+     position: relative;
+ }
+.quarter-circle{
+    background: #adadad;
+}
+
+.ProfileBody{   
+    background:#3e3333;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+.ProfileH1{
+    color:white;
+}
+.ProfilePicture {
+    background-color:#464646;
+}
+.ChangeButton input{
+    background-color: #aeaeae;
+    border: 1px solid black;
+}
+
+.InputBar{
+    background-color: #464646;
+}
+.InputBar input{
+    border: 1px solid black;
+    color:rgb(31, 31, 31);
+    background-color: #aeaeae;
+}
+.BlackB{
+    background-color: black;
+    border: 2px solid white;
+}
+.WhiteB{
+    background-color: white;
+    border: 2px solid black;
+}
+.NoteBlock{
+    background: #424874; 
+    color: white;
+}
+
+.InputBar h1 {
+    color: white;
+}
+
+.navbar .navbar-nav .nav-link{
+    color: black;
+  }
+  .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
+    background-color: #555;
+    color: black;
+  }
+
+  .quarter-circle {
+    background: #adadad;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.NoteBlock:hover::before,
+.NoteBlock:hover::after {
+  background: #fff;
+}
+
+.NoteBlock:hover {
+    border: 2px solid #424874;
+  color: #424874;
+  background-color: #efefef;
+}
+
+
+
+.TempAddButton button{ 
+    background: #efefef;  
+    border: 2px solid #424874;
+    color: #424874;
+}
+.TempAddButton button:hover::before,
+.TempAddButton button:hover::after {
+  background: #fff;
+}
+
+.TempAddButton button:hover {
+  background-color: #424874;
+  color: #F4EEFF;
+}

@@ -1,0 +1,86 @@
+body{
+  background: -webkit-linear-gradient(right, #A6B1E1,#DCD6F7);     
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.NotesBody{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;  
+  margin: 60px auto;  
+  background: #efefef;  
+  padding: 60px 120px 80px 120px;  
+  text-align: center;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+}
+
+.NoteBlock{
+    display: inline-block;
+    width: 30vh;
+    height: 30vh;
+    background: #424874; 
+    cursor: pointer;    
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.Gaming{
+    background-image: url(../Images/GamingBackground.jpg);
+}
+.NoteBlock h1 a{
+  color: white;
+  text-decoration: none;
+}
+.NoteBlock h1{
+    text-align: center;
+    font-size: 6vh;
+    font-family: 'Akshar', sans-serif;
+    font-family: 'Spline Sans', sans-serif;
+    font-weight: 400;
+}
+
+
+.NoteBlock:hover::before,
+.NoteBlock:hover::after {
+  background: #fff;
+  transition: 0.2s;
+}
+
+.NoteBlock:hover {
+  border: 2px solid #424874;
+  color: #424874;
+  background-color: #efefef;
+  transition: 0.3s;
+}
+
+
+
+.TempAddButton button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vh;
+    height: 30vh;   
+    background: #efefef;  
+    cursor: pointer;
+    border: 2px solid #424874;
+    padding-bottom: 7vh;
+    font-size: 25vh;
+    color: #424874;
+}
+.TempAddButton button:hover::before,
+.TempAddButton button:hover::after {
+  background: #fff;
+  transition: 0.2s;
+}
+
+.TempAddButton button:hover {
+  background-color: #424874;
+  color: #F4EEFF;
+  transition: 0.2s;
+}

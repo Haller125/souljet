@@ -1,0 +1,130 @@
+body{
+    min-height:100%;
+    font-family: Bad Script;
+    background: #91eae4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, #A6B1E1,#DCD6F7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(right, #A6B1E1,#DCD6F7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1{
+    text-transform: uppercase;
+    background: #A6B1E1;
+    color:white;
+    margin: 0;
+    padding:10px 28px;
+    font-weight: normal;
+}
+input{
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    height:50px ;
+    font-size: 20px;
+    font-weight: 0.5px;
+    padding-left:25px;
+    border: 3px solid gray;
+    color: gray;
+}
+
+span{
+    margin-right: 10px;
+    text-align:center;
+    height:50px;
+    width: 0;
+    opacity: 0;
+    -webkit-transition:0.3s;
+    transition: 0.3s linear;
+}
+
+span .todo-trash{
+    width: 0;
+    opacity: 0;
+    -webkit-transition:0.3s;
+    transition: 0.3s linear;
+}
+
+i{
+    cursor: pointer;
+}
+button{
+    background-color:#86a8e7; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius:4px;
+    font-family:Bad Script;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #86a8e7;
+}
+
+#buttons{
+    display:inline-block;
+    text-align:center;
+    margin-top:10px;
+}
+#todo{
+    margin: 50 auto ;
+    box-shadow: 0 0 1em black;
+    max-width: 400px;
+    height:100%;
+    background:white;
+}
+
+.todos{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.todos li{
+    background: #f7f7f7;
+    height:50px;
+    line-height: 50px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.todos li:nth-child(2n){
+    background:#edf1f5;
+}
+.todos li:hover span{
+    width: 50px;
+    opacity: 1.0;
+    margin-left: 5px;
+}
+
+.display{
+    display:none;
+    transition: 0.3s linear;
+}
+
+.checked{
+    color:gray;
+    text-decoration:line-through;
+}
+
+.fa-pencil-alt{
+    float: right;
+    padding-top: 8px;
+}
+
+.fa-trash-alt{
+    color:#7f7fd5;
+}
+
+/*  if screen size less than 450px, resize tips lists and close btn so they don't overlap */
+@media screen and (max-height: 450px) {
+    #todo{
+        width:100%;
+        height:100%;
+    }
+}
