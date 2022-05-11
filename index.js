@@ -67,6 +67,20 @@ async function addToDB(doc) {
     }
 }
 
+async function checkPassword(doc) {
+    try {
+        await client.connect();
+        const database = client.db("test");
+        const test = database.collection("users");
+        let user = await test.findOne({'email': doc.email});
+        return doc.password == user.password;
+    }catch(e){
+            console.log(e);
+    } finally {
+        await client.close();
+    }
+}
+
 
 app.use(bodyParser.json());
 app.use(upload.array()); 
@@ -90,6 +104,13 @@ app.get('/login', (req, res) => {
     res.sendFile(`${__dirname}/Html/LogIn.html`);
 });
 
+app.get('/logInAdmin', (req, res) => {
+    res.sendFile('${__dirname}/Html/logInAdmin.html');
+});
+app.get('/adminPage', (req, res) => {
+    res.sendFile('${__dirname}/Html/adminPage.html');
+});
+
 app.post('/profile', (req, res) => {
     console.log(req.body);
     if(schema.validate(req.body.password)){
@@ -101,8 +122,13 @@ app.post('/profile', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    
-});
+    console.log(req.body);
+    if(checkPassword(req.body) ){
+        //res.sendFile(`${__dirname}/Html/ConfirmPage.html`);
+        res.send('Invalid password');
+    };
+    res.send("Invalid password");
+    });
 
 app.listen(PORT, () => {
     console.log('Application listening on port ' + PORT);
