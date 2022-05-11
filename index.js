@@ -28,6 +28,9 @@ app.get('/notes', (req, res) => {
     res.sendFile(`${__dirname}/Html/notes.html`);
 });
 
+app.post('/profile', (req, res) => {
+});
+
 app.listen(PORT, () => {
     console.log('Application listening on port ' + PORT);
 });
