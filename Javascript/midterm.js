@@ -1,9 +1,6 @@
 var inputs2 = $('.form2 input');
 
-
-
-var values2 = []; 
-
+var values2 = [];
 
 function outputData(){ // function outputs data from cookie to webPage
     // below we are checking if we have necessary values in cookie

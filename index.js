@@ -13,7 +13,7 @@ app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
 app.use('/Images', express.static(path.join(__dirname, '/Images')));
 
 app.get('/', (req, res) => {
-res.sendFile(`${__dirname}/Html/MainPage.html`);
+    res.sendFile(`${__dirname}/Html/MainPage.html`);
 });
 
 app.get('/profile', (req, res) => {

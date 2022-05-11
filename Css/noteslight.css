@@ -1,44 +1,44 @@
 body{
-    background-image: linear-gradient(rgba(4,9,30,0.1),rgba(4,9,30,0.1)),url(../Images/purple-mountains.jpg);
-    background-position: center;
-    background-size: cover;
-    position: relative;
+  background-image: linear-gradient(rgba(4,9,30,0.1),rgba(4,9,30,0.1)),url(../Images/purple-mountains.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
 }
-.NotesBody{
-    background: #efefef;
+.NotesBody{  
+    background: #efefef;  
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
 }
 
 .NoteBlock{
-    background: #A6B1E1;
+    background: #A6B1E1; 
     color: white;
 }
 
 
 .NoteBlock:hover::before,
 .NoteBlock:hover::after {
-    background: #fff;
+  background: #fff;
 }
 
 .NoteBlock:hover {
     border: 2px solid #424874;
-    color: #424874;
-    background-color: #efefef;
+  color: #424874;
+  background-color: #efefef;
 }
 
 
 
-.TempAddButton button{
-    background: #efefef;
+.TempAddButton button{  
+    background: #efefef;  
     border: 2px solid #424874;
     color: #424874;
 }
 .TempAddButton button:hover::before,
 .TempAddButton button:hover::after {
-    background: #fff;
+  background: #fff;
 }
 
 .TempAddButton button:hover {
-    background-color: #424874;
-    color: #F4EEFF;
+  background-color: #424874;
+  color: #F4EEFF;
 }
