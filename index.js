@@ -34,10 +34,10 @@ import passwordValidator from 'password-validator';
 var schema = new passwordValidator();
 
 schema
-    .is().min(8)
-    .is().max(100)
-    .has().uppercase()
-    .has().lowercase();
+  .is().min(8)
+  .is().max(100)
+  .has().uppercase()
+  .has().lowercase();
 
 
 
@@ -46,12 +46,12 @@ app.get('/', (req, res) => {
 });
 
 mongoClient.connect(async function(error, mongo) {
-    if (!error) {
-        let db = mongo.db('test');
-        let coll = db.collection('users');
+    if (!error) {          
+    let db = mongo.db('test');
+    let coll = db.collection('users'); 
     } else {
         console.error(err);
-    }});
+    }});  
 
 async function addToDB(doc) {
     try {
@@ -61,7 +61,7 @@ async function addToDB(doc) {
         const result = await test.insertOne(doc);
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
     }catch(e){
-        console.log(e);
+            console.log(e);
     } finally {
         await client.close();
     }
@@ -69,10 +69,10 @@ async function addToDB(doc) {
 
 
 app.use(bodyParser.json());
-app.use(upload.array());
+app.use(upload.array()); 
 
 // for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/profile', (req, res) => {
     res.sendFile(`${__dirname}/Html/profile.html`);
@@ -84,6 +84,10 @@ app.get('/registration', (req, res) => {
 
 app.get('/notes', (req, res) => {
     res.sendFile(`${__dirname}/Html/notes.html`);
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile(`${__dirname}/Html/LogIn.html`);
 });
 
 app.post('/profile', (req, res) => {
