@@ -68,17 +68,20 @@ async function addToDB(doc) {
 }
 
 async function checkPassword(doc) {
+    let res;
     try {
         await client.connect();
         const database = client.db("test");
         const test = database.collection("users");
         let user = await test.findOne({'email': doc.email});
-        return doc.password == user.password;
+        res = doc.password == user.password;
     }catch(e){
             console.log(e);
     } finally {
         await client.close();
     }
+
+    return res;
 }
 
 
@@ -125,9 +128,10 @@ app.post('/login', (req, res) => {
     console.log(req.body);
     if(checkPassword(req.body) ){
         //res.sendFile(`${__dirname}/Html/ConfirmPage.html`);
-        res.send('Invalid password');
+        res.send('Successfull');
+    }else{
+        res.send('invalid');
     };
-    res.send("Invalid password");
     });
 
 app.listen(PORT, () => {
