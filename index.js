@@ -93,7 +93,7 @@ app.get('/login', (req, res) => {
 app.post('/profile', (req, res) => {
     console.log(req.body);
     if(schema.validate(req.body.password)){
-        res.send("recieved your request!");
+        res.sendFile(`${__dirname}/Html/ConfirmPage.html`);
         addToDB(req.body);
     }else{
         res.send("Invalid password");
