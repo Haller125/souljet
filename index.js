@@ -39,7 +39,7 @@ schema
     .has().uppercase()
     .has().lowercase()
     .has().not().spaces()
-    .has().symbols(1);
+    .has().symbols();
 
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/Html/MainPage.html`);
