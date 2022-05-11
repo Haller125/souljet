@@ -44,9 +44,9 @@ mongoClient.connect(async function(error, mongo) {
 async function addToDB(doc) {
     try {
         await client.connect();
-        let db = mongo.db('test');
-        let coll = db.collection('users'); 
-        const result = await haiku.insertOne(doc);
+        const database = client.db("test");
+        const test = database.collection("test");
+        const result = await test.insertOne(doc);
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
     }catch(e){
             console.log(e);
