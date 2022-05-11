@@ -29,6 +29,18 @@ app.use('/Css', express.static(path.join(__dirname, 'Css')));
 app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
 app.use('/Images', express.static(path.join(__dirname, '/Images')));
 
+import passwordValidator from 'password-validator';
+
+var schema = new passwordValidator();
+
+schema
+  .is().min(8)
+  .is().max(100)
+  .has().uppercase()
+  .has().lowercase();
+
+
+
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/Html/MainPage.html`);
 });
@@ -45,7 +57,7 @@ async function addToDB(doc) {
     try {
         await client.connect();
         const database = client.db("test");
-        const test = database.collection("test");
+        const test = database.collection("users");
         const result = await test.insertOne(doc);
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
     }catch(e){
@@ -76,8 +88,12 @@ app.get('/notes', (req, res) => {
 
 app.post('/profile', (req, res) => {
     console.log(req.body);
-   res.send("recieved your request!");
-   addToDB(req.body);
+    if(schema.validate(req.body.password)){
+        res.send("recieved your request!");
+        addToDB(req.body);
+    }else{
+        res.send("Invalid password");
+    };
 });
 
 app.listen(PORT, () => {
