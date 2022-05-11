@@ -34,12 +34,12 @@ import passwordValidator from 'password-validator';
 var schema = new passwordValidator();
 
 schema
-  .is().min(8)
-  .is().max(100)
-  .has().uppercase()
-  .has().lowercase();
-
-
+    .is().min(8)
+    .is().max(100)
+    .has().uppercase()
+    .has().lowercase()
+    .has().not().spaces()
+    .has().symbols(1);
 
 app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/Html/MainPage.html`);
