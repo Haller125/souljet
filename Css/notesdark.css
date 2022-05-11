@@ -1,75 +1,75 @@
 body{
-  /*
-  background-color: #1a1a1a
-  */
-   background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
-   background-position: center;
-   background-size: cover;
-   position: relative;
+    /*
+    background-color: #1a1a1a
+    */
+    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
-.NotesBody{ 
+.NotesBody{
     background: #3e3333;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
 }
 
 .NoteBlock{
-    background: #464646; 
+    background: #464646;
     color: #f4eeff;
 }
 
 
 .NoteBlock:hover::before,
 .NoteBlock:hover::after {
-  background: #f4eeff;
+    background: #f4eeff;
 }
 
 .NoteBlock:hover {
     border: 2px solid #424874;
     color: #f4eeff;
-  background-color: #242424;
+    background-color: #242424;
 }
 
 
 
 .TempAddButton button{
-    background: #6b6b6b;  
+    background: #6b6b6b;
     border: 2px solid #424874;
     color: #424874;
 }
 .TempAddButton button:hover::before,
 .TempAddButton button:hover::after {
-  background:#fff;
+    background:#fff;
 }
 
 .TempAddButton button:hover {
-  background-color: #242424;
-  color: #F4EEFF; 
+    background-color: #242424;
+    color: #F4EEFF;
 }
 
 
 .navbar .navbar-nav .nav-link{
-  color: white;
+    color: white;
 }
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active{
-  background-color:#202020;
-  color:black ;
+    background-color:#202020;
+    color:black ;
 }
 
 .quarter-circle {
-  background: #adadad;
+    background: #adadad;
 }
 
 
 
 .navbar .navbar-nav .nav-link{
-  color: black;
+    color: black;
 }
 .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
-  background-color: #555;
-  color: black;
+    background-color: #555;
+    color: black;
 }
 
 .quarter-circle {
-  background: #adadad;
+    background: #adadad;
 }

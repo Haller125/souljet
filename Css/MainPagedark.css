@@ -2,16 +2,16 @@ body{
     /*
     background-color: #1a1a1a
     */
-     background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
-     background-position: center;
-     background-size: cover;
-     position: relative;
- }
+    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
 
 .quote-box{
     background-color: pink;
     box-shadow: 20px 20px 50px #181818  ;
-    
+
 }
 
 #quote{
@@ -23,35 +23,35 @@ body{
 }
 
 .MainPageQuote h2{
-    color: #424874;  
+    color: #424874;
 }
 
-.MainPageQuote h3{ 
-    color: #424874;  
+.MainPageQuote h3{
+    color: #424874;
 }
 .MainPageSiteName h1{
-    color: #F4EEFF;  
+    color: #F4EEFF;
 }
 .MainPageCreativity h1{
-    color: #F4EEFF;  
+    color: #F4EEFF;
 }
 
 .MainPageCreativity h2{
-    color: #A6B1E1;  
+    color: #A6B1E1;
     border-radius: 6px;
     background-color: #F4EEFF;
 }
 
 .MainPageCreativity h3{
-    color: #A6B1E1;  
+    color: #A6B1E1;
     border-radius: 6px;
     background-color: #DCD6F7;
 }
 .MainPagePossibilities h1{
-    color: #F4EEFF;  
+    color: #F4EEFF;
 }
 .MainPagePossibilities h2{
-    color: #A6B1E1; 
+    color: #A6B1E1;
     border-radius: 6px;
     background-color: #F4EEFF;
 }
@@ -67,42 +67,47 @@ body{
 /*-- navigation bar --*/
 
 
-  .navbar .navbar-nav .nav-link{
+.navbar .navbar-nav .nav-link{
     color: #ffb19b;
 
-  }
-  .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
+}
+.navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
     background-color: #555;
     color: white;
     color: #ffb19b;
-  }
+}
 
-  .quarter-circle {
-   background-color:  white;
+.quarter-circle {
+    background-color:  white;
 }
 
 /*-- Burger-collapse animation --*/
 .bar1, .bar2, .bar3 {
     background-color: #ffb19b;
-  }
-#regForm {  
+}
+#regForm {
     background: #525151;
 }
 
-.line-box {   
-    background: #4b4b4b; 
+.line-box {
+    background: #4b4b4b;
 }
 
-.line {    
-    background: #DCD6F7;  
-}  
+.line {
+    background: #DCD6F7;
+}
 
-button {   
-    background: rgb(48, 48, 48);  
-    color: rgb(200, 200, 200);  
-}  
+button {
+    background: rgb(48, 48, 48);
+    color: rgb(200, 200, 200);
+}
 
-button:hover {  
-    background: #F4EEFF;  
-    color: #1b1b1b; 
+button:hover {
+    background: #F4EEFF;
+    color: #1b1b1b;
+}
+
+/*-- DarkThemeSwitcher --*/
+.theme {
+    background: #222222;
 }
