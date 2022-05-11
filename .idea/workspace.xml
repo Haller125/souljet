@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="A">
-      <change afterPath="$PROJECT_DIR$/Html/LogIn.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Html/InsideNoteExample.html" beforeDir="false" afterPath="$PROJECT_DIR$/Html/InsideNoteExample.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Html/MainPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/Html/MainPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Html/Registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/Html/Registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Html/notes.html" beforeDir="false" afterPath="$PROJECT_DIR$/Html/notes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Html/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Html/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Html/LogIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/Html/LogIn.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +21,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,8 +68,16 @@
       <workItem from="1652267113000" duration="1078000" />
       <workItem from="1652268221132" duration="2779000" />
       <workItem from="1652271197325" duration="1690000" />
-      <workItem from="1652274781372" duration="4871000" />
+      <workItem from="1652274781372" duration="5880000" />
     </task>
+    <task id="LOCAL-00001" summary="A">
+      <created>1652280569767</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652280569767</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
