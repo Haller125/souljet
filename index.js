@@ -29,6 +29,8 @@ app.get('/notes', (req, res) => {
 });
 
 app.post('/profile', (req, res) => {
+    console.log(req.body);
+   res.send("recieved your request!");
 });
 
 app.listen(PORT, () => {
