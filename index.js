@@ -12,7 +12,7 @@ const PORT = 5000;
 var hbs = require('express-hbs');
 
 app.engine('hbs', hbs.express4({
-  partialsDir: __dirname + '/views/partials'
+  partialsDir: __dirname + '/views'
 }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
@@ -70,15 +70,17 @@ async function addToDB(doc) {
         await client.close();
     }
 }
-
-async function checkPassword(doc) {
+async function takeUser(doc) {
     let res;
     try {
         await client.connect();
         const database = client.db("test");
         const test = database.collection("users");
         let user = await test.findOne({'email': doc.email});
-        res = doc.password == user.password;
+        res.name = user.name;
+        res.email = user.email;
+        res.password = user.password;
+        
     }catch(e){
             console.log(e);
     } finally {
@@ -101,7 +103,12 @@ app.get('/', async (req, res) => {
   });
   
   app.get('/profile', (req, res) => {
-      res.render(`profile`);
+      console.log(currentUser.email);
+      res.render(`profile`, {
+          username: currentUser.name,
+          email: currentUser.email,
+          time: '500'
+      });
   });
   
   app.get('/registration', (req, res) => {
@@ -141,9 +148,16 @@ app.get('/', async (req, res) => {
   });
   
   app.post('/login', (req, res) => {
+      let currentUser = takeUser(req.body);
       console.log(req.body);
-      if(checkPassword(req.body) ){
-          res.render(`profile`);
+      console.log(currentUser);
+      if(currentUser.password == req.body.password ){
+            console.log(currentUser);
+            res.render(`profile`, {
+                username: currentUser.name,
+                email: currentUser.email,
+                time: '500'
+        });
       }else{
           res.send('invalid');
       };
