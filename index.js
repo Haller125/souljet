@@ -6,9 +6,19 @@ const express = require('express');
 const {fileURLToPath} = require('url');
 const path = require('path');
 
+const mainRoutes = require('./routes/main.js')
+
 const app = express();
 var upload = multer();
 const PORT = 5000;
+var hbs = require('express-hbs');
+
+app.engine('hbs', hbs.express4({
+  partialsDir: __dirname + '/views/partials'
+}));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+app.set('views', 'views');
 
 let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
     useUnifiedTopology: true
@@ -24,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'Images')));
 app.use('/Css', express.static(path.join(__dirname, 'Css')));
 app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
 app.use('/Images', express.static(path.join(__dirname, '/Images')));
+app.use(mainRoutes);
 
 const passwordValidator = require('password-validator');
 
@@ -37,9 +48,7 @@ schema
     .has().not().spaces()
     .has().symbols();
 
-app.get('/', (req, res) => {
-    res.sendFile(`${__dirname}/Html/MainPage.html`);
-});
+
 
 mongoClient.connect(async function(error, mongo) {
     if (!error) {          
