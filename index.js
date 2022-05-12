@@ -112,7 +112,7 @@ app.get('/adminPage', (req, res) => {
     res.sendFile(`${__dirname}/Html/adminPage.html`);
 });
 app.get('/contactus', (req, res) => {
-    res.sendFile('${__dirname}/Html/ContactUs.html');
+    res.sendFile(`${__dirname}/Html/ContactUs.html`);
 });
 
 app.post('/profile', (req, res) => {
