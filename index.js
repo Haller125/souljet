@@ -6,7 +6,7 @@ const express = require('express');
 const {fileURLToPath} = require('url');
 const path = require('path');
 
-const mainRoutes = require('./routes/main.js')
+const mainRoutes = require('/routes/main.js')
 
 const app = express();
 var upload = multer();
@@ -48,6 +48,9 @@ schema
     .has().not().spaces()
     .has().symbols();
 
+app.get('/', (req, res) => {
+    res.sendFile(`${__dirname}/Html/MainPage.html`);
+});
 
 mongoClient.connect(async function(error, mongo) {
     if (!error) {          

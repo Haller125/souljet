@@ -1,5 +1,66 @@
 const { Router } = require('express')
 const router = Router()
+const mongodb = require('mongodb');
+const { MongoClient } = require("mongodb");
+const bodyParser = require('body-parser');
+const multer = require('multer');
+
+const passwordValidator = require('password-validator');
+
+var schema = new passwordValidator();
+
+schema
+    .is().min(8)
+    .is().max(100)
+    .has().uppercase()
+    .has().lowercase()
+    .has().not().spaces()
+    .has().symbols();
+
+let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
+    useUnifiedTopology: true
+});
+
+
+app.use(bodyParser.json());
+app.use(upload.array()); 
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true })); 
+
+const uri = "mongodb://localhost:27017/";
+const client = new MongoClient(uri);
+
+async function addToDB(doc) {
+    try {
+        await client.connect();
+        const database = client.db("test");
+        const test = database.collection("users");
+        const result = await test.insertOne(doc);
+        console.log(`A document was inserted with the _id: ${result.insertedId}`);
+    }catch(e){
+            console.log(e);
+    } finally {
+        await client.close();
+    }
+}
+
+async function checkPassword(doc) {
+    let res;
+    try {
+        await client.connect();
+        const database = client.db("test");
+        const test = database.collection("users");
+        let user = await test.findOne({'email': doc.email});
+        res = doc.password == user.password;
+    }catch(e){
+            console.log(e);
+    } finally {
+        await client.close();
+    }
+
+    return res;
+}
 
 router.get('/', async (req, res) => {
   res.render('MainPage');
