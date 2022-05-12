@@ -1,16 +1,14 @@
-import mongodb from 'mongodb';
-import { MongoClient } from "mongodb";
-import bodyParser from 'body-parser';
-import multer from 'multer';
-import express from 'express';
-import {fileURLToPath} from 'url';
-import path from 'path';
+const mongodb = require('mongodb');
+const { MongoClient } = require("mongodb");
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const express = require('express');
+const {fileURLToPath} = require('url');
+const path = require('path');
 
 const app = express();
 var upload = multer();
 const PORT = 5000;
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
     useUnifiedTopology: true
@@ -27,7 +25,7 @@ app.use('/Css', express.static(path.join(__dirname, 'Css')));
 app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
 app.use('/Images', express.static(path.join(__dirname, '/Images')));
 
-import passwordValidator from 'password-validator';
+const passwordValidator = require('password-validator');
 
 var schema = new passwordValidator();
 
@@ -112,7 +110,7 @@ app.get('/adminPage', (req, res) => {
     res.sendFile(`${__dirname}/Html/adminPage.html`);
 });
 app.get('/contactus', (req, res) => {
-    res.sendFile(`${__dirname}/Html/ContactUs.html`);
+    res.sendFile('${__dirname}/Html/ContactUs.html');
 });
 
 app.post('/profile', (req, res) => {
@@ -132,7 +130,6 @@ app.get('/contact', (req, res) => {
 app.post('/login', (req, res) => {
     console.log(req.body);
     if(checkPassword(req.body) ){
-        //res.sendFile(`${__dirname}/Html/ConfirmPage.html`);
         res.sendFile(`${__dirname}/Html/profile.html`);
     }else{
         res.send('invalid');
