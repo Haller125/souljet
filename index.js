@@ -98,54 +98,7 @@ app.use(upload.array());
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-app.get('/profile', (req, res) => {
-    res.sendFile(`${__dirname}/Html/profile.html`);
-});
 
-app.get('/registration', (req, res) => {
-    res.sendFile(`${__dirname}/Html/Registration.html`);
-});
-
-app.get('/notes', (req, res) => {
-    res.sendFile(`${__dirname}/Html/notes.html`);
-});
-
-app.get('/login', (req, res) => {
-    res.sendFile(`${__dirname}/Html/LogIn.html`);
-});
-
-app.get('/logInAdmin', (req, res) => {
-    res.sendFile(`${__dirname}/Html/logInAdmin.html`);
-});
-app.get('/adminPage', (req, res) => {
-    res.sendFile(`${__dirname}/Html/adminPage.html`);
-});
-app.get('/contactus', (req, res) => {
-    res.sendFile('${__dirname}/Html/ContactUs.html');
-});
-
-app.post('/profile', (req, res) => {
-    console.log(req.body);
-    if(schema.validate(req.body.password)){
-        res.sendFile(`${__dirname}/Html/ConfirmPage.html`);
-        addToDB(req.body);
-    }else{
-        res.send("Invalid password");
-    };
-});
-
-app.get('/contact', (req, res) => {
-    res.sendFile(`${__dirname}/Html/ContactUs.html`);
-});
-
-app.post('/login', (req, res) => {
-    console.log(req.body);
-    if(checkPassword(req.body) ){
-        res.sendFile(`${__dirname}/Html/profile.html`);
-    }else{
-        res.send('invalid');
-    };
-    });
 
 app.listen(PORT, () => {
     console.log('Application listening on port ' + PORT);

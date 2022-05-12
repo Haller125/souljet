@@ -45,6 +45,7 @@ async function checkPassword(doc) {
         const database = client.db("test");
         const test = database.collection("users");
         let user = await test.findOne({'email': doc.email});
+        user = this.user;
         res = doc.password == user.password;
     }catch(e){
             console.log(e);
@@ -55,12 +56,35 @@ async function checkPassword(doc) {
     return res;
 }
 
+async function infoAboutPerson(doc) {
+    let res;
+    try {
+        await client.connect();
+        const database = client.db("test");
+        const test = database.collection("users");
+        let user = await test.findOne({'email': doc.email});
+        res = doc.password == user.password;
+    }catch(e){
+            console.log(e);
+    } finally {
+        await client.close();
+    }
+
+    return res;
+}
+
+let user;
+
 router.get('/', async (req, res) => {
   res.render('MainPage');
 });
 
 router.get('/profile', (req, res) => {
-    res.render(`profile`);
+    res.render(`profile`, {
+        username: user.name,
+        email: user.email,
+      });
+
 });
 
 router.get('/registration', (req, res) => {
