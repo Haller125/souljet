@@ -1,16 +1,14 @@
-
 import mongodb from 'mongodb';
 import { MongoClient } from "mongodb";
 import bodyParser from 'body-parser';
 import multer from 'multer';
 import express from 'express';
-
 import {fileURLToPath} from 'url';
 import path from 'path';
+
 const app = express();
 var upload = multer();
 const PORT = 5000;
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -108,10 +106,10 @@ app.get('/login', (req, res) => {
 });
 
 app.get('/logInAdmin', (req, res) => {
-    res.sendFile('${__dirname}/Html/logInAdmin.html');
+    res.sendFile(`${__dirname}/Html/logInAdmin.html`);
 });
 app.get('/adminPage', (req, res) => {
-    res.sendFile('${__dirname}/Html/adminPage.html');
+    res.sendFile(`${__dirname}/Html/adminPage.html`);
 });
 
 app.post('/profile', (req, res) => {
@@ -124,11 +122,15 @@ app.post('/profile', (req, res) => {
     };
 });
 
+app.get('/contact', (req, res) => {
+    res.sendFile(`${__dirname}/Html/ContactUs.html`);
+});
+
 app.post('/login', (req, res) => {
     console.log(req.body);
     if(checkPassword(req.body) ){
         //res.sendFile(`${__dirname}/Html/ConfirmPage.html`);
-        res.send('Successfull');
+        res.sendFile(`${__dirname}/Html/profile.html`);
     }else{
         res.send('invalid');
     };
