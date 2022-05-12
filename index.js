@@ -6,8 +6,6 @@ const express = require('express');
 const {fileURLToPath} = require('url');
 const path = require('path');
 
-const mainRoutes = require('./routes/main.js')
-
 const app = express();
 var upload = multer();
 const PORT = 5000;
@@ -34,7 +32,6 @@ app.use(express.static(path.join(__dirname, 'Images')));
 app.use('/Css', express.static(path.join(__dirname, 'Css')));
 app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
 app.use('/Images', express.static(path.join(__dirname, '/Images')));
-app.use(mainRoutes);
 
 const passwordValidator = require('password-validator');
 
@@ -98,6 +95,60 @@ app.use(upload.array());
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+
+app.get('/', async (req, res) => {
+    res.render('MainPage');
+  });
+  
+  app.get('/profile', (req, res) => {
+      res.render(`profile`);
+  });
+  
+  app.get('/registration', (req, res) => {
+      res.render(`Registration`);
+  });
+  
+  app.get('/notes', (req, res) => {
+      res.render(`notes`);
+  });
+  
+  app.get('/login', (req, res) => {
+      res.render(`LogIn`);
+  });
+  
+  app.get('/logInAdmin', (req, res) => {
+      res.render(`logInAdmin`);
+  });
+  app.get('/adminPage', (req, res) => {
+      res.render(`adminPage`);
+  });
+  app.get('/contactus', (req, res) => {
+      res.render('ContactUs');
+  });
+  
+  app.post('/profile', (req, res) => {
+      console.log(req.body);
+      if(schema.validate(req.body.password)){
+          res.render(`ConfirmPage`);
+          addToDB(req.body);
+      }else{
+          res.send("Invalid password");
+      };
+  });
+  
+  app.get('/contact', (req, res) => {
+      res.render(`ContactUs`);
+  });
+  
+  app.post('/login', (req, res) => {
+      console.log(req.body);
+      if(checkPassword(req.body) ){
+          res.render(`profile`);
+      }else{
+          res.send('invalid');
+      };
+      });
+  
 
 
 app.listen(PORT, () => {

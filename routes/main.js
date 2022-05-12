@@ -1,13 +1,22 @@
-const { Router } = require('express')
-const router = Router()
+const { app } = require('express')
+const app = app()
 const mongodb = require('mongodb');
 const { MongoClient } = require("mongodb");
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const express = require('express');
+const {fileURLToPath} = require('url');
+const path = require('path');
 
 const passwordValidator = require('password-validator');
 
 var schema = new passwordValidator();
+const app = express();
+var upload = multer();
+app.use(bodyParser.json());
+app.use(upload.array()); 
+app.use(bodyParser.urlencoded({ extended: true })); 
+
 
 schema
     .is().min(8)
@@ -45,7 +54,6 @@ async function checkPassword(doc) {
         const database = client.db("test");
         const test = database.collection("users");
         let user = await test.findOne({'email': doc.email});
-        user = this.user;
         res = doc.password == user.password;
     }catch(e){
             console.log(e);
@@ -75,41 +83,37 @@ async function infoAboutPerson(doc) {
 
 let user;
 
-router.get('/', async (req, res) => {
+app.get('/', async (req, res) => {
   res.render('MainPage');
 });
 
-router.get('/profile', (req, res) => {
-    res.render(`profile`, {
-        username: user.name,
-        email: user.email,
-      });
-
+app.get('/profile', (req, res) => {
+    res.render(`profile`);
 });
 
-router.get('/registration', (req, res) => {
+app.get('/registration', (req, res) => {
     res.render(`Registration`);
 });
 
-router.get('/notes', (req, res) => {
+app.get('/notes', (req, res) => {
     res.render(`notes`);
 });
 
-router.get('/login', (req, res) => {
+app.get('/login', (req, res) => {
     res.render(`LogIn`);
 });
 
-router.get('/logInAdmin', (req, res) => {
+app.get('/logInAdmin', (req, res) => {
     res.render(`logInAdmin`);
 });
-router.get('/adminPage', (req, res) => {
+app.get('/adminPage', (req, res) => {
     res.render(`adminPage`);
 });
-router.get('/contactus', (req, res) => {
+app.get('/contactus', (req, res) => {
     res.render('ContactUs');
 });
 
-router.post('/profile', (req, res) => {
+app.post('/profile', (req, res) => {
     console.log(req.body);
     if(schema.validate(req.body.password)){
         res.render(`ConfirmPage`);
@@ -119,11 +123,11 @@ router.post('/profile', (req, res) => {
     };
 });
 
-router.get('/contact', (req, res) => {
+app.get('/contact', (req, res) => {
     res.render(`ContactUs`);
 });
 
-router.post('/login', (req, res) => {
+app.post('/login', (req, res) => {
     console.log(req.body);
     if(checkPassword(req.body) ){
         res.render(`profile`);
@@ -132,4 +136,4 @@ router.post('/login', (req, res) => {
     };
     });
 
-module.exports = router;
+module.exports = app;
