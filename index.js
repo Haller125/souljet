@@ -49,7 +49,6 @@ schema
     .has().symbols();
 
 
-
 mongoClient.connect(async function(error, mongo) {
     if (!error) {          
     let db = mongo.db('test');
