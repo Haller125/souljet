@@ -6,7 +6,7 @@ const express = require('express');
 const {fileURLToPath} = require('url');
 const path = require('path');
 
-const mainRoutes = require('/routes/main.js')
+const mainRoutes = require('./routes/main.js')
 
 const app = express();
 var upload = multer();

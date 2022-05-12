@@ -21,13 +21,6 @@ let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
     useUnifiedTopology: true
 });
 
-
-app.use(bodyParser.json());
-app.use(upload.array()); 
-
-// for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true })); 
-
 const uri = "mongodb://localhost:27017/";
 const client = new MongoClient(uri);
 
