@@ -1,4 +1,10 @@
-<h1>{{ username }}</h1>
-<div>
-    email: {{ user.email }} <br>
-</div>
+<table>
+    {{#each user}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+            <td>{{time}}</td>
+            <td>{{password}}</td>
+        </tr>
+    {{/each}}
+</table>

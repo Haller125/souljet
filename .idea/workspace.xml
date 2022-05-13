@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="A">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/LogIn.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/LogIn.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Registration.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Registration.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/info.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +71,7 @@
       <workItem from="1652274781372" duration="16431000" />
       <workItem from="1652361941504" duration="12650000" />
       <workItem from="1652379321107" duration="3256000" />
-      <workItem from="1652410709949" duration="3540000" />
+      <workItem from="1652410709949" duration="4539000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>
