@@ -147,7 +147,7 @@ app.get('/', async (req, res) => {
           const database = client.db("test");
           const test = database.collection("users");
           let user = await test.findOne({'email': req.body.email});
-          if(checkPassword(req.body)){
+          if(req.body.password === user.password){
               res.render(`profile`, {
                   username: user.name,
                   email: user.email,
