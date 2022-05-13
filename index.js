@@ -63,6 +63,8 @@ async function addToDB(doc) {
         const database = client.db("test");
         const test = database.collection("users");
         const result = await test.insertOne(doc);
+        let user = await test.findOne({'email': doc.email});
+        user.time = Date.now();
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
     }catch(e){
             console.log(e);
@@ -151,8 +153,9 @@ app.get('/', async (req, res) => {
               res.render(`profile`, {
                   username: user.name,
                   email: user.email,
-                  time: '1000'
+                  time: (Date.now() - user.time) / 1000,
               });
+              user.time == Date.now();
           }else{
               res.send('invalid');
           };
