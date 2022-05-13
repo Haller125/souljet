@@ -1,4 +1,4 @@
-const { app } = require('express')
+/*const { app } = require('express')
 const app = app()
 const mongodb = require('mongodb');
 const { MongoClient } = require("mongodb");
@@ -136,4 +136,4 @@ app.post('/login', (req, res) => {
     };
     });
 
-module.exports = app;
+module.exports = app;*/

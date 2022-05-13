@@ -22,8 +22,8 @@ let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
     useUnifiedTopology: true
 });
 
-const uri = "mongodb://localhost:27017/";
-const client = new MongoClient(uri);
+const url = "mongodb://localhost:27017/";
+const client = new MongoClient(url);
 
 app.use(express.static(path.join(__dirname, 'Html')));
 app.use(express.static(path.join(__dirname, 'Css')));
@@ -70,26 +70,22 @@ async function addToDB(doc) {
         await client.close();
     }
 }
-async function takeUser(doc) {
+
+async function checkPassword(doc) {
     let res;
     try {
         await client.connect();
         const database = client.db("test");
         const test = database.collection("users");
         let user = await test.findOne({'email': doc.email});
-        res.name = user.name;
-        res.email = user.email;
-        res.password = user.password;
-        
+        res = doc.password == user.password;
     }catch(e){
-            console.log(e);
+        console.log(e);
     } finally {
         await client.close();
     }
-
     return res;
 }
-
 
 app.use(bodyParser.json());
 app.use(upload.array()); 
@@ -101,16 +97,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', async (req, res) => {
     res.render('MainPage');
   });
-  
-  app.get('/profile', (req, res) => {
-      console.log(currentUser.email);
+
+ /* app.get('/profile', (req, res) => {
       res.render(`profile`, {
           username: currentUser.name,
           email: currentUser.email,
           time: '500'
       });
   });
-  
+  */
   app.get('/registration', (req, res) => {
       res.render(`Registration`);
   });
@@ -134,7 +129,6 @@ app.get('/', async (req, res) => {
   });
   
   app.post('/profile', (req, res) => {
-      console.log(req.body);
       if(schema.validate(req.body.password)){
           res.render(`ConfirmPage`);
           addToDB(req.body);
@@ -147,20 +141,37 @@ app.get('/', async (req, res) => {
       res.render(`ContactUs`);
   });
   
-  app.post('/login', (req, res) => {
-      let currentUser = takeUser(req.body);
-      console.log(req.body);
+  app.post('/login', async (req, res) => {
+      try {
+          await client.connect();
+          const database = client.db("test");
+          const test = database.collection("users");
+          let user = await test.findOne({'email': req.body.email});
+          if(checkPassword(req.body)){
+              res.render(`profile`, {
+                  username: user.name,
+                  email: user.email,
+                  time: '1000'
+              });
+          }else{
+              res.send('invalid');
+          };
+      }catch(e){
+          console.log(e);
+      } finally {
+          await client.close();
+      }
+      /*let currentUser = takeUser(req.body);
+      console.log("PROMISE PENDING");
       console.log(currentUser);
-      if(currentUser.password == req.body.password ){
-            console.log(currentUser);
-            res.render(`profile`, {
-                username: currentUser.name,
-                email: currentUser.email,
-                time: '500'
-        });
-      }else{
-          res.send('invalid');
-      };
+      currentUser.then(function (result) {
+          console.log("CORRECT");
+          let currentUserName = result.name;
+          let currentUserEmail = result.email;
+          console.log(currentUserName)
+      })
+      console.log("NAME")
+      console.log(currentUserName) */
       });
   
 
