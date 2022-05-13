@@ -121,10 +121,20 @@ app.get('/', async (req, res) => {
   app.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
   });
-  app.post('/adminPage', (req, res) => {
-      if(req.body.name == "admin" && req.body.password == "admin"){
-        res.render(`adminPage`);
-      }
+  app.post('/adminPage', async (req, res) => {
+    try {
+        await client.connect();
+        const database = client.db("test");
+        const test = database.collection("users");
+        let user = await test.find().toArray();
+        if(req.body.name == "admin" && req.body.password == "admin"){
+          res.render(`info`, {user: user});
+        }
+    }catch(e){
+        console.log(e);
+    } finally {
+        await client.close();
+    }
   });
   app.get('/contactus', (req, res) => {
       res.render('ContactUs');
