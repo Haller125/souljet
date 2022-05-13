@@ -63,8 +63,6 @@ async function addToDB(doc) {
         const database = client.db("test");
         const test = database.collection("users");
         const result = await test.insertOne(doc);
-        let user = await test.findOne({'email': doc.email});
-        user.time = Date.now();
         console.log(`A document was inserted with the _id: ${result.insertedId}`);
     }catch(e){
             console.log(e);
@@ -123,8 +121,10 @@ app.get('/', async (req, res) => {
   app.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
   });
-  app.get('/adminPage', (req, res) => {
-      res.render(`adminPage`);
+  app.post('/adminPage', (req, res) => {
+      if(req.body.name == "admin" && req.body.password == "admin"){
+        res.render(`adminPage`);
+      }
   });
   app.get('/contactus', (req, res) => {
       res.render('ContactUs');
