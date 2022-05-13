@@ -193,3 +193,79 @@ app.get('/', async (req, res) => {
 app.listen(PORT, () => {
     console.log('Application listening on port ' + PORT);
 });
+
+app.get('/user/delete/:name', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    let name = req.params.name;
+    let user = await coll.deleteOne({name: name});
+    let users = await coll.find().toArray();
+    res.render('info', {user:users});
+});
+
+app.get('/user/sortEmail/', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    //let email = req.params.email;
+    let user = await coll.find().sort({'email':1}).toArray();
+    res.render(`info`, {user: user});
+});
+
+app.get('/user/sortName/', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    //let email = req.params.email;
+    let user = await coll.find().sort({'name':1}).toArray();
+    res.render(`info`, {user: user});
+    client.close();
+});
+
+///user/show/{{name}}
+app.get('/user/show/:name', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    let name = req.params.name;
+    let user = await coll.findOne({name: name});
+    res.render('show', {user: user});
+    client.close();
+});
+
+app.get('/user/edit/:name', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    let user = await coll.findOne({name: name});
+    res.render('edit', user);
+    client.close();
+});
+
+app.post('/user/edit/:name', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    let user = req.body;
+    await coll.updateOne({name: user.name}, {$set: user});
+    let users = await coll.find().toArray();
+    res.render('info', {user: users});
+    client.close();
+});
+
+app.post('/user/add', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    let user = req.body;
+    user.time = Date.now();
+    await coll.insertOne(user);
+    let users = await coll.find().toArray();
+    res.render('info', {user: users});
+    client.close();
+});
+
+app.get('/user/adding/', async function(req,res){
+res.render('adding');
+});

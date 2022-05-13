@@ -1,3 +1,6 @@
+<a href="/user/sortName/" class="btn btn-primary">Sort by name</a>
+<a href="/user/sortEmail/" class="btn btn-secondary">Sort by email</a>
+<a href="/user/adding/" class="btn btn-secondary">Add new user</a>
 <table>
     {{#each user}}
         <tr>
@@ -5,6 +8,8 @@
             <td>{{email}}</td>
             <td>{{time}}</td>
             <td>{{password}}</td>
+            <td><a href="/user/show/{{name}}">show</a></td>
+            <td><a href="/user/delete/{{name}}">delete</a></td>
         </tr>
     {{/each}}
 </table>
