@@ -133,6 +133,7 @@ app.get('/', async (req, res) => {
   app.post('/profile', (req, res) => {
       if(schema.validate(req.body.password)){
           res.render(`ConfirmPage`);
+          req.body.time = Date.now();
           addToDB(req.body);
       }else{
           res.send("Invalid password");
@@ -155,7 +156,7 @@ app.get('/', async (req, res) => {
                   email: user.email,
                   time: (Date.now() - user.time) / 1000,
               });
-              user.time == Date.now();
+              user.time = Date.now();
           }else{
               res.send('invalid');
           };
