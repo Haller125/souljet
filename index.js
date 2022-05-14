@@ -5,11 +5,12 @@ const multer = require('multer');
 const express = require('express');
 const {fileURLToPath} = require('url');
 const path = require('path');
+var hbs = require('express-hbs');
 
 const app = express();
 var upload = multer();
 const PORT = 5000;
-var hbs = require('express-hbs');
+
 
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views'
@@ -33,6 +34,12 @@ app.use('/Css', express.static(path.join(__dirname, 'Css')));
 app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
 app.use('/Images', express.static(path.join(__dirname, '/Images')));
 
+app.use(bodyParser.json());
+app.use(upload.array());
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const passwordValidator = require('password-validator');
 
 var schema = new passwordValidator();
@@ -50,14 +57,14 @@ app.get('/', (req, res) => {
 });
 
 mongoClient.connect(async function(error, mongo) {
-    if (!error) {          
+    if (!error) {
     let db = mongo.db('test');
-    let coll = db.collection('users'); 
+    let coll = db.collection('users');
     } else {
         console.error(err);
-    }});  
+    }});
 
-async function addToDB(doc) {
+    async function addToDB(doc) {
     try {
         await client.connect();
         const database = client.db("test");
@@ -87,12 +94,6 @@ async function checkPassword(doc) {
     return res;
 }
 
-app.use(bodyParser.json());
-app.use(upload.array()); 
-
-// for parsing application/xwww-
-app.use(bodyParser.urlencoded({ extended: true })); 
-
 
 app.get('/', async (req, res) => {
     res.render('MainPage');
@@ -109,15 +110,15 @@ app.get('/', async (req, res) => {
   app.get('/registration', (req, res) => {
       res.render(`Registration`);
   });
-  
+
   app.get('/notes', (req, res) => {
       res.render(`notes`);
   });
-  
+
   app.get('/login', (req, res) => {
       res.render(`LogIn`);
   });
-  
+
   app.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
   });
@@ -127,8 +128,13 @@ app.get('/', async (req, res) => {
         const database = client.db("test");
         const test = database.collection("users");
         let user = await test.find().toArray();
-        if(req.body.name == "admin" && req.body.password == "admin"){
+        const collA = database.collection("admins");
+        let admin = await collA.findOne({'AdminName': req.body.name});
+        if(req.body.password == admin.PasswordAdmin){
           res.render(`info`, {user: user});
+        }
+        else{
+            res.send("invalid");
         }
     }catch(e){
         console.log(e);
@@ -139,7 +145,7 @@ app.get('/', async (req, res) => {
   app.get('/contactus', (req, res) => {
       res.render('ContactUs');
   });
-  
+
   app.post('/profile', (req, res) => {
       if(schema.validate(req.body.password)){
           res.render(`ConfirmPage`);
@@ -149,11 +155,11 @@ app.get('/', async (req, res) => {
           res.send("Invalid password");
       };
   });
-  
+
   app.get('/contact', (req, res) => {
       res.render(`ContactUs`);
   });
-  
+
   app.post('/login', async (req, res) => {
       try {
           await client.connect();
@@ -166,7 +172,6 @@ app.get('/', async (req, res) => {
                   email: user.email,
                   time: (Date.now() - user.time) / 1000,
               });
-              user.time = Date.now();
           }else{
               res.send('invalid');
           };
@@ -187,14 +192,14 @@ app.get('/', async (req, res) => {
       console.log("NAME")
       console.log(currentUserName) */
       });
-  
+
 
 
 app.listen(PORT, () => {
     console.log('Application listening on port ' + PORT);
 });
 
-app.get('/user/delete/:name', async function(req, res) {
+app.get('/delete/:name', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
@@ -203,22 +208,20 @@ app.get('/user/delete/:name', async function(req, res) {
     let users = await coll.find().toArray();
     res.render('info', {user:users});
 });
-
-app.get('/user/sortEmail/', async function(req, res) {
+app.get('/sortEmail/', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
     //let email = req.params.email;
-    let user = await coll.find().sort({'email':1}).toArray();
+    let user = await coll.find().sort({'email': 1}).toArray();
     res.render(`info`, {user: user});
 });
-
-app.get('/user/sortName/', async function(req, res) {
+app.get('/sortName/', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
     //let email = req.params.email;
-    let user = await coll.find().sort({'name':1}).toArray();
+    let user = await coll.find().sort({'name': 1}).toArray();
     res.render(`info`, {user: user});
     client.close();
 });
@@ -238,6 +241,7 @@ app.get('/user/edit/:name', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
+    let name = req.params.name;
     let user = await coll.findOne({name: name});
     res.render('edit', user);
     client.close();
@@ -266,6 +270,6 @@ app.post('/user/add', async function(req, res) {
     client.close();
 });
 
-app.get('/user/adding/', async function(req,res){
+app.get('/adding/', async function(req,res){
 res.render('adding');
 });
