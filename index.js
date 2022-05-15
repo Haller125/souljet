@@ -11,6 +11,9 @@ const app = express();
 var upload = multer();
 const PORT = 5000;
 
+app.listen(PORT, () => {
+    console.log('Application listening on port ' + PORT);
+});
 
 app.engine('hbs', hbs.express4({
   partialsDir: __dirname + '/views'
@@ -99,14 +102,6 @@ app.get('/', async (req, res) => {
     res.render('MainPage');
   });
 
- /* app.get('/profile', (req, res) => {
-      res.render(`profile`, {
-          username: currentUser.name,
-          email: currentUser.email,
-          time: '500'
-      });
-  });
-  */
   app.get('/registration', (req, res) => {
       res.render(`Registration`);
   });
@@ -122,6 +117,7 @@ app.get('/', async (req, res) => {
   app.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
   });
+
   app.post('/adminPage', async (req, res) => {
     try {
         await client.connect();
@@ -149,7 +145,7 @@ app.get('/', async (req, res) => {
   app.post('/profile', (req, res) => {
       if(schema.validate(req.body.password)){
           res.render(`ConfirmPage`);
-          req.body.time = Date.now();
+          req.body.time = new Date().toISOString().slice(0, 19).replace('T', ' ');
           addToDB(req.body);
       }else{
           res.send("Invalid password");
@@ -170,7 +166,7 @@ app.get('/', async (req, res) => {
               res.render(`profile`, {
                   username: user.name,
                   email: user.email,
-                  time: (Date.now() - user.time) / 1000,
+                  time: new Date().toISOString().slice(0, 19).replace('T', ' '),
               });
           }else{
               res.send('invalid');
@@ -180,26 +176,28 @@ app.get('/', async (req, res) => {
       } finally {
           await client.close();
       }
-      /*let currentUser = takeUser(req.body);
-      console.log("PROMISE PENDING");
-      console.log(currentUser);
-      currentUser.then(function (result) {
-          console.log("CORRECT");
-          let currentUserName = result.name;
-          let currentUserEmail = result.email;
-          console.log(currentUserName)
-      })
-      console.log("NAME")
-      console.log(currentUserName) */
-      });
+  });
 
-
-
-app.listen(PORT, () => {
-    console.log('Application listening on port ' + PORT);
+app.get('/user/sortEmail', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    //let email = req.params.email;
+    let user = await coll.find().sort({'email': 1}).toArray();
+    res.render('info', {user: user});
 });
 
-app.get('/delete/:name', async function(req, res) {
+app.get('/user/sortName', async function(req, res) {
+    await client.connect();
+    const database = client.db("test");
+    const coll = database.collection("users");
+    let user = await coll.find().sort({'name': 1}).toArray();
+    res.render('info', {user: user});
+    client.close();
+});
+
+
+app.get('/user/delete:name', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
@@ -207,27 +205,10 @@ app.get('/delete/:name', async function(req, res) {
     let user = await coll.deleteOne({name: name});
     let users = await coll.find().toArray();
     res.render('info', {user:users});
-});
-app.get('/sortEmail/', async function(req, res) {
-    await client.connect();
-    const database = client.db("test");
-    const coll = database.collection("users");
-    //let email = req.params.email;
-    let user = await coll.find().sort({'email': 1}).toArray();
-    res.render(`info`, {user: user});
-});
-app.get('/sortName/', async function(req, res) {
-    await client.connect();
-    const database = client.db("test");
-    const coll = database.collection("users");
-    //let email = req.params.email;
-    let user = await coll.find().sort({'name': 1}).toArray();
-    res.render(`info`, {user: user});
     client.close();
 });
-
 ///user/show/{{name}}
-app.get('/user/show/:name', async function(req, res) {
+app.get('/user/show:name', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
@@ -237,7 +218,7 @@ app.get('/user/show/:name', async function(req, res) {
     client.close();
 });
 
-app.get('/user/edit/:name', async function(req, res) {
+app.get('/user/edit:name', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
@@ -247,7 +228,7 @@ app.get('/user/edit/:name', async function(req, res) {
     client.close();
 });
 
-app.post('/user/edit/:name', async function(req, res) {
+app.post('/user/edit:name', async function(req, res) {
     await client.connect();
     const database = client.db("test");
     const coll = database.collection("users");
@@ -263,13 +244,13 @@ app.post('/user/add', async function(req, res) {
     const database = client.db("test");
     const coll = database.collection("users");
     let user = req.body;
-    user.time = Date.now();
+    user.time = new Date().toISOString().slice(0, 19).replace('T', ' ');
     await coll.insertOne(user);
     let users = await coll.find().toArray();
     res.render('info', {user: users});
     client.close();
 });
 
-app.get('/adding/', async function(req,res){
+app.get('/adding', async function(req,res){
 res.render('adding');
 });
