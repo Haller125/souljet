@@ -64,7 +64,7 @@ mongoClient.connect(async function(error, mongo) {
     let db = mongo.db('test');
     let coll = db.collection('users');
     } else {
-        console.error(err);
+        console.log(error);
     }});
 
     async function addToDB(doc) {
