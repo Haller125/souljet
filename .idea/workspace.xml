@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="A">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/ConfirmPage.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/ConfirmPage.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/InsideNoteExample.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/InsideNoteExample.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/LogIn.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/LogIn.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/MainPage.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/MainPage.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Registration.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Registration.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/info.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/logInAdmin.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/logInAdmin.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/notes.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/notes.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/show.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/show.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/ContactUs.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/ContactUs.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +76,7 @@
       <workItem from="1652507840371" duration="1998000" />
       <workItem from="1652535196994" duration="1312000" />
       <workItem from="1652616857669" duration="603000" />
-      <workItem from="1652619927636" duration="7502000" />
+      <workItem from="1652619927636" duration="12641000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>
