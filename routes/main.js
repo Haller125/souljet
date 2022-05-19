@@ -1,6 +1,17 @@
 const { Router } = require('express')
 const users = require('../models/users')
 const router = Router()
+const passwordValidator = require('password-validator');
+
+var schema = new passwordValidator();
+
+schema
+    .is().min(8)
+    .is().max(100)
+    .has().uppercase()
+    .has().lowercase()
+    .has().not().spaces()
+    .has().symbols();
 
 
 router.get('/', async (req, res) => {
@@ -157,5 +168,7 @@ router.post('/user/add', async function(req, res) {
 });
 
 router.get('/adding', async function(req,res){
-res.render('adding');
+    res.render('adding');
 });
+
+module.exports = router
