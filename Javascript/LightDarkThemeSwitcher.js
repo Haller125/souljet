@@ -1,5 +1,5 @@
 let changeThemeButtons = document.querySelectorAll('.changeTheme'); // Помещаем кнопки смены темы в переменную
-let nameHtml = document.getElementById('mainCss').getAttribute('href').substring(7, document.getElementById('mainCss').getAttribute('href').length - 4);
+let nameHtml = document.getElementById('mainCss').getAttribute('href').substring(0, document.getElementById('mainCss').getAttribute('href').length - 4);
 console.log(nameHtml);
 
 changeThemeButtons.forEach(button => {
@@ -10,7 +10,7 @@ changeThemeButtons.forEach(button => {
 });
 
 function applyTheme(themeName) {
-    document.querySelector('[title="theme"]').setAttribute('href', `../Css/${nameHtml}${themeName}.css`); // Помещаем путь к файлу темы в пустой link в head
+    document.querySelector('[title="theme"]').setAttribute('href', `${nameHtml}${themeName}.css`); // Помещаем путь к файлу темы в пустой link в head
     changeThemeButtons.forEach(button => {
         button.style.display = 'block'; // Показываем все кнопки смены темы
     });
