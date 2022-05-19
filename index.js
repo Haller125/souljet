@@ -14,7 +14,7 @@ const hbs = exphbs.create({
     defaultLayout: 'MainPage',
     extname: 'hbs'
 })
-  
+
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')
@@ -36,20 +36,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(mainRoutes)
 async function start() {
     try {
-      await mongoose.connect(
-        'mongodb+srv://bekatop1gg:26Jw0H0sCmXpQpvi@souljet.dmfcg.mongodb.net/test',
-        {
-          useNewUrlParser: true,
-        }
-      )
-      app.listen(PORT, () => {
-        console.log('Server has been started...')
-      })
+        await mongoose.connect(
+            'mongodb+srv://bekatop1gg:26Jw0H0sCmXpQpvi@souljet.dmfcg.mongodb.net/test',
+            {
+                useNewUrlParser: true,
+            }
+        )
+        app.listen(PORT, () => {
+            console.log('Server has been started...')
+        })
     } catch (e) {
-      console.log(e)
+        console.log(e)
     }
-  }
-  
-  start()
+}
 
-
+start()
