@@ -11,7 +11,6 @@ var upload = multer();
 const PORT = 5000;
 
 const hbs = exphbs.create({
-    layoutsDir: 'views',
     defaultLayout: 'MainPage',
     extname: 'hbs'
 })
