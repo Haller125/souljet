@@ -22,11 +22,11 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.set('views', 'views');
 
-let mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/', {
+let mongoClient = new mongodb.MongoClient('mongodb+srv://bekatop1gg:26Jw0H0sCmXpQpvi@souljet.dmfcg.mongodb.net/test', {
     useUnifiedTopology: true
 });
 
-const url = "mongodb://localhost:27017/";
+const url = "mongodb+srv://bekatop1gg:26Jw0H0sCmXpQpvi@souljet.dmfcg.mongodb.net/test";
 const client = new MongoClient(url);
 
 app.use(express.static(path.join(__dirname, 'Html')));
@@ -67,7 +67,7 @@ mongoClient.connect(async function(error, mongo) {
         console.log(error);
     }});
 
-    async function addToDB(doc) {
+async function addToDB(doc) {
     try {
         await client.connect();
         const database = client.db("test");
