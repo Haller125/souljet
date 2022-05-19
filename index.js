@@ -38,7 +38,7 @@ app.use(mainRoutes)
 async function start() {
     try {
       await mongoose.connect(
-        'mongodb+srv://admin:admin@cluster0.jwl8u.mongodb.net/?retryWrites=true&w=majority',
+        'mongodb+srv://bekatop1gg:26Jw0H0sCmXpQpvi@souljet.dmfcg.mongodb.net/test',
         {
           useNewUrlParser: true,
         }
