@@ -8,7 +8,7 @@ const mainRoutes = require('./routes/main.js');
 
 const app = express();
 var upload = multer();
-const PORT = 5000;
+const PORT = process.env.PORT ||5000;
 
 const hbs = exphbs.create({
     defaultLayout: 'MainPage',
