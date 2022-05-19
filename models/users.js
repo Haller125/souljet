@@ -17,7 +17,7 @@ const schema = new Schema({
     roles: [
         {
             type: String, 
-            ref: 'Role'
+            ref: 'roles'
         }
     ]
 
