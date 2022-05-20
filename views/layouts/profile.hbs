@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souljet</title>
-    <link rel="icon" href="../Images/favicon.ico">
+    <title>Soul</title>
     <!-- Stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="/MainPage.css" id="mainCss">
-    <link rel="stylesheet" href="#" title="theme">
+    <link rel="stylesheet" href="/MainPage.css">
+    <link rel="stylesheet" href="/profile.css" id="mainCss">
+    <link rel="stylesheet" href="/profiledark.css" title="theme">
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap" rel="stylsheet">
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/38b1af0009.js" crossorigin="anonymous"></script>
     <!--font-family: 'Spline Sans', sans-serif;-->
@@ -25,10 +25,10 @@
             <ul class="navbar-nav mx-auto" id="toggler">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link " href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Profile</a>
+                    <a class="nav-link active" href="/login">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Contact</a>
@@ -40,7 +40,7 @@
 
         </div>
         <div class="navbar-brand quarter-circle">
-            <div class="container"  onclick="BurgerAnim(this, toggler)">
+            <div class="container" onclick="BurgerAnim(this, toggler)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
@@ -54,55 +54,44 @@
     <svg class="changeTheme" data-theme="dark" width="38" height="40" viewBox="0 0 38 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block;"> <path d="M15 0.695136C15.244 0.991667 15.3935 1.35457 15.4292 1.73694C15.4648 2.11932 15.385 2.5036 15.2 2.84014C13.7546 5.49382 12.9998 8.46837 13.005 11.4901C13.005 21.5426 21.2 29.6826 31.3 29.6826C32.6175 29.6826 33.9 29.5451 35.1325 29.2826C35.5103 29.2008 35.9039 29.2321 36.264 29.3726C36.6241 29.5131 36.9349 29.7566 37.1575 30.0726C37.3925 30.4013 37.5123 30.7983 37.4983 31.2021C37.4842 31.6058 37.3372 31.9936 37.08 32.3051C35.1192 34.7137 32.6456 36.6544 29.8396 37.9856C27.0335 39.3168 23.9658 40.0051 20.86 40.0001C9.335 40.0001 0 30.7151 0 19.2751C0 10.6651 5.285 3.28014 12.81 0.150136C13.1848 -0.00828447 13.601 -0.0407995 13.9959 0.057475C14.3908 0.15575 14.7431 0.379507 15 0.695136V0.695136Z" fill="#222222"></path></svg>
 </div>
 
-<!-- Main Body -->
-<div class="MainBody">
-    <!--<h1 class="MainPageSiteName">Souljet</h1>-->
-    <div class="logo">
-        <center><img src="../Images/logo_transparent.png" alt="logo"></center>
-    </div>
-    <center>
-        <div class="quote-box">
-            <p id="quote">Time management is life management</p>
-            <small id="author">Rinkal Sharma</small>
-        </div>
-        <button id="nextQuoteBtn">Next Quote</button>
-    </center>
-    <div class="FreeSpace"></div>
-    <div class="MainPageCreativity">
-        <h1>CREATIVITY</h1>
-        <div class="VideoHolder">
-            <video width='360' controls loop autoplay>
-                <source src='../Video/WordsLoop.mp4' type='video/mp4'>
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class = "WordsHolder">
-            <h2>Explore your new home!</h2>
-            <h3>Change the theme!</h3>
-            <h2>Create something new!</h2>
-            <h3>Broaden your designing possibilities!</h3>
-        </div>
-    </div>
-    <div class="FreeSpace2"></div>
-    <div class="MainPagePossibilities">
-        <h1>Possibilities</h1>
-        <div class="VideoHolder">
+<div>
+    <form class="ProfileBody">
+        <h1 class="ProfileH1">Profile</h1>
+        <div class="ProfileBodyFlex">
 
-            <video width='360' controls loop autoplay>
-                <source src='../Video/NotebookLoop.mp4' type='video/mp4'>
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <div class = "WordsHolder">
+            <div class="ProfilePicture">
+                <img src="../Images/20079.png">
+            </div>
+            <div class="InputField">
 
-            <h3>Manage your work</h3>
-            <h2>Change the design of your website</h2>
-            <h3>Save your documents</h3>
+                <div class="InputBar"><h1>Username : </h1> <span class="spaceI"> {{username}}</span> </div>
+                <div class="InputBar"><h1>Mail : </h1> <span class="spaceI">{{email}}</span></div>
+                <div class="InputBar"><h1 id="timeI">Registration time: {{time}} </h1></div>
+            </div>
         </div>
-    </div>
-    <div class="FreeSpace2"></div>
+        <div class="BlackoWhite">
+            <input type="button" class="BlackB">
+            <input type="button" class="WhiteB">
+        </div>
+    </form>
 </div>
-
+<!--
+<section id="profilePage">
+<header id="headerProfile">Profile</header>
+<div class="row">
+  <div class="col-lg-6">
+    <img src="../Images/20079.png" id="profilePhoto">
+    <br>
+    <button class="btn-light" href="Registration.html">Registration</button>
+  </div>
+  <div class="col-lg-6">
+    <p class="ProfileSpace" id="NameProfile">Name</p>
+    <p class="ProfileSpace" id="EmailProfile">Email</p>
+  </div>
+</div>
+</section>
+-->
+<div class="FreeSpace"></div>
 <!-- footer -->
 <footer>
     <div class="row">
@@ -145,6 +134,7 @@
 <!-- link to the JQuery-->
 <script src="../Javascript/MainPage.js" charcet="UTF-8"></script>
 <script src="../Javascript/LightDarkThemeSwitcher.js" charcet="UTF-8"></script>
+<script src="../Javascript/midterm.js" charcet="UTF-8"></script>
 <!-- link to the JavaScript -->
 </body>
 </html>

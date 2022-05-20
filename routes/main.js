@@ -1,3 +1,4 @@
+var express = require('express');
 const { Router } = require('express')
 const users = require('../models/users')
 const router = Router()
@@ -12,7 +13,6 @@ schema
     .has().lowercase()
     .has().not().spaces()
     .has().symbols();
-
 
 router.get('/', async (req, res) => {
     res.render('MainPage');
@@ -171,4 +171,4 @@ router.get('/adding', async function(req,res){
     res.render('adding');
 });
 
-module.exports = router
+module.exports = router;

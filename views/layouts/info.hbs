@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souljet</title>
+    <link rel="icon" href="../Images/favicon.ico">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="/MainPage.css" id="mainCss">
+    <link rel="stylesheet" href="#" title="theme">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/38b1af0009.js" crossorigin="anonymous"></script>
+    <!--font-family: 'Spline Sans', sans-serif;-->
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-lg h-auto">
+        <div class="navbar-collapse">
+            <ul class="navbar-nav mx-auto" id="toggler">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/notes">Notes</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="navbar-brand quarter-circle">
+
+            <div class="container"  onclick="BurgerAnim(this, toggler)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<h1 style="text-align: center; margin: 2em 0 1em 0;">Manage Users</h1>
+<div>
+    <center>
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="/user/sortName" class="btn btn-light space">Sort by name</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="/user/sortEmail" class="btn btn-light space">Sort by email</a>
+            </div>
+            <div class="col-lg-4">
+                <a href="/adding" class="btn btn-light space">Add new user</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2">
+                <h2>Name</h2>
+            </div>
+            <div class="col-lg-4">
+                <h2>Email</h2>
+            </div>
+            <div class="col-lg-2">
+                <h2>Time</h2>
+            </div>
+            <div class="col-lg-2">
+                <h2>Password</h2>
+            </div>
+            <div class="col-lg-2">
+                <h2>Action</h2>
+            </div>
+        </div>
+{{#each user}}
+        <div class="row">
+            <div class="col-lg-2">
+                <h3>{{name}}</h3>
+            </div>
+            <div class="col-lg-4">
+                <h3>{{email}}</h3>
+            </div>
+            <div class="col-lg-2">
+                <h3>{{time}}</h3>
+            </div>
+            <div class="col-lg-2">
+                <h3>{{password}}</h3>
+            </div>
+            <div class="col-lg-2">
+                <span><a href="/user/show{{name}}" style="color:mediumseagreen; font-size: 1.3rem;">show</a></span>
+                <span><a href="/user/delete{{name}}" style="color:orangered; font-size: 1.3rem;">delete</a></span>
+            </div>
+        </div>
+{{/each}}
+
+    </center>
+</div>
+
+<!--
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Time</th>
+        <th>Password</th>
+        <th>Action</th>
+    </tr>
+    {{#each user}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+            <td>{{time}}</td>
+            <td>{{password}}</td>
+            <td colspan="2"><a href="/user/show/{{name}}">show</a></td>
+            <td><a href="/user/delete/{{name}}">delete</a></td>
+        </tr>
+    {{/each}}
+</table> -->
+
+<!-- footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-4">
+            <center><img src="../Images/logo_tr_footer.png" alt="logo"></center>
+        </div>
+        <div class="col-lg-4">
+            <h1 id="Media-footer">Media:</h1>
+            <div>
+                <span><i class="fa fa-envelope"></i></span>
+                <span><a href="#">support@company.com</a></span>
+            </div>
+            <div>
+                <span><i class="fa fa-github"></i></span>
+                <span><a href="#">project.guthub.io</a></span>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <h1 class="creators-footer">Creators:</h1>
+            <p class="creators-footer">Alibekov Altynbek</p>
+            <p class="creators-footer">Kabash Ergali</p>
+            <p class="creators-footer">Turzhanov Bektas</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12"><hr id="footerRule"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 left-footer">
+            <p class="footer-company-name">© 2022 Souljet. All Right Reserved</p>
+        </div>
+        <div class="col-sm-6 right-footer">
+            <span href="#">Privacy Policy |</span><span href="#"> Terms of Use</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- link to the JQuery-->
+<script src="../Javascript/MainPage.js" charcet="UTF-8"></script>
+<script src="../Javascript/LightDarkThemeSwitcher.js" charcet="UTF-8"></script>
+<!-- link to the JavaScript -->
+</body>
+</html>

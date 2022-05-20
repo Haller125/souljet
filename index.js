@@ -5,19 +5,20 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const mainRoutes = require('./routes/main.js');
+const hbs = require("hbs");
 
 const app = express();
 var upload = multer();
-const PORT = process.env.PORT ||5000;
+const PORT = process.env.PORT || 5000;
 
-const hbs = exphbs.create({
+app.engine("hbs", exphbs.engine({
+    layoutsDir: "views/layouts",
     defaultLayout: 'MainPage',
     extname: 'hbs'
-})
+    })
+)
 
-app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
-
 
 app.use(express.static(path.join(__dirname, 'Css')));
 app.use(express.static(path.join(__dirname, 'Javascript')));

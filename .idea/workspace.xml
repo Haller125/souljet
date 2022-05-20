@@ -3,7 +3,76 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/ConfirmPage.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/ConfirmPage.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/handlebars.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/handlebars.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uglifyjs" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/uglifyjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uglifyjs.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.bin/uglifyjs.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/.github/workflows/codeql-analysis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/.github/workflows/codeql-analysis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/HISTORY.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/dist/express-handlebars.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/dist/express-handlebars.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/dist/express-handlebars.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/dist/express-handlebars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/dist/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/dist/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/dist/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/lib/express-handlebars.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/lib/express-handlebars.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/brace-expansion/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/brace-expansion/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/brace-expansion/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/brace-expansion/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/brace-expansion/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/glob/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/glob/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/glob/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/glob/glob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/glob/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/glob/sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/minimatch/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/minimatch/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/minimatch/lib/path.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/minimatch/minimatch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/node_modules/minimatch/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/renovate.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/renovate.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/express-handlebars.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/express-handlebars.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/layouts/main-latin1.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/layouts/main-latin1.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/layouts/main.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/layouts/main.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/other-views/layouts/main.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/other-views/layouts/main.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/other-views/partials/partial.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/other-views/partials/partial.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/partials/partial-latin1.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/partials/partial-latin1.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/partials/partial.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/partials/partial.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-cached.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-cached.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-helper.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-helper.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-latin1.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-latin1.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-partial.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-partial.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-text.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/render-text.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/templates/subdir/template.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/templates/subdir/template.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/templates/template-latin1.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/templates/template-latin1.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/templates/template.handlebars" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/spec/fixtures/templates/template.handlebars" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express-handlebars/types/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express-handlebars/types/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fs.realpath/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fs.realpath/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fs.realpath/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fs.realpath/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fs.realpath/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fs.realpath/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fs.realpath/old.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fs.realpath/old.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/fs.realpath/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/fs.realpath/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/inflight/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/inflight/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/inflight/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/inflight/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/inflight/inflight.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/inflight/inflight.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/inflight/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/inflight/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/MainPage.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/MainPage.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +92,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -38,10 +115,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../login_register_system_node-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/layouts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Бектас\Desktop\third session\Coding Lab\Souljet\views\layouts" />
+    </key>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
     <configuration name="MainPage.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/Souljet/Html/MainPage.html" useBuiltInWebServerPort="true">
@@ -82,7 +164,10 @@
       <workItem from="1652878133322" duration="2098000" />
       <workItem from="1652932067340" duration="1126000" />
       <workItem from="1652957692335" duration="2937000" />
-      <workItem from="1652968837767" duration="3271000" />
+      <workItem from="1652968837767" duration="5586000" />
+      <workItem from="1653021116505" duration="1318000" />
+      <workItem from="1653025077410" duration="489000" />
+      <workItem from="1653028735261" duration="4414000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>
