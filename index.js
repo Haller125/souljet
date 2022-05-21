@@ -3,31 +3,14 @@ const mongoose = require('mongoose')
 const multer = require('multer');
 const express = require('express');
 const path = require('path');
-<<<<<<< HEAD
-const exphbs = require('express-handlebars');
-const mainRoutes = require('./routes/main.js');
-const hbs = require("hbs");
-=======
 const ejs = require('ejs');
 const mainRoutes = require('./routes/main');
->>>>>>> 816086b9fb9376564bd133d8e26ace8ea1bc5fcf
 
 const app = express();
 var upload = multer();
 const PORT = process.env.PORT || 5000;
 
-<<<<<<< HEAD
-app.engine("hbs", exphbs.engine({
-    layoutsDir: "views/layouts",
-    defaultLayout: 'MainPage',
-    extname: 'hbs'
-    })
-)
-
-app.set('view engine', 'hbs')
-=======
 app.set('view engine', 'ejs');
->>>>>>> 816086b9fb9376564bd133d8e26ace8ea1bc5fcf
 
 app.use(express.static(path.join(__dirname, 'Css')));
 app.use(express.static(path.join(__dirname, 'Javascript')));
