@@ -81,26 +81,26 @@
                 <h2>Action</h2>
             </div>
         </div>
-{{#each user}}
+<% for(int i; i < user.length; i++){ %>
         <div class="row">
             <div class="col-lg-2">
-                <h3>{{name}}</h3>
+                <h3><%= user[i].name %></h3>
             </div>
             <div class="col-lg-4">
-                <h3>{{email}}</h3>
+                <h3><%= user[i].email %></h3>
             </div>
             <div class="col-lg-2">
-                <h3>{{time}}</h3>
+                <h3><%= user[i].time %></h3>
             </div>
             <div class="col-lg-2">
-                <h3>{{password}}</h3>
+                <h3><%= user[i].password %></h3>
             </div>
             <div class="col-lg-2">
-                <span><a href="/user/show{{name}}" style="color:mediumseagreen; font-size: 1.3rem;">show</a></span>
-                <span><a href="/user/delete{{name}}" style="color:orangered; font-size: 1.3rem;">delete</a></span>
+                <span><a href="/user/show/<%= user[i]._id %></a>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></span>
+                <span><a href="/user/delete/<%= user.[i]._id %></a>" style="color:orangered; font-size: 1.3rem;">delete</a></span>
             </div>
         </div>
-{{/each}}
+<% } %>
 
     </center>
 </div>
