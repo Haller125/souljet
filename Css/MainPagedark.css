@@ -2,7 +2,7 @@ body{
     /*
     background-color: #1a1a1a
     */
-    background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.5)),url(../Images/purple-mountains.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -32,41 +32,80 @@ body{
 .MainPageSiteName h1{
     color: #F4EEFF;
 }
+
 .MainPageCreativity h1{
-    color: #F4EEFF;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16vh;
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(110, 171, 92), rgb(178, 27, 135));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    .MainPagePossibilities h1{
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16vh;
+        text-align: center;
+        background: -webkit-linear-gradient(rgb(27, 136, 138), rgb(164, 186, 23));
+       
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+.CreativityWords h1{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9vh;
+    color: white;
+}
+.CreativityWords h2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 4vh;
+    color: white;
+}
+.PossibilitiesWords h1{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9vh;
+    color: white;
+}
+.PossibilitiesWords h2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 4vh;
+    color: white;
 }
 
-.MainPageCreativity h2{
-    color: #A6B1E1;
-    border-radius: 6px;
-    background-color: #F4EEFF;
-}
-
-.MainPageCreativity h3{
-    color: #A6B1E1;
-    border-radius: 6px;
-    background-color: #DCD6F7;
-}
-.MainPagePossibilities h1{
-    color: #F4EEFF;
-}
-.MainPagePossibilities h2{
-    color: #A6B1E1;
-    border-radius: 6px;
-    background-color: #F4EEFF;
-}
-.MainPagePossibilities h3{
-    color: #A6B1E1;
-    border-radius: 6px;
-    background-color: #DCD6F7;
-}
 .Footer h1{
     color: black;
 }
+footer{
+    background-color: rgb(49, 49, 49);
+    color: rgb(86, 116, 146);
+}
+footer h1{
+    color: #e7e7e7;
 
+}
+.col-lg-4 div span a{
+    color:rgb(100, 146, 182);
+}
 /*-- navigation bar --*/
+.row div p{
+    color:rgb(100, 146, 182);
+}
+.row div span{
+    color:rgb(100, 146, 182);
+}
+.col-lg-4 p{
+    color:rgb(100, 146, 182);
 
-
+}
 .navbar .navbar-nav .nav-link{
     color: #ffb19b;
 
