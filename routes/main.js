@@ -1,6 +1,5 @@
 const { Router } = require('express')
-const admins = require('../models/users')
-const users = require('../models/admins')
+const admins = require('../models/admins')
 const router = Router()
 const passwordValidator = require('password-validator');
 const users = require('../models/users');
@@ -36,10 +35,11 @@ router.get('/logInAdmin', (req, res) => {
   });
 
 router.post('/adminPage', async (req, res) => {
-        let users = await users.find({});
-        let admin = await admins.findOne({'AdminName': req.body.name});
-        if(req.body.password == admin.PasswordAdmin){
-          res.render(`info`, {user: users});
+        let usersDB = await users.find({});
+        let adminDB = await admins.findOne({'AdminName': req.body.name});
+        console.log(adminDB);
+        if(req.body.password == await admins.findOne({'AdminName': req.body.name}).PasswordAdmin){
+          res.render(`info`, {user: usersDB});
         }
         else{
             res.send("invalid");
@@ -51,13 +51,12 @@ router.get('/contactus', (req, res) => {
 
 router.post('/registration', async (req, res) => {
       if(schema.validate(req.body.password)){
-          res.render(`ConfirmPage`);
+          res.render('ConfirmPage');
           let doc = {
             username: req.body.name ,
             email: req.body.email,
-            password: req.body.password,
+            password: req.body.password
           }
-
           await users.insertOne(doc);
       }else{
           res.send("Invalid password");
@@ -72,7 +71,7 @@ router.post('/login', async (req, res) => {
       let user = await users.findOne({'email': req.body.email});
       if(req.body.password === user.password){
           res.render(`profile`, {
-              username: user.name,
+              username: user.username,
               email: user.email,
               time: new Date().toISOString().slice(0, 19).replace('T', ' '),
           });

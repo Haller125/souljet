@@ -3,10 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/ConfirmPage.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/ContactUs.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/InsideNoteExample.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/LogIn.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/Registration.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/adding.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/info.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/logInAdmin.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/notes.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/profile.hbs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/show.hbs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +112,8 @@
       <workItem from="1653021116505" duration="1318000" />
       <workItem from="1653025077410" duration="489000" />
       <workItem from="1653028735261" duration="7194000" />
+      <workItem from="1653110519211" duration="2375000" />
+      <workItem from="1653213828336" duration="3186000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>
