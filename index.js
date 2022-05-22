@@ -8,7 +8,7 @@ const mainRoutes = require('./routes/main');
 
 const app = express();
 var upload = multer();
-const PORT = process.env.PORT ||5000;
+const PORT = process.env.PORT || 5000;
 
 app.set('view engine', 'ejs');
 

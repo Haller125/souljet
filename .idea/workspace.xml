@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/ConfirmPage.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/ConfirmPage.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -38,10 +46,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../login_register_system_node-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views/layouts" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Бектас\Desktop\third session\Coding Lab\Souljet\views\layouts" />
+    </key>
   </component>
   <component name="RunManager" selected="Node.js.index.js">
     <configuration name="MainPage.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/Souljet/Html/MainPage.html" useBuiltInWebServerPort="true">
@@ -82,7 +95,12 @@
       <workItem from="1652878133322" duration="2098000" />
       <workItem from="1652932067340" duration="1126000" />
       <workItem from="1652957692335" duration="2937000" />
-      <workItem from="1652968837767" duration="3271000" />
+      <workItem from="1652968837767" duration="5586000" />
+      <workItem from="1653021116505" duration="1318000" />
+      <workItem from="1653025077410" duration="489000" />
+      <workItem from="1653028735261" duration="7194000" />
+      <workItem from="1653110519211" duration="2375000" />
+      <workItem from="1653213828336" duration="3403000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>
