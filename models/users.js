@@ -22,12 +22,6 @@ const schema = new Schema({
         type: Date,
         default: new Date().toISOString().slice(0, 19).replace('T', ' '),
     },
-    category:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref: 'category',
-        }
-    ],
     todo:[
         {
             type:mongoose.Schema.Types.ObjectId,

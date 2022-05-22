@@ -3,6 +3,9 @@ const admins = require('../models/admins')
 const router = Router()
 const passwordValidator = require('password-validator');
 const users = require('../models/users');
+const todo = require('../models/todo');
+
+
 
 var schema = new passwordValidator();
 
@@ -137,5 +140,22 @@ router.post('/user/add', async function(req, res) {
 router.get('/adding', async function(req,res){
     res.render('adding');
 });
+
+router.get('/test', async function(req,res){
+  let todos = await todo.find();
+  console.log(todos);
+  res.render('test');
+});
+
+router.post('/test/insertTodo', async function(req,res){
+  const todoN = new todo({
+    title: req.body.title,
+    category: req.body.category,
+
+  })
+
+  await todoN.save();
+  res.redirect('/test');
+})
 
 module.exports = router;
