@@ -9,36 +9,30 @@ body{
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
 }
 
-.NoteBlock{
+.NoteBlock a{
     background: #A6B1E1;
     color: white;
 }
 
-
-.NoteBlock:hover::before,
-.NoteBlock:hover::after {
-    background: #fff;
-}
-
-.NoteBlock:hover {
-    border: 2px solid #424874;
-    color: #424874;
+.NoteBlock a:hover{
     background-color: #efefef;
+    color: #424874;
 }
-
-
 
 .TempAddButton button{
     background: #efefef;
     border: 2px solid #424874;
     color: #424874;
 }
+
 .TempAddButton button:hover::before,
 .TempAddButton button:hover::after {
     background: #fff;
+    transition: 0.2s;
 }
 
 .TempAddButton button:hover {
+    transition: 0.5s;
     background-color: #424874;
     color: #F4EEFF;
 }
