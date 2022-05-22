@@ -35,10 +35,11 @@ router.get('/logInAdmin', (req, res) => {
   });
 
 router.post('/adminPage', async (req, res) => {
-        let users1 = await users.find({});
-        let admin = await admins.findOne({'AdminName': req.body.name});
+        let usersDB = await users.find({});
+        let adminDB = await admins.findOne({'AdminName': req.body.name});
+        console.log(adminDB)
         if(req.body.password == admin.PasswordAdmin){
-          res.render(`info`, {user: users1});
+          res.render(`info`, {user: usersDB});
         }
         else{
             res.send("invalid");
