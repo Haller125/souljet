@@ -105,7 +105,8 @@
 
     </center>
 </div> -->
-
+<script>
+</script>
 <table>
     <center>
     <tr>
@@ -115,14 +116,14 @@
         <th>Password</th>
         <th>Action</th>
     </tr>
-    <% for(int i; i < user.length; i++){ %>
+    <% for(let i = 0; i < user.length; i++){ %>
         <tr>
-            <td><%= user[i].name %></td>
+            <td><%= user[i].username %></td>
             <td><%= user[i].email %></td>
-            <td><%= user[i].time %></td>
+            <td><%= user[i].regTime %></td>
             <td><%= user[i].password %></td>
             <td colspan="2"><a href="/user/show/<%= user[i]._id %></a>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
-            <td><a href="/user/delete/<%= user.[i]._id %></a>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
+            <td><a href="/user/delete/<%= user[i]._id %></a>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
         </tr>
     <% } %>
     </center>
