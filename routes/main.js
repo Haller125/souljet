@@ -113,7 +113,8 @@ router.get('/user/edit/:name', async function(req, res) {
 });
 
 router.post('/user/edit/:name', async function(req, res) {
-    await users.updateOne({name: user.name}, {$set: user});
+    let user = reg.params
+    await users.updateOne({_id: user.name}, {$set: user});
     res.redirect('/adminPage');
 });
 
