@@ -97,6 +97,10 @@ router.get('/user/delete:username', async function(req, res) {
     //res.redirect('/adminPage');
 });
 
+router.get('/insideNoteExample', async function(req, res){
+    res.render('insideNoteExample');
+})
+
 ///user/show/{{name}}
 router.get('/user/show:username', async function(req, res) {
     let username = req.params.username;

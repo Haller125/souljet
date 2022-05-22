@@ -9,6 +9,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 90%;
     margin: 60px auto;
     background: #efefef;
@@ -17,8 +18,7 @@ body{
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
 }
 
-.NoteBlock{
-    display: inline-block;
+.NoteBlock a{
     width: 30vh;
     height: 30vh;
     background: #424874;
@@ -27,38 +27,23 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-}
-.Gaming{
-    background-image: url(../Images/GamingBackground.jpg);
-}
-.NoteBlock h1 a{
-    color: white;
+    font-weight: 400;
+    font-family: 'Spline Sans', sans-serif;
     text-decoration: none;
-}
-.NoteBlock h1{
     text-align: center;
     font-size: 6vh;
-    font-family: 'Akshar', sans-serif;
-    font-family: 'Spline Sans', sans-serif;
-    font-weight: 400;
 }
 
-
-.NoteBlock:hover::before,
-.NoteBlock:hover::after {
-    background: #fff;
-    transition: 0.2s;
+.NoteBlock a:hover::before,
+.NoteBlock a:hover::after {
+    transition: 0.5s;
 }
 
-.NoteBlock:hover {
+.NoteBlock a:hover {
     border: 2px solid #424874;
-    color: #424874;
-    background-color: #efefef;
-    transition: 0.3s;
+    transition: 0.5s;
+    font-weight: 500;
 }
-
-
 
 .TempAddButton button{
     display: flex;
@@ -66,21 +51,7 @@ body{
     justify-content: center;
     width: 30vh;
     height: 30vh;
-    background: #efefef;
     cursor: pointer;
-    border: 2px solid #424874;
     padding-bottom: 7vh;
     font-size: 25vh;
-    color: #424874;
-}
-.TempAddButton button:hover::before,
-.TempAddButton button:hover::after {
-    background: #fff;
-    transition: 0.2s;
-}
-
-.TempAddButton button:hover {
-    background-color: #424874;
-    color: #F4EEFF;
-    transition: 0.2s;
 }
