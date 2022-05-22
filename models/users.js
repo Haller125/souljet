@@ -14,10 +14,15 @@ const schema = new Schema({
         unique: true, 
         required: true
     },
-    time:{
+    lastOnl:{
         type: Date,
-        default: new Date(), 
+        default: new Date().toISOString().slice(0, 19).replace('T', ' '), 
     },
+    regTime:{
+        type: Date,
+        default: new Date().toISOString().slice(0, 19).replace('T', ' '),
+    }
+    
 
 })
 

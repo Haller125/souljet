@@ -35,11 +35,10 @@ router.get('/logInAdmin', (req, res) => {
   });
 
 router.post('/adminPage', async (req, res) => {
-        let usersDB = await users.find({});
-        let adminDB = await admins.findOne({'AdminName': req.body.name});
-        console.log(adminDB);
-        if(req.body.password == await admins.findOne({'AdminName': req.body.name}).PasswordAdmin){
-          res.render(`info`, {user: usersDB});
+        let users1 = await users.find({});
+        let admin = await admins.findOne({'AdminName': req.body.name});
+        if(req.body.password == admin.PasswordAdmin){
+          res.render(`info`, {user: users1});
         }
         else{
             res.send("invalid");
@@ -51,13 +50,13 @@ router.get('/contactus', (req, res) => {
 
 router.post('/registration', async (req, res) => {
       if(schema.validate(req.body.password)){
-          res.render('ConfirmPage');
-          let doc = {
+          res.render(`ConfirmPage`);
+          const user = new users( {
             username: req.body.name ,
             email: req.body.email,
-            password: req.body.password
-          }
-          await users.insertOne(doc);
+            password: req.body.password,
+          });
+          await user.save();
       }else{
           res.send("Invalid password");
       };
@@ -119,9 +118,11 @@ router.post('/user/edit/:name', async function(req, res) {
 });
 
 router.post('/user/add', async function(req, res) {
-    let user = req.body;
-    await users.insertOne(user);
-    let users = await users.find();
+    const user = new users({
+      username: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
     res.redirect('/adminPage');
 });
 
