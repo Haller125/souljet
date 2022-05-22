@@ -1,5 +1,5 @@
-<form action="/user/edit/:name" method="POST">
-    <input name="name" value="<%= user.name %>">
+<form action="/user/edit:username" method="POST">
+    <input name="name" value="<%= user.username %>">
     <input name="email" value="<%= user.email %>">
     <input name="password" value="<%= user.password %>">
     <input type="submit">

@@ -36,7 +36,6 @@ router.get('/logInAdmin', (req, res) => {
 
 router.post('/adminPage', async (req, res) => {
         let user = await users.find({});
-        console.log(user[1].username);
         let adminDB = await admins.findOne({'AdminName': req.body.name});
         console.log(usersDB[0].username);
         if(req.body.password == adminDB.toObject().PasswordAdmin){
@@ -82,52 +81,53 @@ router.post('/login', async (req, res) => {
   }); 
 
 router.get('/user/sortEmail', async function(req, res) {
-    const coll = users.collection("users");
-    //let email = req.params.email;
-    let user = await coll.find().sort({'email': 1});
+    let user = await users.find().sort({'email': 1});
     res.render('info', {user: user});
 });
 
 router.get('/user/sortName', async function(req, res) {
-    const coll = users.collection("users");
-    let user = await coll.find().sort({'name': 1});
+    let user = await users.find().sort({'name': 1});
     res.render('info', {user: user});
 });
 
-
-router.get('/user/delete/:name', async function(req, res) {
-    let name = req.params.name;
+router.get('/user/delete:username', async function(req, res) {
+    let name = req.params.username;
     await users.deleteOne({name: name});
-    let user1 = await users.find();
-    res.redirect('/adminPage');
+    let user = await users.find();
+    res.render('info', {user:user});
+    //res.redirect('/adminPage');
 });
 
 ///user/show/{{name}}
-router.get('/user/show/:name', async function(req, res) {
-    let name = req.params.name;
-    let user = await users.findOne({name: name});
+router.get('/user/show:username', async function(req, res) {
+    let username = req.params.username;
+    let user = await users.findOne({name: username});
     res.render('show', {user: user});
 });
 
-router.get('/user/edit/:name', async function(req, res) {
-    let name = req.params.name;
-    let user = await users.findOne({name: name});
+router.get('/user/edit:username', async function(req, res) {
+    let username = req.params.username;
+    let user = await users.findOne({name: username});
     res.render('edit', user);
 });
 
-router.post('/user/edit/:name', async function(req, res) {
-    let user = reg.params
-    await users.updateOne({_id: user.name}, {$set: user});
-    res.redirect('/adminPage');
+router.post('/user/edit:username', async function(req, res) {
+    let user = req.params
+    console.log("CHECK" + user.username)
+    await users.updateOne({username: user.username}, {$set: user});
+    //res.redirect('/adminPage');
+    let userUpdate = await users.find();
+    res.render('info', {user:userUpdate});
 });
 
 router.post('/user/add', async function(req, res) {
     const user = new users({
-      username: req.body.name,
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password,
     });
-    res.redirect('/adminPage');
+    //res.redirect('/adminPage');
+    res.render('info', {user:user});
 });
 
 router.get('/adding', async function(req,res){
