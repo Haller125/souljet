@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model, mongoose } = require('mongoose')
 
 const schema = new Schema({
     username: {
@@ -21,7 +21,19 @@ const schema = new Schema({
     regTime:{
         type: Date,
         default: new Date().toISOString().slice(0, 19).replace('T', ' '),
-    }
+    },
+    category:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: 'category',
+        }
+    ],
+    todo:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref: 'todo',
+        }
+    ]
     
 
 })
