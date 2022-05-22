@@ -25,7 +25,7 @@ app.use(upload.array());
 // for parsing application/xwww-
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(mainRoutes)
+app.use(mainRoutes);
 async function start() {
     try {
         await mongoose.connect(
