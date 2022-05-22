@@ -25,13 +25,24 @@ router.get('/registration', (req, res) => {
       res.render(`Registration`);
   });
 
-router.get('/notes', (req, res) => {
-      res.render(`notes`);
+router.get('/notes',async (req, res) => {
+
+      const category = await todo.distinct('category');
+      res.render(`notes`, {categories: category});
   });
+
+router.get('/notes/:category',async (req, res) => {
+    let category = req.params.category;
+    const todos = await todo.find({"category": category});
+
+    res.render(`InsideNoteExample`, {todos: todos, title: category});
+});
 
 router.get('/login', (req, res) => {
       res.render(`LogIn`);
   });
+
+
 
 router.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
@@ -101,7 +112,7 @@ router.get('/user/delete:username', async function(req, res) {
     //res.redirect('/adminPage');
 });
 
-router.get('/insideNoteExample', async function(req, res){
+router.get('/note/insideNoteExample', async function(req, res){
     res.render('insideNoteExample');
 })
 

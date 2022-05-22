@@ -27,7 +27,7 @@
         <div class="navbar-collapse">
             <ul class="navbar-nav mx-auto" id="toggler">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Profile</a>
@@ -36,7 +36,7 @@
                     <a class="nav-link" href="/contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/notes">Notes</a>
+                    <a class="nav-link active" href="/notes">Notes</a>
                 </li>
             </ul>
         </div>
@@ -57,9 +57,9 @@
 
 <div>
     <form class="NotesBody">
-        <div class="NoteBlock"><a href="/insideNoteExample">Sports</a></div>
-        <div class="NoteBlock"><a href="/insideNoteExample">Calculus</a></div>
-        <div class="NoteBlock"><a href="/insideNoteExample">Games</a></div>
+        <% for(let i = 0; i < categories.length; i++){ %>
+        <div class="NoteBlock"><a href="/notes/<%= categories[i] %>"><%= categories[i] %></a></div>
+        <% } %>
         <div class="TempAddButton"><button >+</button></div>
     </form>
 </div>
