@@ -7,11 +7,11 @@ const todos = new Schema({
     },
     status:{
         type: String, 
-        ref: 'status',
+        default: 'inProgress'
     },
     category:{
         type: String,
-        ref: 'category'
+        required: true,
     },
     user_id:{
         type:mongoose.Schema.Types.ObjectId,

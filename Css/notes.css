@@ -55,3 +55,19 @@ body{
     padding-bottom: 7vh;
     font-size: 25vh;
 }
+
+.add
+{
+  width: 75px;
+  height: 75px;
+  line-height: 75px;
+  text-align: center;
+  border: 1px dashed grey;
+  margin: 10px 0;
+}
+
+.add:hover
+{
+  cursor: pointer;
+  background-color: #360581;
+}

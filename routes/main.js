@@ -3,6 +3,9 @@ const admins = require('../models/admins')
 const router = Router()
 const passwordValidator = require('password-validator');
 const users = require('../models/users');
+const todo = require('../models/todo');
+
+
 
 var schema = new passwordValidator();
 
@@ -22,13 +25,38 @@ router.get('/registration', (req, res) => {
       res.render(`Registration`);
   });
 
-router.get('/notes', (req, res) => {
-      res.render(`notes`);
+router.get('/notes',async (req, res) => {
+
+      const category = await todo.distinct('category');
+      res.render(`notes`, {categories: category});
   });
+
+router.get('/notes/:category',async (req, res) => {
+    let category = req.params.category;
+    const todos = await todo.find({"category": category});
+
+    res.render(`InsideNoteExample`, {todos: todos, title: category});
+});
+
+router.post('/notes/:category/add', async (req, res) => {
+  let category = req.params.category;
+  let todos = new todo({
+    title: req.body.newTodo,
+    category: category
+  });
+  await todos.save();
+  res.redirect('back');
+});
+
+router.post('/notes/add', async (req, res) => {
+  res.redirect('/notes/' + req.body.category);
+});
 
 router.get('/login', (req, res) => {
       res.render(`LogIn`);
   });
+
+
 
 router.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
@@ -98,7 +126,7 @@ router.get('/user/delete:username', async function(req, res) {
     //res.redirect('/adminPage');
 });
 
-router.get('/insideNoteExample', async function(req, res){
+router.get('/note/insideNoteExample', async function(req, res){
     res.render('insideNoteExample');
 })
 
@@ -137,5 +165,22 @@ router.post('/user/add', async function(req, res) {
 router.get('/adding', async function(req,res){
     res.render('adding');
 });
+
+router.get('/test', async function(req,res){
+  let todos = await todo.find();
+  console.log(todos);
+  res.render('test');
+});
+
+router.post('/test/insertTodo', async function(req,res){
+  const todoN = new todo({
+    title: req.body.title,
+    category: req.body.category,
+
+  })
+
+  await todoN.save();
+  res.redirect('/test');
+})
 
 module.exports = router;
