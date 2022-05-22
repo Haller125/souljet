@@ -23,39 +23,53 @@ body{
 .MainPageSiteName h1{
     color: #424874;
 }
+
+
 .MainPageCreativity h1{
-    color: black;
-    color: black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16vh;
+    text-align: center;
+    background: -webkit-linear-gradient(rgb(60, 49, 218), rgb(178, 27, 135));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    .MainPagePossibilities h1{
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16vh;
+        text-align: center;
+        background: -webkit-linear-gradient(rgb(218, 49, 111), rgb(240, 147, 80));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+.CreativityWords h1{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9vh;
+    color: white;
 }
-
-.MainPageCreativity h2{
-    color: #DCD6F7;
-    color: black;
-    border-radius: 6px;
-    background-color: white;
+.CreativityWords h2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 4vh;
+    color: white;
 }
-
-.MainPageCreativity h3{
-    color: #DCD6F7;
-    color: black;
-    border-radius: 6px;
-    background-color: white;
+.PossibilitiesWords h1{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9vh;
+    color: white;
 }
-.MainPagePossibilities h1{
-    color: black;
-
-}
-.MainPagePossibilities h2{
-    color: #DCD6F7;
-    color: black;
-    border-radius: 6px;
-    background-color: white;
-}
-.MainPagePossibilities h3{
-    color: #DCD6F7;
-    color: black;
-    border-radius: 6px;
-    background-color: white;
+.PossibilitiesWords h2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 4vh;
+    color: white;
 }
 .Footer h1{
     color: #999999;

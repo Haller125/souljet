@@ -1,4 +1,7 @@
 *{
+    /*
+    border: 1px solid red;
+    */
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -47,7 +50,7 @@ div video{
     margin-top: 2em;
 }
 
-.MainBody{
+.boBody{
     min-height: 100%;
 }
 
@@ -57,7 +60,13 @@ div video{
     height: 400px;
     transform: scale(2);
 }
-
+.MainPageCreativity{
+    margin-top: 40vh;
+}
+.MainPagePossibilities{
+    margin-top: 50vh;
+    margin-bottom: 30vh;
+}
 .MainPageSiteName{
     color:#ffb19b;
     padding-top: 0.8em;
@@ -92,12 +101,7 @@ div video{
     color: white;
     /*color: #424874;*/
 }
-.MainPageCreativity h1{
-    font-size: 13vh;
-    font-family: 'Spline Sans', sans-serif;
-    text-align: center;
-    color: #424874;
-}
+
 .WordsHolder h2{
     display: flex;
     align-items: center;
@@ -122,48 +126,14 @@ div video{
     flex-direction:column;
     flex-wrap: wrap;
 }
-.MainPageCreativity h2{
-    font-size: 3.5vh;
-    font-family: 'Spline Sans', sans-serif;
-    text-align: center;
-    color: #DCD6F7;
-}
 
-.MainPageCreativity h3{
-    font-size: 3.5vh;
-    font-family: 'Spline Sans', sans-serif;
-    text-align:center;
-    color: #DCD6F7;
-}
 
-.MainPagePossibilities{
-    margin-top: 20em;
-}
-.MainPagePossibilities h1{
-    font-size: 13vh;
-    font-family: 'Spline Sans', sans-serif;
-    text-align: center;
-    color: #424874;
-}
-.MainPagePossibilities h2{
-    font-size: 3.5vh;
-    font-family: 'Spline Sans', sans-serif;
-    text-align:center;
-    color: #DCD6F7;
-}
-.MainPagePossibilities h3{
-    font-size: 3.5vh;
-    font-family: 'Spline Sans', sans-serif;
-    text-align:center;
-    color: #DCD6F7;
-}
 .FreeSpace{
     width: 100%;
     height: 50vh;
 }
 
 footer{
-    margin-top:2em;
     background-color: rgb(230, 230, 230);
     padding-top: 1em;
     padding-bottom: 0px;
@@ -262,7 +232,6 @@ footer div div div span a{
 
 #toggler{
     position: fixed; /* fixed */
-    left: 25%;
     top: -150px;
     transition: 0.4s;
     border: 2px solid rgb(138, 138, 138);
@@ -282,8 +251,61 @@ footer div div div span a{
 nav{
     z-index: 5;
 }
+.PossibilitiesHolder{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2vh;
+    background-image: linear-gradient(rgba(4,9,30,0.8),rgba(4,9,30,0.3)),url(../Images/gears.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 3vh;
+    border-radius: 5px;
+}
+.CreativityHolder{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2vh;
+    background-image: linear-gradient(rgba(4,9,30,0.8),rgba(4,9,30,0.3)),url(../Images/Journal.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 3vh;
+    border-radius: 5px;
+}
+.PossibilitiesImage{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.CreativityImage{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.SecondImageP{
+    width: 25vh;
+    height: auto;
+    margin-bottom: 20vh;
+}
+.SecondImage img{
+    width: 25vh;
+    height: auto;
+    margin-bottom: 5vh;
+}
+.CreativityImage img{
 
-nav .navbar-brand{
+    width: 50vh;
+    height: auto;
+}
+.PossibilitiesImage img{
+
+    width: 50vh;
+    height: auto;
+}
+ .navbar-brand{
     position:fixed;
     font-weight: bold;
     font-size: 2em; /*2em*/
@@ -317,13 +339,26 @@ nav div ul li{
     display:inline-table;
     color:white;
 }
-
+/*
+.theme {
+    position: fixed;
+    cursor: pointer;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(39,38,40,0.4);
+    z-index: 5;
+}
+*/
 .quarter-circle {
     position: fixed;
-    top: -25px;
-    right: -50px;
     height: 100px;
     width: 100px;
+    left: 102.5%;
+    top:-4%;
+    transform: translate(-102.5%,4%);
     line-height: 75px;
     text-align: center;
     background: #fff;
