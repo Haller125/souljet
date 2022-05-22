@@ -4,6 +4,7 @@
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
       <workItem from="1653025077410" duration="489000" />
       <workItem from="1653028735261" duration="7194000" />
       <workItem from="1653110519211" duration="2375000" />
-      <workItem from="1653213828336" duration="3403000" />
+      <workItem from="1653213828336" duration="3720000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

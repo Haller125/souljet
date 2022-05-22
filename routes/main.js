@@ -37,8 +37,7 @@ router.get('/logInAdmin', (req, res) => {
 router.post('/adminPage', async (req, res) => {
         let usersDB = await users.find({});
         let adminDB = await admins.findOne({'AdminName': req.body.name});
-        console.log(adminDB)
-        if(req.body.password == admin.PasswordAdmin){
+        if(req.body.password == adminDB.toObject().PasswordAdmin){
           res.render(`info`, {user: usersDB});
         }
         else{
