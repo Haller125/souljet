@@ -54,6 +54,11 @@
 
 <table>
     <center>
+        <tr>
+            <td><a href="/user/sortName" class="btn btn-light space">Sort by name</a></td>
+            <td><a href="/user/sortEmail" class="btn btn-light space">Sort by email</a></td>
+            <td><a href="/adding" class="btn btn-light space">Add new user</a></td>
+        </tr>
     <tr>
         <th>Name</th>
         <th>Email</th>
@@ -67,8 +72,8 @@
             <td><%= user[i].email %></td>
             <td><%= user[i].regTime %></td>
             <td><%= user[i].password %></td>
-            <td colspan="2"><a href="/user/show/<%= user[i]._id %></a>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
-            <td><a href="/user/delete/<%= user[i]._id %></a>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
+            <td colspan="2"><a href="/user/show<%= user[i].username %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
+            <td><a href="/user/delete<%= user[i].username %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
         </tr>
     <% } %>
     </center>
