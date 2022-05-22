@@ -38,6 +38,20 @@ router.get('/notes/:category',async (req, res) => {
     res.render(`InsideNoteExample`, {todos: todos, title: category});
 });
 
+router.post('/notes/:category/add', async (req, res) => {
+  let category = req.params.category;
+  let todos = new todo({
+    title: req.body.newTodo,
+    category: category
+  });
+  await todos.save();
+  res.redirect('back');
+});
+
+router.post('/notes/add', async (req, res) => {
+  res.redirect('/notes/' + req.body.category);
+});
+
 router.get('/login', (req, res) => {
       res.render(`LogIn`);
   });

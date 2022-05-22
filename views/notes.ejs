@@ -56,13 +56,22 @@
 </div>
 
 <div>
-    <form class="NotesBody">
+    <div class="NotesBody">
         <% for(let i = 0; i < categories.length; i++){ %>
         <div class="NoteBlock"><a href="/notes/<%= categories[i] %>"><%= categories[i] %></a></div>
-        <% } %>
-        <div class="TempAddButton"><button >+</button></div>
-    </form>
+        <% } %><form action="/notes/add" method="post">
+        <div id = "TempAddButton">
+        <div class="TempAddButton"  ><button onclick="addInput()">+</button></div>
+        </div>
+        </form>
+    </div>
 </div>
+<script>
+    function addInput() {
+    var str = '<div class="input-group flex-nowrap"><input type="text" class="form-control" name="category" placeholder="name" aria-describedby="addon-wrapping"></div><button type="submit" class="btn btn-success">Save</button>';
+    document.getElementById('TempAddButton').innerHTML = str;
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- link to the JQuery-->
 <script src="../Javascript/MainPage.js" charcet="UTF-8"></script>
