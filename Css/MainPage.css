@@ -1,4 +1,7 @@
 *{
+    /*
+    */
+    border: 1px solid red;
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -262,7 +265,6 @@ footer div div div span a{
 
 #toggler{
     position: fixed; /* fixed */
-    left: 25%;
     top: -150px;
     transition: 0.4s;
     border: 2px solid rgb(138, 138, 138);
@@ -317,13 +319,26 @@ nav div ul li{
     display:inline-table;
     color:white;
 }
-
+/*
+.theme {
+    position: fixed;
+    cursor: pointer;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(39,38,40,0.4);
+    z-index: 5;
+}
+*/
 .quarter-circle {
     position: fixed;
-    top: -25px;
-    right: -50px;
     height: 100px;
     width: 100px;
+    left: 101%;
+    top:-4%;
+    transform: translate(-101%,4%);
     line-height: 75px;
     text-align: center;
     background: #fff;
