@@ -35,11 +35,12 @@ router.get('/logInAdmin', (req, res) => {
   });
 
 router.post('/adminPage', async (req, res) => {
-        let usersDB = await users.find({});
+        let user = await users.find({});
+        console.log(user[1].username);
         let adminDB = await admins.findOne({'AdminName': req.body.name});
         console.log(usersDB[0].username);
         if(req.body.password == adminDB.toObject().PasswordAdmin){
-          res.render(`info`, {user: usersDB});
+          res.render(`info`, {user: user});
         }
         else{
             res.send("invalid");
@@ -100,6 +101,7 @@ router.get('/user/delete/:name', async function(req, res) {
     let user1 = await users.find();
     res.redirect('/adminPage');
 });
+
 ///user/show/{{name}}
 router.get('/user/show/:name', async function(req, res) {
     let name = req.params.name;
