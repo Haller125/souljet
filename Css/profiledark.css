@@ -2,21 +2,38 @@ body{
     /*
     background-color: #1a1a1a
     */
-     background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.5)),url(../Images/purple-mountains.jpg);
+
      background-position: center;
      background-size: cover;
      position: relative;
  }
-.quarter-circle{
-    background: #adadad;
+ .quarter-circle {
+    background-color:  white;
 }
 
+/*-- Burger-collapse animation --*/
+.bar1, .bar2, .bar3 {
+    background-color: #ffb19b;
+}
+.spaceI{
+    color: #F4EEFF;
+}
 .ProfileBody{   
-    background:#3e3333;
+    background:#000000;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
 }
 .ProfileH1{
     color:white;
+}
+.ProfileBar{
+    background: -webkit-linear-gradient(rgb(234, 146, 105),rgb(240, 119, 82));
+}
+.PText{
+    color: #F4EEFF;
+}
+.ProfileBar a{
+color: black;
 }
 .ProfilePicture {
     background-color:#464646;
@@ -52,17 +69,14 @@ body{
 }
 
 .navbar .navbar-nav .nav-link{
-    color: black;
-  }
-  .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
-    background-color: #555;
-    color: black;
-  }
+    color: #ffb19b;
 
-  .quarter-circle {
-    background: #adadad;
 }
-
+.navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
+    background-color: #555;
+    color: white;
+    color: #ffb19b;
+}
 
 
 
@@ -101,4 +115,27 @@ body{
 .TempAddButton button:hover {
   background-color: #424874;
   color: #F4EEFF;
+}
+
+.line-box {
+    background: #4b4b4b;
+}
+
+.line {
+    background: #DCD6F7;
+}
+
+button {
+    background: rgb(48, 48, 48);
+    color: rgb(200, 200, 200);
+}
+
+button:hover {
+    background: #F4EEFF;
+    color: #1b1b1b;
+}
+
+/*-- DarkThemeSwitcher --*/
+.theme {
+    background: #222222;
 }

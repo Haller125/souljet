@@ -1,7 +1,8 @@
 
 .ProfileBody{   
-    background: #efefef;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+background-color: #fff;
+background: #fff;
 }
 body{
     background-image: linear-gradient(rgba(4,9,30,0.1),rgba(4,9,30,0.1)),url(../Images/purple-mountains.jpg);
@@ -9,17 +10,28 @@ body{
     background-size: cover;
     position: relative;
 }
-.ProfilePicture {
-    background-color:#A6B1E1;
-}
+
 .ChangeButton input{
     background-color: #fff;
     border: 1px solid black;
 }
-
-.InputBar{
-    background-color: #A6B1E1;
+.quarter-circle {
+    background: #282828;
 }
+
+.navbar .navbar-nav .nav-link{
+    color: black;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active{
+    background-color:#383838;
+    color:white;
+}
+/*-- Burger-collapse animation --*/
+.bar1, .bar2, .bar3 {
+    background-color: white;
+}
+
 .InputBar input{
     border: 1px solid black;
     color:darkgray;
@@ -64,4 +76,25 @@ body{
 .TempAddButton button:hover {
   background-color: #424874;
   color: #F4EEFF;
+}
+
+.line-box {
+    background: #BCBCBC;
+}
+
+
+
+button {
+    background: rgb(220,220,220);
+    color: rgb(120,120,120);
+}
+
+button:hover {
+    background: #424874;
+    color: #ffffff;
+}
+
+/*-- DarkThemeSwitcher --*/
+.theme {
+    background: #ffffff;
 }

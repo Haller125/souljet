@@ -2,15 +2,17 @@ body{
     /*
     background-color: #1a1a1a
     */
-     background-image: linear-gradient(rgba(4,9,30,0.3),rgba(4,9,30,0.3)),url(../Images/purple-mountains.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.5)),url(../Images/purple-mountains.jpg);
+
      background-position: center;
      background-size: cover;
      position: relative;
  }
 
 #regForm {   
-    background: #3e3333;  
+    background: #ad3f3f;  
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+    background: -webkit-linear-gradient(rgb(76, 31, 47), rgb(207, 91, 8));
 }
 
 .line-box {   
@@ -20,7 +22,14 @@ body{
 .line {    
     background: #A6B1E1;  
 } 
+.quarter-circle {
+    background-color:  white;
+}
 
+/*-- Burger-collapse animation --*/
+.bar1, .bar2, .bar3 {
+    background-color: #ffb19b;
+}
 button:hover {  
     background: #424874;  
     color: #ffffff; 
@@ -34,19 +43,37 @@ button:hover {
     color:#f4eeff !important;
   }
 
-.quarter-circle {
-    background-color: #adadad;
+
+
+  .navbar .navbar-nav .nav-link{
+    color: #ffb19b;
+
 }
-
-
-.navbar .navbar-nav .nav-link{
-    color: white;
-  }
-  .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
+.navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
     background-color: #555;
     color: white;
-  }
+    color: #ffb19b;
+}
 
-  .quarter-circle {
-    background: #adadad;
+.line-box {
+    background: #4b4b4b;
+}
+
+.line {
+    background: #DCD6F7;
+}
+
+button {
+    background: rgb(48, 48, 48);
+    color: rgb(200, 200, 200);
+}
+
+button:hover {
+    background: #F4EEFF;
+    color: #1b1b1b;
+}
+
+/*-- DarkThemeSwitcher --*/
+.theme {
+    background: #222222;
 }

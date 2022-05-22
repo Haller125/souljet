@@ -36,3 +36,44 @@ body{
     background-color: #424874;
     color: #F4EEFF;
 }
+.quarter-circle {
+    background: #282828;
+}
+
+/*-- Burger-collapse animation --*/
+.bar1, .bar2, .bar3 {
+    background-color: white;
+}
+
+.navbar .navbar-nav .nav-link{
+    color: black;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active{
+    background-color:#383838;
+    color:white;
+}
+
+
+.line-box {
+    background: #BCBCBC;
+}
+
+.line {
+    background: #A6B1E1;
+}
+
+button {
+    background: rgb(220,220,220);
+    color: rgb(120,120,120);
+}
+
+button:hover {
+    background: #424874;
+    color: #ffffff;
+}
+
+/*-- DarkThemeSwitcher --*/
+.theme {
+    background: #ffffff;
+}

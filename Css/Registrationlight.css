@@ -6,8 +6,9 @@ body{
 }
 
 #regForm {   
-    background: #efefef;  
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+    background: -webkit-linear-gradient(rgb(218, 49, 111), rgb(240, 147, 80));
+
 }
 
 .line-box {   
@@ -21,4 +22,32 @@ body{
 button:hover {  
     background: #424874;  
     color: #ffffff; 
+}
+.quarter-circle {
+    background: #282828;
+}.bar1, .bar2, .bar3 {
+    background-color: white;
+}
+
+.line-box {
+    background: #BCBCBC;
+}
+
+.line {
+    background: #A6B1E1;
+}
+
+button {
+    background: rgb(220,220,220);
+    color: rgb(120,120,120);
+}
+
+button:hover {
+    background: #424874;
+    color: #ffffff;
+}
+
+/*-- DarkThemeSwitcher --*/
+.theme {
+    background: #ffffff;
 }
