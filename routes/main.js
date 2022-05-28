@@ -143,8 +143,8 @@ router.get('/user/edit:username', async function(req, res) {
 });
 
 router.post('/user/edit:username', async function(req, res) {
-    let user = req.params
-    console.log("CHECK" + user.username)
+    let user = req.params;
+    console.log("CHECK" + user.username);
     await users.updateOne({username: user.username}, {$set: user});
     //res.redirect('/adminPage');
     let userUpdate = await users.find();
@@ -157,6 +157,7 @@ router.post('/user/add', async function(req, res) {
       email: req.body.email,
       password: req.body.password,
     });
+    await user.save();
     //res.redirect('/adminPage');
     res.render('info', {user:user});
 });
