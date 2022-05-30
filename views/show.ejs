@@ -1,6 +1,6 @@
-<form action="/user/edit:username" method="POST">
-    <input name="username" id="username" value="<%= user.username %>">
-    <input name="email" id="email" value="<%= user.email %>">
-    <input name="password" id="password" value="<%= user.password %>">
+<form action="/user/edit/<%= user._id %>" method="POST">
+    <input name="name" value="<%= user.username %>">
+    <input name="email" value="<%= user.email %>">
+    <input name="password" value="<%= user.password %>">
     <input type="submit">
 </form>

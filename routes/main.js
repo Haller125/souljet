@@ -70,6 +70,15 @@ router.post('/adminPage', async (req, res) => {
             res.send("invalid");
         }
   });
+
+
+/// Плохая идея
+router.get('/adminPage', async (req, res) => {
+  let user = await users.find({});
+  res.render(`info`, {user: user});
+});
+
+
 router.get('/contactus', (req, res) => {
       res.render('ContactUs');
   });
@@ -115,38 +124,26 @@ router.get('/user/sortName', async function(req, res) {
     res.render('info', {user: user});
 });
 
-router.get('/user/delete:username', async function(req, res) {
-    let name = req.params.username;
-    await users.deleteOne({name: name});
-    let user = await users.find();
-    res.render('info', {user:user});
-    //res.redirect('/adminPage');
+router.get('/user/delete/:id', async function(req, res) {
+    let id = req.params.id;
+    await users.deleteOne({_id: id});
+    res.redirect('/adminPage');
 });
 
 router.get('/note/insideNoteExample', async function(req, res){
     res.render('insideNoteExample');
 })
 
-///user/show/{{name}}
-router.get('/user/show:username', async function(req, res) {
-    let username = req.params.username;
-    let user = await users.findOne({name: username});
+router.get('/user/show/:id', async function(req, res) {
+    let id = req.params.id;
+    let user = await users.findOne({_id: id});
     res.render('show', {user: user});
 });
 
-router.get('/user/edit:username', async function(req, res) {
-    let username = req.params.username;
-    let user = await users.findOne({name: username});
-    res.render('edit', user);
-});
-
-router.post('/user/edit:username', async function(req, res) {
-    let user = req.params;
-    console.log("CHECK" + user.username);
-    await users.updateOne({username: user.username}, {$set: user});
-    //res.redirect('/adminPage');
-    let userUpdate = await users.find();
-    res.render('info', {user:userUpdate});
+router.post('/user/edit/:id', async function(req, res) {
+    let user = req.params.id;
+    await users.updateOne({_id: user}, {$set: req.body});
+    res.redirect('/adminPage');
 });
 
 router.post('/user/add', async function(req, res) {
@@ -156,8 +153,7 @@ router.post('/user/add', async function(req, res) {
       password: req.body.password,
     });
     await user.save();
-    //res.redirect('/adminPage');
-    res.render('info', {user:user});
+    res.redirect('/adminPage');
 });
 
 router.get('/adding', async function(req,res){
