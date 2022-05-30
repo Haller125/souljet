@@ -56,8 +56,6 @@ router.get('/login', (req, res) => {
       res.render(`LogIn`);
   });
 
-
-
 router.get('/logInAdmin', (req, res) => {
       res.render(`logInAdmin`);
   });
@@ -96,7 +94,7 @@ router.get('/contact', (req, res) => {
 
 router.post('/login', async (req, res) => {
       let user = await users.findOne({'email': req.body.email});
-      if(req.body.password === user.password){
+      if(req.body.password == user.password){
           res.render(`profile`, {
               username: user.username,
               email: user.email,
