@@ -78,8 +78,8 @@
             <td><%= user[i].email %></td>
             <td><%= user[i].regTime %></td>
             <td><%= user[i].password %></td>
-            <td colspan="2"><a href="/user/show<%= user[i].username %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
-            <td><a href="/user/delete<%= user[i].username %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
+            <td colspan="2"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
+            <td><a href="/user/delete/<%= user[i]._id %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
         </tr>
     <% } %>
     </center>
