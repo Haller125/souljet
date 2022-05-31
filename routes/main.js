@@ -29,28 +29,48 @@ router.get('/', async (req, res) => {
     res.render('MainPage');
   });
 
-router.get('/notes',async (req, res) => {
+router.get('/notes', isAuth, async (req, res) => {
 
-      const category = await todo.distinct('category');
+      const category = await todo.distinct('category', {user_id: req.session.user_id});
       res.render(`notes`, {categories: category});
   });
 
-router.get('/notes/:category',async (req, res) => {
+router.get('/notes/:category', isAuth, async (req, res) => {
     let category = req.params.category;
     const todos = await todo.find({"category": category});
 
     res.render(`InsideNoteExample`, {todos: todos, title: category});
 });
 
-router.post('/notes/:category/add', async (req, res) => {
+router.post('/notes/:category/add', isAuth, async (req, res) => {
   let category = req.params.category;
   let todos = new todo({
     title: req.body.newTodo,
-    category: category
+    category: category,
+    user_id: req.session.user_id,
   });
   await todos.save();
+
   res.redirect('back');
 });
+
+router.get('/notes/:category/delete/:id', isAuth, async (req, res) => {
+  let category = req.params.category;
+  let id = req.params.id;
+  
+  await todo.deleteOne({_id: id});
+
+  res.redirect('back');
+});
+
+router.get('/notes/:category/delete', isAuth, async (req, res) => {
+  let category = req.params.category;
+  
+  await todo.deleteMany({"category": category});
+
+  res.redirect('/notes');
+});
+
 
 router.post('/notes/add', async (req, res) => {
   res.redirect('/notes/' + req.body.category);
@@ -119,11 +139,12 @@ router.post('/login', async (req, res) => {
         return res.redirect("/login");
     }
     if(!req.body.password == user.password){
-        return res.redirect("login");
+        return res.redirect("/login");
     }
     req.session.isAuth = true;
     req.session.email = email;
     req.session.name = user.username;
+    req.session.user_id = user._id;
     res.redirect("/profile");
     /*
     if(user && req.body.password == user.password){
