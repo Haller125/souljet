@@ -104,7 +104,7 @@ router.get('/registration', (req, res) => {
     res.render(`Registration`);
 });
 
-router.get('/login', adminIsNotAuth, (req, res) => {
+router.get('/login', isNotAuth, adminIsNotAuth, (req, res) => {
       res.render(`LogIn`);
   });
 
@@ -249,6 +249,10 @@ router.post('/user/add', async function(req, res) {
 router.get('/adding', async function(req,res){
     res.render('adding');
 });
+
+router.post('/addArticle', async function(req, res) {
+
+})
 
 router.get('/test', async function(req,res){
   let todos = await todo.find();

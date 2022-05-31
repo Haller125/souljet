@@ -113,9 +113,10 @@ button:hover {
     text-decoration:line-through;
 }
 
-.fa-pencil-alt{
+.fa-trash{
     float: right;
-    padding-top: 8px;
+    padding-top: 4px;
+    color: aliceblue;
 }
 
 .fa-trash-alt{

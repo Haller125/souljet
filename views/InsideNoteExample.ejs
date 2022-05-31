@@ -64,7 +64,7 @@
 
     <div id = "todo">
         <form action="/notes/<%= title %>/add" method="post">
-            <h1> <%= title %> <a id="pencil" class="fas fa-pencil-alt" href="/notes/<%= title %>/delete"></a> </h1>
+            <h1> <%= title %> <a id="pencil" class="fa-solid fa-trash" href="/notes/<%= title %>/delete"></a> </h1>
             <input type = "text" placeholder="Add New Todo" name = "newTodo">
             <button type="submit" class="btn btn-success">Save</button>
         </form>
