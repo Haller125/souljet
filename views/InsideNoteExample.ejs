@@ -1,4 +1,4 @@
-<DOCTYPE html!>
+<!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,18 +64,15 @@
 
     <div id = "todo">
         <form action="/notes/<%= title %>/add" method="post">
-            <h1> <%= title %> <i id="pencil" class="fas fa-pencil-alt"></i> </h1>
+            <h1> <%= title %> <a id="pencil" class="fas fa-pencil-alt" href="/notes/<%= title %>/delete"></a> </h1>
             <input type = "text" placeholder="Add New Todo" name = "newTodo">
             <button type="submit" class="btn btn-success">Save</button>
         </form>
         <ul class="todos">
             <% for(let i = 0; i < todos.length; i++){ %>
-            <li><span><i class="fas fa-trash-alt"></i></span><%= todos[i].title %></li>
+            <li><span><a href="/notes/<%= title %>/delete/<%= todos[i]._id %>" class="fas fa-trash-alt"></a></span><%= todos[i].title %></li>
             <% } %>
         </ul>
-        <div id= "buttons">
-            <button class="clear">Clear</button>
-        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- link to the JQuery -->
@@ -84,4 +81,4 @@
     <!--link to the JavaScript -->
     <script src="../Javascript/InsideNotesJS.js"></script>
     </body>
-</DOCTYPE>
+</html>
