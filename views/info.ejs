@@ -19,6 +19,45 @@
     <!--font-family: 'Spline Sans', sans-serif;-->
 </head>
 <body>
+    <style type="text/css">
+		.popup-window{	
+			display: none;
+			box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
+			-webkit-box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
+			-moz-box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
+			padding: 20px;
+			background: white;
+			z-index: 500;
+			-webkit-border-radius: 5px!important;
+			-moz-border-radius: 5px!important;
+			border-radius: 5px!important;
+		}
+		.open{ 	
+			text-decoration: underline;
+			cursor: pointer;
+		}
+		.backpopup{		
+			display:none;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			background: rgb(105, 105, 105);
+			opacity: 0.7;
+			top: 0;
+			left: 0;
+			z-index: 400;
+			cursor: pointer;
+		}
+		.close{	
+			float: right;
+			cursor: pointer;
+			right: 5px;
+			top: 0px;
+			position: absolute;
+			padding: 4px;
+		}
+	</style>
+
     <style>
         table {
             border-spacing: 0;
@@ -77,9 +116,14 @@
         </div>
     </div>
 </nav>
-        <form action="/logoutAdmin" method="POST" style="margin-top: 1em; display: flex; justify-content: right;">
-            <button><i class="fa-solid fa-right-from-bracket"></i></button>
-        </form>
+<form action="/logoutAdmin" method="POST" style="margin-top: 1em; display: flex; justify-content: right;">
+    <button><i class="fa-solid fa-right-from-bracket"></i></button>
+</form>
+
+<p class="open">Add new user</p>
+
+<div class="backpopup"></div>
+
 <h1 style="text-align: center; margin: 0em 0 1em 0;">Manage Users</h1>
 <table id="myTable">
     <center>
@@ -108,12 +152,70 @@
     </center>
 </table>
 
+<div class="popup-window">	
+    <p class="close">x</p>	
+    <table>
+        <tr>
+            <td>
+                Username:
+            </td>
+            <td>
+                <input name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                E-mail:
+            </td>
+            <td>
+                <input name="email">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password:
+            </td>
+            <td>
+                <input name="password">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button type="submit" value="Submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- link to the JQuery-->
 <script src="../Javascript/MainPage.js" charcet="UTF-8"></script>
 <script src="../Javascript/LightDarkThemeSwitcher.js" charcet="UTF-8"></script>
 <!-- link to the JavaScript -->
 
+
+
+<script type="text/javascript">
+    $.fn.popup = function() { 	//функция для открытия всплывающего окна:
+        this.css('position', 'absolute').fadeIn();	//задаем абсолютное позиционирование и эффект открытия
+        //махинации с положением сверху:учитывается высота самого блока, экрана и позиции на странице:
+        this.css('top', ($(window).height() - this.height()) / 2 + $(window).scrollTop() + 'px');
+        //слева задается отступ, учитывается ширина самого блока и половина ширины экрана
+        this.css('left', ($(window).width() - this.width()) / 2  + 'px');
+        //открываем тень с эффектом:
+        $('.backpopup').fadeIn();
+    }
+    $(document).ready(function(){	//при загрузке страницы:
+        $('.open').click(function(){	//событие клик на нашу ссылку
+            $('.popup-window').popup();	//запускаем функцию на наш блок с формой
+        });
+        $('.backpopup,.close').click(function(){ //событие клик на тень и крестик - закрываем окно и тень:
+            $('.popup-window').fadeOut();
+            $('.backpopup').fadeOut();
+        });
+    });
+</script>
 
 <script>
     function sortTable(n) {
