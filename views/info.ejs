@@ -19,7 +19,28 @@
     <!--font-family: 'Spline Sans', sans-serif;-->
 </head>
 <body>
-<body>
+    <style>
+        table {
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            cursor: pointer;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 16px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+        </style>
+
+
 <div class="header">
     <nav class="navbar navbar-expand-lg d-flex justify-content-center align-items-center">
 
@@ -58,29 +79,29 @@
 </nav>
 
 <h1 style="text-align: center; margin: 2em 0 1em 0;">Manage Users</h1>
-<table>
+<table id="myTable">
     <center>
-        <tr>
-            <td><a href="/user/sortName" class="btn btn-light space">Sort by name</a></td>
-            <td><a href="/user/sortEmail" class="btn btn-light space">Sort by email</a></td>
-            <td><a href="/adding" class="btn btn-light space">Add new user</a></td>
-        </tr>
+    <!--<tr>
+        <td><a href="/user/sortName" class="btn btn-light space">Sort by name</a></td>
+        <td><a href="/user/sortEmail" class="btn btn-light space">Sort by email</a></td>
+        <td><a href="/adding" class="btn btn-light space">Add new user</a></td>
+    </tr>-->
     <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Time</th>
-        <th>Password</th>
-        <th>Action</th>
+        <th  onclick="sortTable(0)">Name</th>
+        <th  onclick="sortTable(1)">Email</th>
+        <th onclick="sortTable(2)">Time</th>
+        <th onclick="sortTable(3)">Password</th>
+        <th onclick="sortTable(4)">Action</th>
     </tr>
     <% for(let i = 0; i < user.length; i++){ %>
-        <tr>
-            <td><%= user[i].username %></td>
-            <td><%= user[i].email %></td>
-            <td><%= user[i].regTime %></td>
-            <td><%= user[i].password %></td>
-            <td colspan="2"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
-            <td><a href="/user/delete/<%= user[i]._id %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
-        </tr>
+    <tr>
+        <td><%= user[i].username %></td>
+        <td><%= user[i].email %></td>
+        <td><%= user[i].regTime.toISOString().slice(0, 19).replace('T', ' ') %></td>
+        <td><%= user[i].password %></td>
+        <td colspan="2"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
+        <td><a href="/user/delete/<%= user[i]._id %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
+    </tr>
     <% } %>
     </center>
 </table>
@@ -128,5 +149,45 @@
 <script src="../Javascript/MainPage.js" charcet="UTF-8"></script>
 <script src="../Javascript/LightDarkThemeSwitcher.js" charcet="UTF-8"></script>
 <!-- link to the JavaScript -->
+
+
+<script>
+    function sortTable(n) {
+      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      dir = "asc";
+      while (switching) {
+        switching = false;
+        rows = table.getElementsByTagName("TR");
+        for (i = 1; i < (rows.length - 1); i++) {
+          shouldSwitch = false;
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          switchcount ++;
+        } else {
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    }
+    </script>
 </body>
 </html>
