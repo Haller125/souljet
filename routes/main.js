@@ -15,6 +15,30 @@ const isAuth = (req, res, next) => {
     }
 }
 
+const isNotAuth = (req, res, next) => {
+    if(req.session.isAuth){
+        res.redirect('/profile')
+    } else {
+        next()
+    }
+}
+
+const adminIsAuth = (req, res, next) => {
+    if(req.session.IsAuth){
+        next()
+    } else{
+        res.redirect('/logInAdmin')
+    }
+}
+
+const adminIsNotAuth = (req, res, next) => {
+    if(!req.session.IsAuth){
+        next()
+    } else {
+        res.redirect('/adminPage')
+    }
+}
+
 var schema = new passwordValidator();
 
 schema
@@ -60,11 +84,11 @@ router.get('/registration', (req, res) => {
     res.render(`Registration`);
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', adminIsNotAuth, (req, res) => {
       res.render(`LogIn`);
   });
 
-router.get('/logInAdmin', (req, res) => {
+router.get('/logInAdmin', isNotAuth, (req, res) => {
       res.render(`logInAdmin`);
   });
 
@@ -72,6 +96,7 @@ router.post('/adminPage', async (req, res) => {
         let user = await users.find({});
         let adminDB = await admins.findOne({'AdminName': req.body.name});
         if(req.body.password == adminDB.toObject().PasswordAdmin){
+          req.session.IsAuth = true;
           res.render(`info`, {user: user});
         }
         else{
@@ -79,12 +104,10 @@ router.post('/adminPage', async (req, res) => {
         }
   });
 
-/// Плохая идея
-router.get('/adminPage', async (req, res) => {
+router.get('/adminPage', adminIsAuth, async (req, res) => {
   let user = await users.find({});
   res.render(`info`, {user: user});
 });
-
 
 router.get('/contactus', (req, res) => {
       res.render('ContactUs');
@@ -112,7 +135,7 @@ router.get('/contact', (req, res) => {
       res.render(`ContactUs`);
   });
 
-router.post('/login', async (req, res) => {
+router.post('/login', adminIsNotAuth, async (req, res) => {
     const { email, password } = req.body;
     const user = await users.findOne({ email });
     if(!user){
@@ -152,6 +175,13 @@ router.post('/logout', async (req, res) => {
         res.redirect("/login");
     });
 });
+
+router.post('/logoutAdmin', async (req, res) => {
+    req.session.destroy((err) => {
+        if (err) throw err;
+        res.redirect("/");
+    });
+})
 
 router.get('/user/sortEmail', async function(req, res) {
     let user = await users.find().sort({'email': 1});
