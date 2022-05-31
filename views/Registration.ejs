@@ -63,7 +63,7 @@
     <form id="regForm" action="/registration" method="post">
         <h2 class="bg-gradient-warning text-dark text-center font-weight-bold pt-5">Registration</h2>
         <label class = "reg-label" for="name">
-            <input type="text" class="input" name="name" placeholder="Enter your name" required>
+            <input type="text" class="input" name="username" placeholder="Enter your name" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -81,7 +81,10 @@
             </div>
         </label>
         <label>
-            <button class="btn btn-light" type="submit">Submit</button>
+            <button class="btn btn-light" type="submit">Register</button>
+        </label><br><br>
+        <label>
+            <span style="color:white">already have an account? </span><span><a href="/LogIn" class="bg-gradient-warning text-dark font-weight-bold" style="text-decoration: underline;">Log in!</a></span>
         </label>
     </form>
 </div>

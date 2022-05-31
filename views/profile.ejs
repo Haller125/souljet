@@ -68,7 +68,7 @@
         <div class="UpperP">
         <div>
 
-    <div class="ProfileName"><span class="spaceI"> <%= username %></span> 
+    <div class="ProfileName"><span class="spaceI"> <%= username %></span>
     </div>
     <div class="ProfilePicture">
         <img src="/manbook.jpg">
@@ -77,19 +77,17 @@
 <div class="PText">
     <div ><h1>Mail :</h1> <span class="spaceI"><%= email %></span></div>
 
-    <div ><h1 id="timeI">Registration time: <%= time %> </h1></div>
+    <div ><h1 id="timeI">Registration time:<%= time %></h1></div>
 
 
 </div>
     
 </div>
-                <div class="ProfileBar">
-                    <div><a href="">Notes</a></div>
-                    <div><a href="">logout</a></div>
-                    <div><a href="">Edit</a></div>
-            </div>                 
-
-                    </form>
+        <div class="ProfileBar">
+            <div><a href="">Notes</a></div>
+            <button formaction="/logout" formmethod="post">Logout</button>
+            <div><a href="">Edit</a></div>
+        </div>
 </div>
 <div class="FreeSpace"></div>
 <!-- footer -->

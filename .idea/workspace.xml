@@ -3,9 +3,50 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Css/Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/Registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/forEachAsync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/foreachasync/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/glob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/brace-expansion/.github/FUNDING.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/brace-expansion/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/brace-expansion/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/brace-expansion/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/brace-expansion/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/minimatch/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/minimatch/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/minimatch/lib/path.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/minimatch/minimatch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/node_modules/minimatch/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/glob/sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hbs/HISTORY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hbs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hbs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hbs/lib/async.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hbs/lib/hbs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/hbs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/walk/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/walk/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/walk/lib/node-type-emitter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/walk/lib/walk-async-only.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/walk/lib/walk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/walk/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/show.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/LogIn.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/LogIn.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Registration.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Registration.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +149,8 @@
       <workItem from="1653281659865" duration="3709000" />
       <workItem from="1653714498522" duration="4025000" />
       <workItem from="1653742834086" duration="971000" />
-      <workItem from="1653917921139" duration="5730000" />
+      <workItem from="1653917921139" duration="7457000" />
+      <workItem from="1653989571182" duration="11056000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

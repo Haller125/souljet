@@ -1,11 +1,19 @@
 const { Router } = require('express')
-const admins = require('../models/admins')
 const router = Router()
 const passwordValidator = require('password-validator');
+const admins = require('../models/admins')
 const users = require('../models/users');
 const todo = require('../models/todo');
+const session = require('express-session');
+const MongoDBSession = require('connect-mongodb-session')(session);
 
-
+const isAuth = (req, res, next) => {
+    if(req.session.isAuth){
+        next()
+    } else{
+        res.redirect('/login')
+    }
+}
 
 var schema = new passwordValidator();
 
@@ -19,10 +27,6 @@ schema
 
 router.get('/', async (req, res) => {
     res.render('MainPage');
-  });
-
-router.get('/registration', (req, res) => {
-      res.render(`Registration`);
   });
 
 router.get('/notes',async (req, res) => {
@@ -52,6 +56,10 @@ router.post('/notes/add', async (req, res) => {
   res.redirect('/notes/' + req.body.category);
 });
 
+router.get('/registration', (req, res) => {
+    res.render(`Registration`);
+});
+
 router.get('/login', (req, res) => {
       res.render(`LogIn`);
   });
@@ -71,7 +79,6 @@ router.post('/adminPage', async (req, res) => {
         }
   });
 
-
 /// Плохая идея
 router.get('/adminPage', async (req, res) => {
   let user = await users.find({});
@@ -84,35 +91,73 @@ router.get('/contactus', (req, res) => {
   });
 
 router.post('/registration', async (req, res) => {
-      if(schema.validate(req.body.password)){
-          res.render(`ConfirmPage`);
-          const user = new users( {
-            username: req.body.name ,
-            email: req.body.email,
-            password: req.body.password,
-          });
-          await user.save();
-      }else{
-          res.send("Invalid password");
-      };
-  });
+    const { username, email, password} = req.body;
+    let userExist = await users.findOne({email});
+
+    if(schema.validate(password) && !userExist){
+        user = new users({
+            username,
+            email,
+            password,
+        });
+        await user.save();
+
+        res.render(`ConfirmPage`);
+    } else{
+        res.redirect('/register');
+    };
+});
 
 router.get('/contact', (req, res) => {
       res.render(`ContactUs`);
   });
 
 router.post('/login', async (req, res) => {
-      let user = await users.findOne({'email': req.body.email});
-      if(req.body.password == user.password){
-          res.render(`profile`, {
+    const { email, password } = req.body;
+    const user = await users.findOne({ email });
+
+    if(!user){
+        return res.redirect("/login");
+    }
+
+    if(!req.body.password == user.password){
+        return res.redirect("login");
+    }
+
+    req.session.isAuth = true;
+    res.redirect("/profile", {
+        username: user.username,
+        email: user.email,
+        time: new Date().toISOString().slice(0, 19).replace('T', ' '),
+    });
+    /*
+    if(user && req.body.password == user.password){
+          req.session.isAuth = true;
+          res.redirect("/profile");
+          /*, {
               username: user.username,
               email: user.email,
               time: new Date().toISOString().slice(0, 19).replace('T', ' '),
-          });
-      }else{
-          res.send('invalid');
-      }
+          } * /
+      } else if(!user){
+          res.send('No user in DB with such email');
+      } else res.send('invalid Password')*/
   }); 
+
+router.get('/profile', isAuth, async (req,res) => {
+    res.render("profile", {
+        username: user.username,
+        email: user.email,
+        time: new Date().toISOString().slice(0, 19).replace('T', ' '),
+    })
+});
+
+router.post('/logout', async (req, res) => {
+    req.session.destroy((err) => {
+        if (err) throw err;
+        res.redirect("/login");
+    });
+});
 
 router.get('/user/sortEmail', async function(req, res) {
     let user = await users.find().sort({'email': 1});
