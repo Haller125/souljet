@@ -115,21 +115,16 @@ router.get('/contact', (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await users.findOne({ email });
-
     if(!user){
         return res.redirect("/login");
     }
-
     if(!req.body.password == user.password){
         return res.redirect("login");
     }
-
     req.session.isAuth = true;
-    res.redirect("/profile", {
-        username: user.username,
-        email: user.email,
-        time: new Date().toISOString().slice(0, 19).replace('T', ' '),
-    });
+    req.session.email = email;
+    req.session.name = user.username;
+    res.redirect("/profile");
     /*
     if(user && req.body.password == user.password){
           req.session.isAuth = true;
@@ -146,10 +141,9 @@ router.post('/login', async (req, res) => {
 
 router.get('/profile', isAuth, async (req,res) => {
     res.render("profile", {
-        username: user.username,
-        email: user.email,
-        time: new Date().toISOString().slice(0, 19).replace('T', ' '),
-    })
+        username: req.session.name,
+        email: req.session.email
+    });
 });
 
 router.post('/logout', async (req, res) => {
