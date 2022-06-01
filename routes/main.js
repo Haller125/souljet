@@ -6,6 +6,8 @@ const users = require('../models/users');
 const todo = require('../models/todo');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
+const AirDatepicker = require( 'air-datepicker' );
+const localeEn = require ('air-datepicker/locale/en');
 
 const isAuth = (req, res, next) => {
     if(req.session.isAuth){
@@ -68,10 +70,14 @@ router.get('/notes/:category', isAuth, async (req, res) => {
 
 router.post('/notes/:category/add', isAuth, async (req, res) => {
   let category = req.params.category;
+  let deadline=req.body.deadline;
+  console.log(new Date(deadline));
   let todos = new todo({
     title: req.body.newTodo,
     category: category,
     user_id: req.session.user_id,
+    deadline: new Date(req.body.deadline),
+    
   });
   await todos.save();
 

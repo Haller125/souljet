@@ -13,6 +13,9 @@ const todos = new Schema({
         type: String,
         required: true,
     },
+    deadline:{
+        type: Date,
+    },
     user_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'users'

@@ -6,6 +6,7 @@ const path = require('path');
 const ejs = require('ejs');
 const mainRoutes = require('./routes/main');
 
+
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 
@@ -32,10 +33,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'Css')));
 app.use(express.static(path.join(__dirname, 'Javascript')));
 app.use(express.static(path.join(__dirname, 'Images')));
-app.use('/Css', express.static(path.join(__dirname, 'Css')));
-app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
-app.use('/Images', express.static(path.join(__dirname, '/Images')));
-
+app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use(bodyParser.json());
 app.use(upload.array());
 
