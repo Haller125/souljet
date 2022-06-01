@@ -4,11 +4,11 @@
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Css/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/MainPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/logo_transparent.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/article.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Css/comments.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/comments.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Video/NotebookLoop.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Video/WordsLoop.mp4" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/views/MainPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/MainPage.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/comments.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/comments.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +115,7 @@
       <workItem from="1653989571182" duration="22922000" />
       <workItem from="1654050313027" duration="12927000" />
       <workItem from="1654071188417" duration="15000" />
-      <workItem from="1654071216553" duration="18647000" />
+      <workItem from="1654071216553" duration="26185000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

@@ -41,11 +41,7 @@
                     <a class="nav-link" href="/notes">Notes</a>
                 </li>
             </ul>
-
         </div>
-
-
-
     </nav>
 </div>
 
@@ -58,35 +54,40 @@
         </div>
     </div>
 </nav>
-<!-- Main Body -->
-    <% for (let i = 0; i<commentsOfUsers.length; i++){ %>
-    <table>
-        <tr>
-            <th> <%= commentsOfUsers[i].postingTime.toUTCString() %> </th>
-        </tr>
-        <tr>
-            <td> <%= commentsOfUsers[i].username %> </td>
-        </tr>
-        <% if (!adminIsAuthorized){%>
-        <tr>
-            <td> <%= commentsOfUsers[i].userComment %> </td>
-        </tr>
-        <% } else{ %>
-            <tr>
-                <td>
-                    <span><%= commentsOfUsers[i].userComment %> </span>
-                    <span><a href="/comments/delete/<%= commentsOfUsers[i]._id %>" class="fas fa-trash-alt"></a></span>
-                </td>
-            </tr>
-        <% } %>
-    </table>
-    <% } %>
-<% if (!adminIsAuthorized) { %>
-<form action="/comments/<%= title %>/addComment" method="post">
-    <input name="userComment">
-    <input type="submit">
-</form>
-<% } %>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-md-6 col-12 pb-4">
+                <h1>Comments</h1>
+                <% for (let i = 0; i<commentsOfUsers.length; i++){ %>
+                <div class="comment mt-4 text-justify float-left">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <h4><%= commentsOfUsers[i].username %></h4>
+                    <span> <%= commentsOfUsers[i].postingTime.toUTCString().slice(0, 25).replace('2022', ' ') %></span>
+                    <br>
+                    <% if (!adminIsAuthorized){%>
+                    <p><%= commentsOfUsers[i].userComment %></p>
+                    <% } else{ %>
+                        <span><%= commentsOfUsers[i].userComment %> </span>
+                        <span><a href="/comments/delete/<%= commentsOfUsers[i]._id %>" class="fas fa-trash-alt"></a></span>
+                    <% } %>
+                </div>
+                <% } %>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+                <% if (!adminIsAuthorized) { %>
+                <form id="algin-form" action="/comments/<%= title %>/addComment", method="post">
+                        <h4>Leave a comment</h4>
+                        <input name="userComment" cols="30" rows="5" class="form-control" style="background-color: white;">
+                        <input type="submit" id="post" class="btn" value="Post Comment">
+                </form>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- link to the JQuery-->

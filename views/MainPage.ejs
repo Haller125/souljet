@@ -78,19 +78,18 @@
         </div>
         <button id="nextQuoteBtn">Next Quote</button>
     </center>
-    <div class="MainPageCreativity">
+    <!--<div class="MainPageCreativity">
         <h1>Artistry</h1>
         <div class="VideoHolder">
             <video width='360' controls loop autoplay>
                 <source src='../Video/WordsLoop.mp4' type='video/mp4'>
                 Your browser does not support the video tag.
             </video>
-        </div>
-        <div class = "CreativityHolder container-fluid ">
+        </div> -->
+        <!--<div class = "CreativityHolder container-fluid ">
             <div class="CreativityImage">
                 <img  src="../Images/Creativity.jpg" alt="">
                 <div class="SecondImage">
-
                     <img  src="../Images/graffiti.jpg" alt="">
                 </div>
             </div>
@@ -102,16 +101,16 @@
                 <h2>switch the mood</h2>            
             </div>
         </div>
-    </div>
-    <div class="MainPagePossibilities">
+    </div> -->
+    <!--<div class="MainPagePossibilities">
         <h1>Prospects</h1>
         <div class="VideoHolder">
             <video width='360' controls loop autoplay>
                 <source src='../Video/WordsLoop.mp4' type='video/mp4'>
                 Your browser does not support the video tag.
             </video>
-        </div>
-        <div class = "PossibilitiesHolder container-fluid ">
+        </div> -->
+       <!-- <div class = "PossibilitiesHolder container-fluid ">
             <div class="PossibilitiesImage">
                 <img  src="../Images/Pos2.jpg" alt="">
                 <div class="SecondImageP">
@@ -128,12 +127,13 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+    <h1 class="MainPageSiteName">Articles</h1>
     <% for(let i = 0; i < article.length; i++){ %>
 <table class="articleTable">
     <tbody>
     <tr class="articleTR">
-        <th class="articleLink"><%= article[i].postingTime.toUTCString() %></th>
+        <th class="articleLink"><%= article[i].postingTime.toUTCString().slice(0, 25).replace('2022', ' ') %></th>
     </tr>
     <tr>
         <% if (adminIsAuthorized) { %>
@@ -157,7 +157,7 @@
     </tbody>
 </table>
     <% } %>
-
+</div>
 <!-- footer -->
 <footer>
     <div class="row">
