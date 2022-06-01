@@ -9,18 +9,9 @@ const MongoDBSession = require('connect-mongodb-session')(session);
 const article = require('../models/article');
 const comment = require('../models/comments');
 const delayMail = require('../models/delayMails');
-const transporter = require('../transporter/transporter');
+const sendNotification = require('../script/notification');
 
-
-async function sendMail(){
-  let result = await transporter.sendMail({
-    from: '"Souljet" soul.jet@bk.ru',
-    to: 'erokkabash1@gmail.com',
-    subject: "Don't forget about notes",
-    text: 'theme: need for speed',
-  });
-  console.log(result);
-}
+sendNotification();
 
 const BothAuth = (req, res, next) => {
     if(req.session.isAuth || req.session.IsAuth){
@@ -134,7 +125,7 @@ router.post('/notes/:category/add', isAuth, async (req, res) => {
 
   if(todo2.deadline -  new Date() > 86400000 - 1){
     let delayMails = new delayMail({
-      todo2,
+      value: todo2,
     })
     await delayMails.save();
   }

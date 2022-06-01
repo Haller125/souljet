@@ -5,7 +5,21 @@ const express = require('express');
 const path = require('path');
 const ejs = require('ejs');
 const mainRoutes = require('./routes/main');
+var CronJob = require('cron').CronJob;
+const sendNotification = require('../script/notification');
 
+
+
+
+var job = new CronJob(
+	'0 */4 * * *',
+	function() {
+		sendNotification();
+	},
+	null,
+	true,
+	'Asia/Omsk'
+);
 
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
