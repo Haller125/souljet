@@ -74,12 +74,19 @@ router.get('/notes', isAuth, async (req, res) => {
   });
 
 router.get('/comments/:title',BothAuth, async (req, res) => {
+  try{
     let title = req.params.title;
     let comments = await comment.find({"title": title});
     res.render('comments', {commentsOfUsers: comments, title: title, adminIsAuthorized: req.session.IsAuth});
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.post('/comments/:title/addComment', isAuth, async (req, res) => {
+  try{
     const {userComment} = req.body;
     let username = req.session.name;
     let title = req.params.title;
@@ -90,28 +97,52 @@ router.post('/comments/:title/addComment', isAuth, async (req, res) => {
     });
     await comments.save();
     res.redirect('/comments/' + req.params.title);
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 })
 
 router.get('/comments/delete/:id', adminIsAuth, async (req, res) => {
+  try{
     let id = req.params.id;
     await comment.deleteOne({_id: id});
     res.redirect('back');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 })
 
 router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
+  try{
     let id = req.params.id;
     const category = await todo.distinct('category', {user_id: id});
     res.render(`notes`, {categories: category});
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.get('/notes/:category', isAuth, async (req, res) => {
+  try{
     let category = req.params.category;
     const todos = await todo.find({"category": category});
 
     res.render(`InsideNoteExample`, {todos: todos, title: category});
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.post('/notes/:category/add', isAuth, async (req, res) => {
+  try{
   let category = req.params.category;
   
   let todos = new todo({
@@ -131,23 +162,40 @@ router.post('/notes/:category/add', isAuth, async (req, res) => {
   }
 
   res.redirect('back');
+}catch(e){
+  res.render('ErrorPage',{
+    error: e,
+  });
+}
 });
 
 router.get('/notes/:category/delete/:id', isAuth, async (req, res) => {
+  try{
   let category = req.params.category;
   let id = req.params.id;
   
   await todo.deleteOne({_id: id});
 
   res.redirect('back');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.get('/notes/:category/delete', isAuth, async (req, res) => {
+  try{
   let category = req.params.category;
   
   await todo.deleteMany({"category": category});
 
   res.redirect('/notes');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 
@@ -168,14 +216,22 @@ router.get('/logInAdmin', isNotAuth, (req, res) => {
   });
 
 router.post('/adminPage', async (req, res) => {
+  try{
         let adminDB = await admins.findOne({'AdminName': req.body.name});
         if(req.body.password == adminDB.toObject().PasswordAdmin){
           req.session.IsAuth = true;
           res.redirect(`/adminPage`);
         }
         else{
-            res.send("invalid");
+            res.render('ErrorPage',{
+              error: "N/D",
+            });
         }
+      }catch(e){
+        res.render('ErrorPage',{
+          error: e,
+        });
+      }
   });
 
 router.get('/adminPage', adminIsAuth, async (req, res) => {
@@ -189,6 +245,7 @@ router.get('/contactus', (req, res) => {
   });
 
 router.post('/registration', async (req, res) => {
+  try{
     const { username, email, password} = req.body;
     let userExist = await users.findOne({email});
 
@@ -204,6 +261,11 @@ router.post('/registration', async (req, res) => {
     } else{
         res.redirect('/register');
     };
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.get('/contact', (req, res) => {
@@ -211,6 +273,7 @@ router.get('/contact', (req, res) => {
   });
 
 router.post('/login', adminIsNotAuth, async (req, res) => {
+  try{
     const { email, password } = req.body;
     const user = await users.findOne({ email });
     if(!user){
@@ -236,6 +299,11 @@ router.post('/login', adminIsNotAuth, async (req, res) => {
       } else if(!user){
           res.send('No user in DB with such email');
       } else res.send('invalid Password')*/
+    }catch(e){
+      res.render('ErrorPage',{
+        error: e,
+      });
+    }
   }); 
 
 router.get('/profile', isAuth, async (req,res) => {
@@ -270,9 +338,15 @@ router.get('/user/sortName', adminIsAuth, async function(req, res) {
 });
 
 router.get('/user/delete/:id', adminIsAuth, async function(req, res) {
+  try{
     let id = req.params.id;
     await users.deleteOne({_id: id});
     res.redirect('/adminPage');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.get('/note/insideNoteExample',isAuth, async function(req, res){
@@ -280,18 +354,31 @@ router.get('/note/insideNoteExample',isAuth, async function(req, res){
 })
 
 router.get('/user/show/:id', adminIsAuth, async function(req, res) {
+  try{
     let id = req.params.id;
     let user = await users.findOne({_id: id});
     res.render('show', {user: user});
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.post('/user/edit/:id', async function(req, res) {
+  try{
     let user = req.params.id;
     await users.updateOne({_id: user}, {$set: req.body});
     res.redirect('/adminPage');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.post('/user/add', async function(req, res) {
+  try{
     const user = new users({
       username: req.body.username,
       email: req.body.email,
@@ -299,6 +386,11 @@ router.post('/user/add', async function(req, res) {
     });
     await user.save();
     res.redirect('/adminPage');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.get('/adding', adminIsAuth, async function(req,res){
@@ -310,6 +402,7 @@ router.get('/addArticle', adminIsAuth, async function(req, res) {
 });
 
 router.post('/saveArticle', async function(req, res) {
+  try{
     const {title, paragraph, link} = req.body;
     arcticles = new article({
         title,
@@ -318,14 +411,25 @@ router.post('/saveArticle', async function(req, res) {
     });
     await arcticles.save();
     res.redirect('/adminPage');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 })
 
 router.get('/articles/delete/:title/:id', adminIsAuth, async function(req,res) {
+  try{
     let id = req.params.id;
     let title = req.params.title;
     await comment.deleteMany({title: title});
     await article.deleteOne({_id: id});
     res.redirect('/');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
 });
 
 router.get('/test', isAuth, async function(req,res){
