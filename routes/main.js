@@ -8,6 +8,19 @@ const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
 const article = require('../models/article');
 const comment = require('../models/comments');
+const delayMail = require('../models/delayMails');
+const transporter = require('../transporter/transporter');
+
+
+async function sendMail(){
+  let result = await transporter.sendMail({
+    from: '"Souljet" soul.jet@bk.ru',
+    to: 'erokkabash1@gmail.com',
+    subject: "Don't forget about notes",
+    text: 'theme: need for speed',
+  });
+  console.log(result);
+}
 
 const BothAuth = (req, res, next) => {
     if(req.session.isAuth || req.session.IsAuth){
@@ -109,16 +122,22 @@ router.get('/notes/:category', isAuth, async (req, res) => {
 
 router.post('/notes/:category/add', isAuth, async (req, res) => {
   let category = req.params.category;
-  let deadline=req.body.deadline;
-  console.log(new Date(deadline));
+  
   let todos = new todo({
     title: req.body.newTodo,
     category: category,
     user_id: req.session.user_id,
-    deadline: new Date(req.body.deadline),
+    deadline: new Date(req.body.deadline == ''? 0 : req.body.deadline),
     
   });
-  await todos.save();
+  let todo2 = await todos.save();
+
+  if(todo2.deadline -  new Date() > 86400000 - 1){
+    let delayMails = new delayMail({
+      todo2,
+    })
+    await delayMails.save();
+  }
 
   res.redirect('back');
 });
