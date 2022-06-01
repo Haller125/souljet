@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Css/InsideNoteExample.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/InsideNoteExample.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Css/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/MainPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/article.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/article.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/InsideNoteExample.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/InsideNoteExample.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/MainPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/MainPage.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +111,8 @@
       <workItem from="1653714498522" duration="4025000" />
       <workItem from="1653742834086" duration="971000" />
       <workItem from="1653917921139" duration="7457000" />
-      <workItem from="1653989571182" duration="21565000" />
+      <workItem from="1653989571182" duration="22922000" />
+      <workItem from="1654050313027" duration="4321000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

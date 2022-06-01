@@ -129,6 +129,19 @@
         </div>
     </div>
 </div>
+    <% for(let i = 0; i < article.length; i++){ %>
+<table>
+    <tr>
+        <th><%= article[i].title %></th>
+    </tr>
+    <tr>
+        <td><%= article[i].paragraph %></td>
+    </tr>
+    <tr>
+        <td><%= article[i].link %></td>
+    </tr>
+</table>
+    <% } %>
 
 <!-- footer -->
 <footer>

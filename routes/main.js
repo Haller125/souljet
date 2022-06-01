@@ -6,6 +6,7 @@ const users = require('../models/users');
 const todo = require('../models/todo');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
+const article = require('../models/article');
 
 const isAuth = (req, res, next) => {
     if(req.session.isAuth){
@@ -50,7 +51,8 @@ schema
     .has().symbols();
 
 router.get('/', async (req, res) => {
-    res.render('MainPage');
+    let articles = await article.find({});
+    res.render('MainPage', {article: articles});
   });
 
 router.get('/notes', isAuth, async (req, res) => {
@@ -204,27 +206,27 @@ router.post('/logoutAdmin', async (req, res) => {
     });
 })
 
-router.get('/user/sortEmail', async function(req, res) {
+router.get('/user/sortEmail', adminIsAuth, async function(req, res) {
     let user = await users.find().sort({'email': 1});
     res.render('info', {user: user});
 });
 
-router.get('/user/sortName', async function(req, res) {
+router.get('/user/sortName', adminIsAuth, async function(req, res) {
     let user = await users.find().sort({'name': 1});
     res.render('info', {user: user});
 });
 
-router.get('/user/delete/:id', async function(req, res) {
+router.get('/user/delete/:id', adminIsAuth, async function(req, res) {
     let id = req.params.id;
     await users.deleteOne({_id: id});
     res.redirect('/adminPage');
 });
 
-router.get('/note/insideNoteExample', async function(req, res){
+router.get('/note/insideNoteExample',isAuth, async function(req, res){
     res.render('insideNoteExample');
 })
 
-router.get('/user/show/:id', async function(req, res) {
+router.get('/user/show/:id', adminIsAuth, async function(req, res) {
     let id = req.params.id;
     let user = await users.findOne({_id: id});
     res.render('show', {user: user});
@@ -246,17 +248,27 @@ router.post('/user/add', async function(req, res) {
     res.redirect('/adminPage');
 });
 
-router.get('/adding', async function(req,res){
+router.get('/adding', adminIsAuth, async function(req,res){
     res.render('adding');
 });
 
-router.post('/addArticle', async function(req, res) {
+router.get('/addArticle', adminIsAuth, async function(req, res) {
+    res.render('addArticle');
+});
 
+router.post('/saveArticle', async function(req, res) {
+    const {title, paragraph, link} = req.body;
+    const arcticle = new article({
+        title,
+        paragraph,
+        link,
+    });
+    await arcticle.save();
+    res.redirect('/adminPage');
 })
 
-router.get('/test', async function(req,res){
+router.get('/test', isAuth, async function(req,res){
   let todos = await todo.find();
-  console.log(todos);
   res.render('test');
 });
 

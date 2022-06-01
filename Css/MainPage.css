@@ -422,8 +422,12 @@ button:hover {
     color: #ffffff;
 }
 
+/*========================== Article Theme */
 
-/*-- DarkThemeSwitcher --*/
+.articleTitle{
+}
+
+/*=========================== DarkThemeSwitcher */
 .theme {
     position: fixed;
     cursor: pointer;

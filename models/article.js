@@ -1,20 +1,18 @@
 const {Schema, model, mongoose} = require('mongoose')
 
-const acticle = new Schema({
+const article = new Schema({
     title:{
         type: String,
         required: true,
     },
-    category:{
+    paragraph:{
         type: String,
         required: true,
     },
-    user_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: 'users'
+    link:{
+        type: String,
+        required: true,
     },
-
 })
 
-
-module.exports = model('todos', todos)
+module.exports = model('article', article)
