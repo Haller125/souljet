@@ -13,12 +13,13 @@ body{
 }
 
 .quote-box{
-    margin-top: 75px;
-    padding: 40px;
-    width: 50em;
-    height: fit-content;
+    z-index: 2;
+    margin: auto;
+    width: 60%;
+    padding: 15px;
     background-color: #ffffff;
     border-radius: 15px;
+    height: fit-content;
     box-shadow: 2px 2px 5px rgba(21, 9, 9, 0.1);
     font-family: cursive;
 }
@@ -56,9 +57,10 @@ div video{
 
 .MainBody .logo img{
     margin-top:3em;
-    width: 400px;
-    height: 400px;
-    transform: scale(2);
+    margin-bottom:50px;
+    max-width: 100%;
+    max-height: 100%;
+    z-index:1;
 }
 .MainPageCreativity{
     margin-top: 40vh;
@@ -365,7 +367,7 @@ nav div ul li{
     border-top-left-radius: 10vh;
     border-bottom-left-radius: 12vh;
     border-bottom-right-radius: 10vh;
-    border: 2px solid none;
+    border: 2px solid;
     font-size: 2rem;
     font-weight: 900;
     display: flex;
@@ -424,7 +426,48 @@ button:hover {
 
 /*========================== Article Theme */
 
+.fa-trash{
+    display: inline-flex;
+    margin:0 auto;
+}
+
+.articleTable{
+    margin: 0 auto 80px;
+    width: 60%;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+.articleTR{
+
+}
+
 .articleTitle{
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    padding:5px;
+}
+
+.articleParagraph{
+    text-align: left;
+    padding: 30px;
+}
+
+.articleFoot{
+    display: flex;
+    justify-content: space-between;
+}
+
+.articleLink{
+    text-align: right;
+    padding: 10px 40px 20px 20px;
+}
+
+.articleComments{
+    text-align: left;
+    padding: 10px 20px 20px 40px;
 }
 
 /*=========================== DarkThemeSwitcher */

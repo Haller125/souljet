@@ -74,7 +74,7 @@
             padding: 16px;
         }
         
-        tr:nth-child(even) {
+        .ManageUsers:nth-child(even) {
             background-color: #f2f2f2
         }
         </style>
@@ -101,8 +101,6 @@
             </ul>
 
         </div>
-
-
 
     </nav>
 </div>
@@ -140,12 +138,13 @@
         <th>Action</th>
     </tr>
     <% for(let i = 0; i < user.length; i++){ %>
-    <tr>
+    <tr class="ManageUsers">
         <td><%= user[i].username %></td>
         <td><%= user[i].email %></td>
         <td><%= user[i].regTime.toISOString().slice(0, 19).replace('T', ' ') %></td>
         <td><%= user[i].password %></td>
-        <td colspan="2"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
+        <td colspan="3"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
+        <td><a href="/user/notes/<%= user[i]._id %>" style="color: aquamarine; font-size: 1.3rem;">notes</a></td>
         <td><a href="/user/delete/<%= user[i]._id %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
     </tr>
     <% } %>
