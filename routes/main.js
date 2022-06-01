@@ -6,8 +6,11 @@ const users = require('../models/users');
 const todo = require('../models/todo');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
-const AirDatepicker = require( 'air-datepicker' );
-const localeEn = require ('air-datepicker/locale/en');
+const transporter = require('../transporter/transporter');
+
+
+
+
 
 const isAuth = (req, res, next) => {
     if(req.session.isAuth){
