@@ -34,6 +34,10 @@ app.use(express.static(path.join(__dirname, 'Css')));
 app.use(express.static(path.join(__dirname, 'Javascript')));
 app.use(express.static(path.join(__dirname, 'Images')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use('/Css', express.static(path.join(__dirname, 'Css')));
+app.use('/Javascript', express.static(path.join(__dirname, 'Javascript')));
+app.use('/Images', express.static(path.join(__dirname, '/Images')));
+
 app.use(bodyParser.json());
 app.use(upload.array());
 
