@@ -1,15 +1,15 @@
 const {Schema, model, mongoose} = require('mongoose')
 
-const article = new Schema({
+const comments = new Schema({
     title:{
         type: String,
         required: true,
     },
-    paragraph:{
+    username:{
         type: String,
         required: true,
     },
-    link:{
+    userComment:{
         type: String,
         required: true,
     },
@@ -19,4 +19,4 @@ const article = new Schema({
     },
 })
 
-module.exports = model('article', article)
+module.exports = model('comments', comments)

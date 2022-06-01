@@ -129,6 +129,34 @@
         </div>
     </div>
 </div>
+    <% for(let i = 0; i < article.length; i++){ %>
+<table class="articleTable">
+    <tbody>
+    <tr class="articleTR">
+        <th class="articleLink"><%= article[i].postingTime.toUTCString() %></th>
+    </tr>
+    <tr>
+        <% if (adminIsAuthorized) { %>
+            <td class="articleTitle">
+                <span><%= article[i].title %></span>
+                <span><a href="/articles/delete/<%= article[i].title %>/<%= article[i]._id %>" class="fas fa-trash-alt"></a></span>
+            </td>
+        <% } else { %>
+            <th class="articleTitle"><%= article[i].title %></th>
+        <% } %>
+    </tr>
+    <tr class="articleTR">
+        <td class="articleParagraph"><%= article[i].paragraph %></td>
+    </tr>
+    <tr class="articleTR">
+        <td class="articleFoot">
+            <a href="/comments/<%= article[i].title %>" class="btn articleComments">Comments</a>
+            <a href="<%= article[i].link %>" class="btn articleLink">Read more</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+    <% } %>
 
 <!-- footer -->
 <footer>

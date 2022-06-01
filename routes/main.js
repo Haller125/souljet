@@ -6,11 +6,16 @@ const users = require('../models/users');
 const todo = require('../models/todo');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
-const transporter = require('../transporter/transporter');
+const article = require('../models/article');
+const comment = require('../models/comments');
 
-
-
-
+const BothAuth = (req, res, next) => {
+    if(req.session.isAuth || req.session.IsAuth){
+        next()
+    } else{
+        res.redirect('/')
+    }
+}
 
 const isAuth = (req, res, next) => {
     if(req.session.isAuth){
@@ -55,14 +60,45 @@ schema
     .has().symbols();
 
 router.get('/', async (req, res) => {
-    res.render('MainPage');
+    let articles = await article.find({});
+    res.render('MainPage', {article: articles, adminIsAuthorized: req.session.IsAuth});
   });
 
 router.get('/notes', isAuth, async (req, res) => {
-
       const category = await todo.distinct('category', {user_id: req.session.user_id});
       res.render(`notes`, {categories: category});
   });
+
+router.get('/comments/:title',BothAuth, async (req, res) => {
+    let title = req.params.title;
+    let comments = await comment.find({"title": title});
+    res.render('comments', {commentsOfUsers: comments, title: title, adminIsAuthorized: req.session.IsAuth});
+});
+
+router.post('/comments/:title/addComment', isAuth, async (req, res) => {
+    const {userComment} = req.body;
+    let username = req.session.name;
+    let title = req.params.title;
+    comments = new comment({
+        title: title,
+        userComment,
+        username: username,
+    });
+    await comments.save();
+    res.redirect('/comments/' + req.params.title);
+})
+
+router.get('/comments/delete/:id', adminIsAuth, async (req, res) => {
+    let id = req.params.id;
+    await comment.deleteOne({_id: id});
+    res.redirect('back');
+})
+
+router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
+    let id = req.params.id;
+    const category = await todo.distinct('category', {user_id: id});
+    res.render(`notes`, {categories: category});
+});
 
 router.get('/notes/:category', isAuth, async (req, res) => {
     let category = req.params.category;
@@ -122,11 +158,10 @@ router.get('/logInAdmin', isNotAuth, (req, res) => {
   });
 
 router.post('/adminPage', async (req, res) => {
-        let user = await users.find({});
         let adminDB = await admins.findOne({'AdminName': req.body.name});
         if(req.body.password == adminDB.toObject().PasswordAdmin){
           req.session.IsAuth = true;
-          res.render(`info`, {user: user});
+          res.redirect(`/adminPage`);
         }
         else{
             res.send("invalid");
@@ -135,7 +170,8 @@ router.post('/adminPage', async (req, res) => {
 
 router.get('/adminPage', adminIsAuth, async (req, res) => {
   let user = await users.find({});
-  res.render(`info`, {user: user});
+  let articles = await article.find({});
+  res.render('info', {user: user, article: articles});
 });
 
 router.get('/contactus', (req, res) => {
@@ -213,27 +249,27 @@ router.post('/logoutAdmin', async (req, res) => {
     });
 })
 
-router.get('/user/sortEmail', async function(req, res) {
+router.get('/user/sortEmail', adminIsAuth, async function(req, res) {
     let user = await users.find().sort({'email': 1});
     res.render('info', {user: user});
 });
 
-router.get('/user/sortName', async function(req, res) {
+router.get('/user/sortName', adminIsAuth, async function(req, res) {
     let user = await users.find().sort({'name': 1});
     res.render('info', {user: user});
 });
 
-router.get('/user/delete/:id', async function(req, res) {
+router.get('/user/delete/:id', adminIsAuth, async function(req, res) {
     let id = req.params.id;
     await users.deleteOne({_id: id});
     res.redirect('/adminPage');
 });
 
-router.get('/note/insideNoteExample', async function(req, res){
+router.get('/note/insideNoteExample',isAuth, async function(req, res){
     res.render('insideNoteExample');
 })
 
-router.get('/user/show/:id', async function(req, res) {
+router.get('/user/show/:id', adminIsAuth, async function(req, res) {
     let id = req.params.id;
     let user = await users.findOne({_id: id});
     res.render('show', {user: user});
@@ -255,17 +291,35 @@ router.post('/user/add', async function(req, res) {
     res.redirect('/adminPage');
 });
 
-router.get('/adding', async function(req,res){
+router.get('/adding', adminIsAuth, async function(req,res){
     res.render('adding');
 });
 
-router.post('/addArticle', async function(req, res) {
+router.get('/addArticle', adminIsAuth, async function(req, res) {
+    res.render('addArticle');
+});
 
+router.post('/saveArticle', async function(req, res) {
+    const {title, paragraph, link} = req.body;
+    arcticles = new article({
+        title,
+        paragraph,
+        link,
+    });
+    await arcticles.save();
+    res.redirect('/adminPage');
 })
 
-router.get('/test', async function(req,res){
+router.get('/articles/delete/:title/:id', adminIsAuth, async function(req,res) {
+    let id = req.params.id;
+    let title = req.params.title;
+    await comment.deleteMany({title: title});
+    await article.deleteOne({_id: id});
+    res.redirect('/');
+});
+
+router.get('/test', isAuth, async function(req,res){
   let todos = await todo.find();
-  console.log(todos);
   res.render('test');
 });
 
