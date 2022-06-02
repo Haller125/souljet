@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/comments.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/comments.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/info.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/info.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +114,7 @@
       <workItem from="1654071188417" duration="15000" />
       <workItem from="1654071216553" duration="26563000" />
       <workItem from="1654130232076" duration="15751000" />
-      <workItem from="1654158184393" duration="368000" />
+      <workItem from="1654158184393" duration="1625000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

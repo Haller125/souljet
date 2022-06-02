@@ -454,7 +454,7 @@ router.get('/test', isAuth, async function(req,res){
   let todos = await todo.find();
   res.render('test');
 });
-
+/*
 router.post('/test/insertTodo', async function(req,res){
   const todoN = new todo({
     title: req.body.title,
@@ -465,5 +465,5 @@ router.post('/test/insertTodo', async function(req,res){
   await todoN.save();
   res.redirect('/test');
 })
-
+*/
 module.exports = router;
