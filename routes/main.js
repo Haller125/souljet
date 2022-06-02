@@ -70,11 +70,6 @@ router.get('/', async (req, res) => {
     res.render('MainPage', {article: articles, adminIsAuthorized: req.session.IsAuth});
   });
 
-router.get('/notes', isAuth, async (req, res) => {
-      const category = await todo.distinct('category', {user_id: req.session.user_id});
-      res.render(`notes`, {categories: category});
-  });
-
 router.get('/comments/:title',BothAuth, async (req, res) => {
   try{
     let title = req.params.title;
@@ -118,6 +113,11 @@ router.get('/comments/delete/:id', adminIsAuth, async (req, res) => {
   }
 })
 
+router.get('/notes', isAuth, async (req, res) => {
+    const category = await todo.distinct('category', {user_id: req.session.user_id});
+    res.render(`notes`, {categories: category});
+});
+
 router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
   try{
     let id = req.params.id;
@@ -129,6 +129,22 @@ router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
     });
   }
 });
+
+/*
+router.get('/user/notes/:id/:category', adminIsAuth, async (req, res) => {
+    try{
+        let id = req.params.id;
+        let category = req.params.category;
+        const todos = await todo.find({"category": category});
+
+        res.render(`InsideNoteExample`, {todos: todos, title: category});
+    }catch(e){
+        res.render('ErrorPage',{
+            error: e,
+        });
+    }
+});
+*/
 
 router.get('/notes/:category', isAuth, async (req, res) => {
   try{
@@ -399,9 +415,9 @@ router.get('/adding', adminIsAuth, async function(req,res){
     res.render('adding');
 });
 
-router.get('/addArticle', adminIsAuth, async function(req, res) {
+/*router.get('/addArticle', adminIsAuth, async function(req, res) {
     res.render('addArticle');
-});
+}); */
 
 router.post('/saveArticle', async function(req, res) {
   try{

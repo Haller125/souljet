@@ -20,7 +20,7 @@
 </head>
 <body>
     <style type="text/css">
-		.popup-window{	
+		.popup-window, .popup-windowArc{
 			display: none;
 			box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
 			-webkit-box-shadow: 0px 0px 4px 0px rgb(70, 70, 70);
@@ -32,7 +32,8 @@
 			-moz-border-radius: 5px!important;
 			border-radius: 5px!important;
 		}
-		.open{ 	
+
+		.open, .openARC{
 			text-decoration: underline;
 			cursor: pointer;
 		}
@@ -48,7 +49,7 @@
 			z-index: 400;
 			cursor: pointer;
 		}
-		.close{	
+		.close, .closeARC{
 			float: right;
 			cursor: pointer;
 			right: 5px;
@@ -87,7 +88,7 @@
             <ul class="navbar-nav mx-auto" id="toggler">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Profile</a>
@@ -117,8 +118,9 @@
 <form action="/logoutAdmin" method="POST" style="margin-top: 1em; display: flex; justify-content: right;">
     <button><i class="fa-solid fa-right-from-bracket"></i></button>
 </form>
-    <a href="/addArticle" class="btn btn-light space">Add article</a>
-<p class="open">Add new user</p>
+    <p class="btn btn-light space openARC">Add article</p>
+   <!-- <a href="/addArticle" class="btn btn-light space">Add article</a>-->
+    <p class="btn btn-light space open">Add new user</p>
 
 <div class="backpopup"></div>
 
@@ -131,8 +133,8 @@
         <td><a href="/adding" class="btn btn-light space">Add new user</a></td>
     </tr>-->
     <tr>
-        <th  onclick="sortTable(0)">Name</th>
-        <th  onclick="sortTable(1)">Email</th>
+        <th onclick="sortTable(0)">Name</th>
+        <th onclick="sortTable(1)">Email</th>
         <th onclick="sortTable(2)">Time</th>
         <th onclick="sortTable(3)">Password</th>
         <th>Action</th>
@@ -150,6 +152,43 @@
     <% } %>
     </center>
 </table>
+
+    <div class="popup-windowArc">
+        <form action="/saveArticle" method="POST">
+            <p class="closeARC">x</p>
+            <table>
+                <tr>
+                    <td>
+                        Title:
+                    </td>
+                    <td>
+                        <input name="title">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Paragraph:
+                    </td>
+                    <td>
+                        <input name="paragraph">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Link:
+                    </td>
+                    <td>
+                        <input name="link">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit" value="Submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 
 <div class="popup-window">
     <form action="/user/add" method="POST">	
@@ -188,7 +227,6 @@
 </form>
 </div>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- link to the JQuery-->
 <script src="../Javascript/MainPage.js" charcet="UTF-8"></script>
@@ -213,6 +251,15 @@
         });
         $('.backpopup,.close').click(function(){ //событие клик на тень и крестик - закрываем окно и тень:
             $('.popup-window').fadeOut();
+            $('.backpopup').fadeOut();
+        });
+    });
+    $(document).ready(function(){	//при загрузке страницы:
+        $('.openARC').click(function(){	//событие клик на нашу ссылку
+            $('.popup-windowArc').popup();	//запускаем функцию на наш блок с формой
+        });
+        $('.backpopup,.closeARC').click(function(){ //событие клик на тень и крестик - закрываем окно и тень:
+            $('.popup-windowArc').fadeOut();
             $('.backpopup').fadeOut();
         });
     });
