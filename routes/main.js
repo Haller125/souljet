@@ -16,7 +16,9 @@ sendNotification();
 const BothAuth = (req, res, next) => {
     if(req.session.isAuth || req.session.IsAuth){
         next()
-    } else{
+    } else if (!req.session.isAuth){
+        res.redirect('/profile')
+    } else {
         res.redirect('/')
     }
 }

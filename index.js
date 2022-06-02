@@ -6,9 +6,7 @@ const path = require('path');
 const ejs = require('ejs');
 const mainRoutes = require('./routes/main');
 var CronJob = require('cron').CronJob;
-const sendNotification = require('../script/notification');
-
-
+const sendNotification = require('./script/notification');
 
 
 var job = new CronJob(
