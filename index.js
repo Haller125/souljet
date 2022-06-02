@@ -13,6 +13,7 @@ var job = new CronJob(
 	'0 */4 * * *',
 	function() {
 		sendNotification();
+        console.log("sefafadf");
 	},
 	null,
 	true,
@@ -39,6 +40,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: store,
+    rolling: true,
+    cookie: {
+        maxAge: 24*60*60*1000
+      }
 })
 );
 
