@@ -277,7 +277,7 @@ router.post('/registration', async (req, res) => {
 
         res.render(`ConfirmPage`);
     } else{
-        res.redirect('/register');
+        res.redirect('/registration');
     };
   }catch(e){
     res.render('ErrorPage',{
