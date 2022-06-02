@@ -21,6 +21,8 @@
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/38b1af0009.js" crossorigin="anonymous"></script>
     <!--font-family: 'Spline Sans', sans-serif;-->
+    <style>
+    </style>
 </head>
 <div class="header">
     <nav class="navbar navbar-expand-lg d-flex justify-content-center align-items-center">
@@ -65,7 +67,7 @@
                 <div class="comment mt-4 text-justify float-left">
                     <i class="fa-solid fa-circle-user"></i>
                     <h4><%= commentsOfUsers[i].username %></h4>
-                    <span> <%= commentsOfUsers[i].postingTime.toUTCString().slice(0, 25).replace('2022', ' ') %></span>
+                    <span> <%= commentsOfUsers[i].postingTime.toUTCString().slice(5, 25).replace('2022', ' ') %></span>
                     <br>
                     <% if (!adminIsAuthorized){%>
                     <p><%= commentsOfUsers[i].userComment %></p>
