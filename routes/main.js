@@ -148,7 +148,7 @@ router.get('/user/notes/:id/:category', adminIsAuth, async (req, res) => {
 });
 */
 
-router.get('/notes/:category', isAuth, async (req, res) => {
+router.get('/notes/:category', BothAuth, async (req, res) => {
   try{
     let category = req.params.category;
     const todos = await todo.find({"category": category});
