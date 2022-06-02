@@ -121,8 +121,10 @@ router.get('/notes', isAuth, async (req, res) => {
 router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
   try{
     let id = req.params.id;
+    req.session.user_id = id;
     const category = await todo.distinct('category', {user_id: id});
     res.render(`notes`, {categories: category});
+    req.session.user_id = user._id;
   }catch(e){
     res.render('ErrorPage',{
       error: e,
@@ -146,7 +148,7 @@ router.get('/user/notes/:id/:category', adminIsAuth, async (req, res) => {
 });
 */
 
-router.get('/notes/:category', isAuth, async (req, res) => {
+router.get('/notes/:category', BothAuth, async (req, res) => {
   try{
     let category = req.params.category;
     const todos = await todo.find({"category": category});
@@ -181,9 +183,7 @@ router.post('/notes/:category/add', isAuth, async (req, res) => {
 
   res.redirect('back');
 }catch(e){
-  res.render('ErrorPage',{
-    error: e,
-  });
+  res.redirect('/notes');
 }
 });
 
