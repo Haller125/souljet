@@ -68,15 +68,16 @@
         <div class="UpperP"></div>
 
         <div class="ProfileName">
-            <h4 class="mb-0">Benjamin Tims <%= username %></h4>
+            <h2 class="mb-0"><%= username %></h2>
         </div>
         <div class="ProfilePicture">
-            <img src="/manbook.jpg">
+            <img src="/Profile.png">
         </div>
 </div>
 <div class="PText">
-    <div ><h1>Mail :</h1>
-        <span class="spaceI"><%= email %></span></div>
+    <div >
+        <h3 class="mb-0">E-mail: <%= email %></h3>
+    </div>
 
 </div>
 
@@ -84,7 +85,7 @@
         <div class="ProfileBar">
             <div><a href="/Notes">Notes</a></div>
             <button formaction="/logout" formmethod="post">Logout</button>
-            <div><a href="">Edit</a></div>
+            <div><a href="/">Home</a></div>
         </div>
 </div>
     </form>
@@ -98,7 +99,7 @@
             <h1 id="Media-footer">Media:</h1>
             <div>
                 <span><i class="fa fa-envelope"></i></span>
-                <span><p >soul.jet@bk.ru</p></span>
+                <span><a >soul.jet@bk.ru</a></span>
             </div>
             <div>
                 <span><i class="fa fa-github"></i></span>
@@ -119,9 +120,6 @@
     <div class="row">
         <div class="col-sm-6 left-footer">
             <p class="footer-company-name">© 2022 Souljet. All Right Reserved</p>
-        </div>
-        <div class="col-sm-6 right-footer">
-            <span href="#">Privacy Policy |</span><span href="#"> Terms of Use</span>
         </div>
     </div>
 </footer>
