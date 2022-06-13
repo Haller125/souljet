@@ -72,7 +72,7 @@
         </form>
         <ul class="todos">
             <% for(let i = 0; i < todos.length; i++){ %>
-            <li><span><a href="/notes/<%= title %>/delete/<%= todos[i]._id %>" class="fas fa-trash-alt"></a></span><%= todos[i].title %></li>
+            <li><span class="trash"><a href="/notes/<%= title %>/delete/<%= todos[i]._id %>" class="fas fa-trash-alt"></a></span><span class="todoSpace"><%= todos[i].title %></span></li>
             <% } %>
         </ul>
     </div>
