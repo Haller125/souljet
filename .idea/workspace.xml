@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Css/InsideNoteExample.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/InsideNoteExample.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Registration.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Registration.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/show.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/show.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +119,7 @@
       <workItem from="1654130232076" duration="15751000" />
       <workItem from="1654158184393" duration="3179000" />
       <workItem from="1654443721055" duration="14000" />
-      <workItem from="1655110760100" duration="2800000" />
+      <workItem from="1655110760100" duration="9787000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

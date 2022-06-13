@@ -87,13 +87,16 @@ button:hover {
     margin: 0;
     padding: 0;
 }
+
 .todos li{
+    word-wrap: normal;
     background: #f7f7f7;
-    height:50px;
+    height: auto;
     line-height: 50px;
     cursor: pointer;
     font-size: 20px;
 }
+
 .todos li:nth-child(2n){
     background:#edf1f5;
 }

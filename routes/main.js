@@ -124,7 +124,6 @@ router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
     req.session.user_id = id;
     const category = await todo.distinct('category', {user_id: id});
     res.render(`notes`, {categories: category});
-    req.session.user_id = user._id;
   }catch(e){
     res.render('ErrorPage',{
       error: e,
@@ -221,10 +220,6 @@ router.post('/notes/add', async (req, res) => {
   res.redirect('/notes/' + req.body.category);
 });
 
-router.get('/registration', (req, res) => {
-    res.render(`Registration`);
-});
-
 router.get('/login', isNotAuth, adminIsNotAuth, (req, res) => {
       res.render(`LogIn`);
   });
@@ -262,6 +257,10 @@ router.get('/contactus', (req, res) => {
       res.render('ContactUs');
   });
 
+router.get('/registration', (req, res) => {
+    res.render(`Registration`, {userExist: false});
+});
+
 router.post('/registration', async (req, res) => {
   try{
     const { username, email, password} = req.body;
@@ -277,7 +276,7 @@ router.post('/registration', async (req, res) => {
 
         res.render(`ConfirmPage`);
     } else{
-        res.redirect('/registration');
+        res.render('Registration', {userExist: userExist});
     };
   }catch(e){
     res.render('ErrorPage',{
