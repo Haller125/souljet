@@ -48,7 +48,7 @@
 <body>
 <form action="/user/edit/<%= user._id %>" method="POST">
     <center>
-    <input name="name" value="<%= user.username %>" class="username">
+    <input name="username" value="<%= user.username %>" class="username">
     <input name="email" value="<%= user.email %>" class="email">
     <input name="password" value="<%= user.password %>" class="password">
     <br><br><input type="submit" value="save" class="submitButton">
