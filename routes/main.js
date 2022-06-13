@@ -113,7 +113,7 @@ router.get('/comments/delete/:id', adminIsAuth, async (req, res) => {
   }
 })
 
-router.get('/notes', isAuth, async (req, res) => {
+router.get('/notes', BothAuth, async (req, res) => {
     const category = await todo.distinct('category', {user_id: req.session.user_id});
     res.render(`notes`, {categories: category});
 });
@@ -123,7 +123,7 @@ router.get('/user/notes/:id', adminIsAuth, async (req, res) => {
     let id = req.params.id;
     req.session.user_id = id;
     const category = await todo.distinct('category', {user_id: id});
-    res.render(`notes`, {categories: category});
+    res.redirect('/notes');
   }catch(e){
     res.render('ErrorPage',{
       error: e,
