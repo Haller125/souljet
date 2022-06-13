@@ -151,7 +151,7 @@ router.get('/user/notes/:id/:category', adminIsAuth, async (req, res) => {
 router.get('/notes/:category', BothAuth, async (req, res) => {
   try{
     let category = req.params.category;
-    const todos = await todo.find({"category": category});
+    const todos = await todo.find({ $and:[{"category": category}, {"user_id": req.session.user_id}]});
 
     res.render(`InsideNoteExample`, {todos: todos, title: category});
   }catch(e){
