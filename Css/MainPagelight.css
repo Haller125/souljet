@@ -1,6 +1,9 @@
 body{
     background-image: linear-gradient(rgba(4,9,30,0.1),rgba(4,9,30,0.1)),url(../Images/purple-mountains.jpg);
     background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     position: relative;
 }

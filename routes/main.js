@@ -453,6 +453,18 @@ router.get('/test', isAuth, async function(req,res){
   let todos = await todo.find();
   res.render('test');
 });
+
+router.get('/bektas', async function(req,res){
+    res.render('Bektas');
+});
+
+router.get('/altynbek', async function(req,res){
+    res.render('Altynbek');
+});
+
+router.get('/ergali', async function(req,res){
+    res.render('Ergali');
+});
 /*
 router.post('/test/insertTodo', async function(req,res){
   const todoN = new todo({
