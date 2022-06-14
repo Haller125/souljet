@@ -529,6 +529,10 @@ button:hover {
     background-color: #655D8A;
 }
 
+.personalPage{
+    margin-bottom: 5em;
+}
+
 .sub-heading{
     color:	rgb(170,170,250);
     text-align: center;
