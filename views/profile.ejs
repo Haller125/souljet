@@ -64,30 +64,20 @@
 </nav>
 
     <form class="ProfileBody">
-<div>
-        <div class="UpperP"></div>
-
-        <div class="ProfileName">
-            <h2 class="mb-0"><%= username %></h2>
+        <div class="row ProfileTop">
+            <div class="col-lg-4 ProfilePicture">
+                <div></div>
+            </div>
+            <div class="col-lg-6 ProfileInfo">
+                <span><%= username %></span>
+                <input formaction="/logout" formmethod="post" type="submit" class="btn ProfileLogout"  value="Logout">
+                <p class="mt-3"><%= email %></p>
+            </div>
         </div>
-        <div class="ProfilePicture">
-            <img src="/Profile.png">
-        </div>
-</div>
-<div class="PText">
-    <div >
-        <h3 class="mb-0">E-mail: <%= email %></h3>
-    </div>
-
-</div>
-
-</div>
         <div class="ProfileBar">
-            <div><a href="/Notes">Notes</a></div>
-            <button formaction="/logout" formmethod="post">Logout</button>
             <div><a href="/">Home</a></div>
+            <div><a href="/Notes">Notes</a></div>
         </div>
-</div>
     </form>
 <!-- footer -->
 <footer>
