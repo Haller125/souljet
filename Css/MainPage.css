@@ -491,6 +491,8 @@ button:hover {
 
 /*-- images --*/
 #bekatop-img{
+    border-radius: 10%;
+    margin-bottom: 2em;
     width: 370px;
     height: 500px;
 }
@@ -511,14 +513,23 @@ button:hover {
 }
 /*============================= "About me" section */
 
+.personalPageBG{
+    /*background: #d7d7d7;*/
+}
+
+.indPage{
+    margin: 3.5em 0em 5em 0em;
+}
+
 #Profile{
     font-size: 4.3em; /*4.3em - 6vw*/
-    color: #655D8A;
+    color: #f6a494 ;/*color: #655D8A; */
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 900;
     padding-top: 4.5vw; /*5%*/
     letter-spacing: 3px;
+    margin-bottom: 0.5em;
 }
 
 #profiles-hr{
@@ -526,15 +537,11 @@ button:hover {
     width: 40vw;
     height: 2px;
     border-style:none;
-    background-color: #655D8A;
-}
-
-.personalPage{
-    margin-bottom: 5em;
+    background-color:  #ffb19b /*#655D8A*/;
 }
 
 .sub-heading{
-    color:	rgb(170,170,250);
+    color:	#febaad/*rgb(170,170,250)*/;
     text-align: center;
     font-size: 1.4em; /*1.4em - 1.7vw*/
     font-family: 'Poppins', sans-serif;
@@ -543,21 +550,27 @@ button:hover {
 }
 
 .aboutMe-heading{
-    color: #655D8A;
+    color: #010b13;
     font-weight: 500;
     font-family: 'Lato', sans-serif;
     text-align: center;
     font-size: 3em;
 }
 
+.generalInfo{
+
+}
+
 .about-me{
+    color: #010b13;
+    margin-top: 3em;
     font-weight: bolder;
     line-height: 1.5;
     font-family: 'Poppins', sans-serif;
     text-align: left;
 }
 /* bottom container */
-.Skills-heading{
+/*.Skills-heading{
     padding-top: 50px;
     font-size: 4.5em;
     text-align: center;
@@ -581,4 +594,4 @@ button:hover {
     padding: 0px 70px 50px 70px;
     font-size: 3em;
     color:#f5f5f5;
-}
+} */

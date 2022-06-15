@@ -221,7 +221,7 @@ router.post('/notes/add', async (req, res) => {
 });
 
 router.get('/login', isNotAuth, adminIsNotAuth, (req, res) => {
-      res.render(`LogIn`);
+      res.render(`LogIn`, {userExist: true, incorrectPassword: false});
   });
 
 router.get('/logInAdmin', isNotAuth, (req, res) => {
@@ -294,10 +294,10 @@ router.post('/login', adminIsNotAuth, async (req, res) => {
     const { email, password } = req.body;
     const user = await users.findOne({ email });
     if(!user){
-        return res.redirect("/login");
+        return res.render("login", {userExist: false, incorrectPassword: false});
     }
-    if(!req.body.password == user.password){
-        return res.redirect("/login");
+    if(req.body.password != user.password){
+        return res.render("login", {userExist: true, incorrectPassword: true});
     }
     req.session.isAuth = true;
     req.session.email = email;
