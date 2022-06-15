@@ -34,7 +34,6 @@
 		}
 
 		.open, .openARC{
-			text-decoration: underline;
 			cursor: pointer;
 		}
 		.backpopup{		
@@ -64,8 +63,9 @@
             border-spacing: 0;
             width: 100%;
             border: 1px solid #ddd;
+            table-layout: auto;
         }
-        
+
         th {
             cursor: pointer;
         }
@@ -74,10 +74,39 @@
             text-align: left;
             padding: 16px;
         }
-        
-        .ManageUsers:nth-child(even) {
-            background-color: #f2f2f2
+
+        #myTable thead tr{
+            background:#edf1f5;
         }
+
+        .ManageUsers:nth-child(odd) {
+            background: #f7f7f7;
+        }
+
+        .ManageUsers:nth-child(even) {
+            background:#edf1f5;
+        }
+
+        tr.hide-table-padding td {
+            padding: 0;
+        }
+
+        /*.expand-button {
+            position: relative;
+        }
+
+        .accordion-toggle .expand-button:after
+        {
+            position: absolute;
+            left:.75rem;
+            top: 50%;
+            transform: translate(0, -50%);
+            content: '-';
+        }
+        .accordion-toggle.collapsed .expand-button:after
+        {
+            content: '+';
+        }*/
         </style>
 
 
@@ -118,40 +147,91 @@
 <form action="/logoutAdmin" method="POST" style="margin-top: 1em; display: flex; justify-content: right;">
     <button><i class="fa-solid fa-right-from-bracket"></i></button>
 </form>
+
     <p class="btn btn-light space openARC">Add article</p>
    <!-- <a href="/addArticle" class="btn btn-light space">Add article</a>-->
     <p class="btn btn-light space open">Add new user</p>
-
 <div class="backpopup"></div>
 
-<h1 style="text-align: center; margin: 0em 0 1em 0;">Manage Users</h1>
-<table id="myTable">
+    <h1 style="text-align: center; margin: 0em 0 1em 0;">Manage Users</h1>
+    <div class="table-responsive">
+        <table id="myTable">
+            <thead>
+            <tr>
+                <th onclick="sortTable(0)">Name</th>
+                <th onclick="sortTable(1)">Email</th>
+                <th onclick="sortTable(2)">Time</th>
+                <th onclick="sortTable(3)">Password</th>
+                <th colspan="3">Action</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for(let i = 0; i < user.length; i++){ %>
+                <tr class="ManageUsers">
+                    <td><%= user[i].username %></td>
+                    <td><%= user[i].email %></td>
+                    <td><%= user[i].regTime.toISOString().slice(0, 19).replace('T', ' ') %></td>
+                    <td><%= user[i].password %></td>
+                    <td colspan="3"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
+                    <td><a href="/user/notes/<%= user[i]._id %>" style="color: aquamarine; font-size: 1.3rem;">notes</a></td>
+                    <td><a href="/user/delete/<%= user[i]._id %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
+                </tr>
+            <% } %>
+            <!--<tr class="accordion-toggle collapsed" id="accordion1" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                <td class="expand-button"></td>
+                <td>Cell</td>
+                <td>Cell</td>
+                <td>Cell</td>
+
+            </tr>-->
+            <!--<tr class="hide-table-padding">
+                <td></td>
+                <td colspan="3">
+                    <div id="collapseOne" class="collapse in p-3">
+                        <div class="row">
+                            <div class="col-2">label</div>
+                            <div class="col-6">value 1</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">label</div>
+                            <div class="col-6">value 2</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">label</div>
+                            <div class="col-6">value 3</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">label</div>
+                            <div class="col-6">value 4</div>
+                        </div>
+                    </div></td>
+            </tr>-->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <table id="myTable" class="deque-table-responsive">
     <center>
-    <!--<tr>
+    <! --<tr>
         <td><a href="/user/sortName" class="btn btn-light space">Sort by name</a></td>
         <td><a href="/user/sortEmail" class="btn btn-light space">Sort by email</a></td>
         <td><a href="/adding" class="btn btn-light space">Add new user</a></td>
-    </tr>-->
-    <tr>
+    </tr>-- >
+    <thead>
+        <tr role="row">
         <th onclick="sortTable(0)">Name</th>
         <th onclick="sortTable(1)">Email</th>
         <th onclick="sortTable(2)">Time</th>
         <th onclick="sortTable(3)">Password</th>
         <th>Action</th>
-    </tr>
-    <% for(let i = 0; i < user.length; i++){ %>
-    <tr class="ManageUsers">
-        <td><%= user[i].username %></td>
-        <td><%= user[i].email %></td>
-        <td><%= user[i].regTime.toISOString().slice(0, 19).replace('T', ' ') %></td>
-        <td><%= user[i].password %></td>
-        <td colspan="3"><a href="/user/show/<%= user[i]._id %>" style="color:mediumseagreen; font-size: 1.3rem;">show</a></td>
-        <td><a href="/user/notes/<%= user[i]._id %>" style="color: aquamarine; font-size: 1.3rem;">notes</a></td>
-        <td><a href="/user/delete/<%= user[i]._id %>" style="color:orangered; font-size: 1.3rem;">delete</a></td>
-    </tr>
-    <% } %>
+        </tr>
+    < %
+
+% >
     </center>
-</table>
+</table>-->
 
     <div class="popup-windowArc">
         <form action="/saveArticle" method="POST">

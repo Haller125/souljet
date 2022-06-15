@@ -13,7 +13,7 @@ var job = new CronJob(
 	'0 */4 * * *',
 	function() {
 		sendNotification();
-        console.log("sefafadf");
+        console.log("notification sent");
 	},
 	null,
 	true,

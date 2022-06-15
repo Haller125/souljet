@@ -67,12 +67,18 @@
             <div class="line-box">
                 <div class="line"></div>
             </div>
+            <% if (!userExist) {%>
+                <span style="color:white; display: block; float: left; margin-top: 8px; margin-bottom: 25px;">account does not exist!</span>
+            <% } %>
         </label>
         <label class = "reg-label" for="password">
             <input type="password" class="input" name="password" placeholder="Enter your password">
             <div class="line-box">
                 <div class="line"></div>
             </div>
+            <% if (incorrectPassword) {%>
+                <span style="color:white; display: block; float: left; margin-top: 8px; margin-bottom: 25px;">Incorrect Password!</span>
+            <% } %>
         </label>
         <label>
             <button class="btn btn-light" type="submit">Log In</button>

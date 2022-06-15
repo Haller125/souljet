@@ -220,12 +220,8 @@ router.post('/notes/add', async (req, res) => {
   res.redirect('/notes/' + req.body.category);
 });
 
-router.get('/registration', (req, res) => {
-    res.render(`Registration`);
-});
-
 router.get('/login', isNotAuth, adminIsNotAuth, (req, res) => {
-      res.render(`LogIn`);
+      res.render(`LogIn`, {userExist: true, incorrectPassword: false});
   });
 
 router.get('/logInAdmin', isNotAuth, (req, res) => {
@@ -261,6 +257,10 @@ router.get('/contactus', (req, res) => {
       res.render('ContactUs');
   });
 
+router.get('/registration', (req, res) => {
+    res.render(`Registration`, {userExist: false});
+});
+
 router.post('/registration', async (req, res) => {
   try{
     const { username, email, password} = req.body;
@@ -276,7 +276,7 @@ router.post('/registration', async (req, res) => {
 
         res.render(`ConfirmPage`);
     } else{
-        res.redirect('/registration');
+        res.render('Registration', {userExist: userExist});
     };
   }catch(e){
     res.render('ErrorPage',{
@@ -294,10 +294,10 @@ router.post('/login', adminIsNotAuth, async (req, res) => {
     const { email, password } = req.body;
     const user = await users.findOne({ email });
     if(!user){
-        return res.redirect("/login");
+        return res.render("login", {userExist: false, incorrectPassword: false});
     }
-    if(!req.body.password == user.password){
-        return res.redirect("/login");
+    if(req.body.password != user.password){
+        return res.render("login", {userExist: true, incorrectPassword: true});
     }
     req.session.isAuth = true;
     req.session.email = email;
@@ -453,6 +453,18 @@ router.get('/articles/delete/:title/:id', adminIsAuth, async function(req,res) {
 router.get('/test', isAuth, async function(req,res){
   let todos = await todo.find();
   res.render('test');
+});
+
+router.get('/bektas', async function(req,res){
+    res.render('Bektas');
+});
+
+router.get('/altynbek', async function(req,res){
+    res.render('Altynbek');
+});
+
+router.get('/ergali', async function(req,res){
+    res.render('Ergali');
 });
 /*
 router.post('/test/insertTodo', async function(req,res){

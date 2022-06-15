@@ -29,9 +29,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="/login">Profile</a>
                     </li>
-                     <!--<li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
-                    </li>-->
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/notes">Notes</a>
                     </li>
@@ -72,13 +72,16 @@
             <div class="line-box">
                 <div class="line"></div>
             </div>
+            <% if (userExist) {%>
+                <span style="color:white; display: block; float: left; margin-top: 8px; margin-bottom: 25px;">User with this email already exists</span>
+            <% } %>
         </label>
         <label class = "reg-label" for="password">
             <input type="password" class="input" name="password" placeholder="Enter your password" required>
             <div class="line-box">
                 <div class="line"></div>
             </div>
-            <span style="color:white; display: block;">The password must contain at least 8 characters, one wildcard, one uppercase letter, one lowercase letter </span>
+            <span style="color:white; display: block; text-align: left; margin-top: 5px;">The password must contain at least 8 characters, one wildcard, one uppercase letter, one lowercase letter </span>
         </label>
         
         <label>
