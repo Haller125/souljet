@@ -358,6 +358,7 @@ router.get('/user/delete/:id', adminIsAuth, async function(req, res) {
   try{
     let id = req.params.id;
     await users.deleteOne({_id: id});
+    await todo.delete({user_id: id});
     res.redirect('/adminPage');
   }catch(e){
     res.render('ErrorPage',{
