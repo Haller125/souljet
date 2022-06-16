@@ -23,6 +23,7 @@
     margin-top: 1em;
     margin-left: 2em;
     font-size: 5vh;
+    word-wrap: break-word;
 }
 
 .ProfileLogout{
@@ -181,4 +182,17 @@
   background-color: #424874;
   color: #F4EEFF;
   transition: 0.2s;
+}
+
+@media screen and (max-width: 480px) {
+    .ProfilePicture div{
+        width: 100px;
+        height: 100px;
+        background-position: center;
+    }
+
+    .ProfileInfo {
+        margin-left: 0;
+        font-size: 3vh;
+    }
 }

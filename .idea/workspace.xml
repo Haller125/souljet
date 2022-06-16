@@ -6,10 +6,6 @@
       <change beforePath="$PROJECT_DIR$/Css/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/MainPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Css/Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/Registration.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/ContactUs.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/ContactUs.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/InsideNoteExample.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/InsideNoteExample.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/LogIn.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/LogIn.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Registration.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/Registration.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +119,8 @@
       <workItem from="1654443721055" duration="14000" />
       <workItem from="1655110760100" duration="18503000" />
       <workItem from="1655206159989" duration="12800000" />
-      <workItem from="1655282124211" duration="19189000" />
+      <workItem from="1655282124211" duration="19865000" />
+      <workItem from="1655344876550" duration="1859000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>

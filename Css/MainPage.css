@@ -82,6 +82,12 @@ div video{
     flex-wrap: wrap;
 }
 
+@media screen and (max-width: 480px) {
+    .MainPageSiteName{
+        font-size: 10vh; /*8em*/
+    }
+}
+
 .MainPageQuote h2{
     font-size: 2vh;
     font-family: 'Spline Sans', sans-serif;
