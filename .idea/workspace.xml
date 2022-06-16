@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="adbc48df-a350-4e04-8914-bef15d4bebc3" name="Changes" comment="heroku">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Css/MainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/MainPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Css/Registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/Registration.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/Css/profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +120,7 @@
       <workItem from="1655110760100" duration="18503000" />
       <workItem from="1655206159989" duration="12800000" />
       <workItem from="1655282124211" duration="19865000" />
-      <workItem from="1655344876550" duration="1859000" />
+      <workItem from="1655344876550" duration="6252000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1652280569767</created>
