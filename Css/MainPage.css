@@ -504,19 +504,12 @@ button:hover {
     height: 500px;
 }
 
-#Sultangazy-img{
+#ergali-img{
+    border-radius: 10%;
+    margin-bottom: 2em;
     width: 370px;
     height: 500px;
-}
-
-#Ansar-img{
-    width: 300px;
-    height: 500px;
-}
-
-#Altynay-img{
-    width: 370px;
-    height: 500px;
+    margin-right: 10em;
 }
 /*============================= "About me" section */
 
