@@ -13,8 +13,8 @@
 .ProfilePicture div{
     width: 250px;
     height: 250px;
-    background-image: url('Images/altynbek.jpg');
-    background-position: -25px -20px;
+    background-image: url('Images/pngegg.png');
+    background-position: center;
     border-radius: 50%;
     background-size: cover;
 }
@@ -194,5 +194,9 @@
     .ProfileInfo {
         margin-left: 0;
         font-size: 3vh;
+    }
+
+    .ProfileLogout{
+        font-size: 2.5vh;
     }
 }
