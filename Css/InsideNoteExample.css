@@ -145,6 +145,11 @@ button:hover {
     color:#7f7fd5;
 }
 
+.dropdown{
+    display: inline;
+    float: right;
+}
+
 /*  if screen size less than 450px, resize tips lists and close btn so they don't overlap */
 @media screen and (max-height: 450px) {
     #todo{
