@@ -100,7 +100,14 @@
     font-size: 6vh;
     text-align: center;
 }
-
+.PText div h3{
+text-align: center;
+padding-bottom: 1vh;
+}
+.ProfileName {
+display: flex;
+justify-content: center;
+}
 .BlackoWhite{
     display: flex;
     justify-content: space-around;
@@ -157,6 +164,13 @@
   color: #424874;
   background-color: #efefef;
   transition: 0.3s;
+}
+
+.ProfileLogoutButton{
+    background-color: white;
+    color:rgb(38, 38, 38);
+    border-radius: 10px;
+    font-size: 3vh;
 }
 
 .TempAddButton button{
