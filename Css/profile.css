@@ -17,7 +17,7 @@
 .ProfilePicture{
     display: flex;
     justify-content: center;
-    margin-bottom: 2vh;
+    margin-bottom: 0.5vh;
 }
 .ProfilePicture img{
 width: 70vh;
@@ -32,7 +32,7 @@ height: auto;
 .ProfileBar{
     padding: 8px;
 background-color: rgb(36, 44, 111);
-background: -webkit-linear-gradient(rgb(24, 29, 72), rgb(51, 62, 163));
+background: -webkit-linear-gradient(rgb(20, 21, 30), rgb(51, 62, 163));
 
     display: flex;
     justify-content:space-evenly;
@@ -91,6 +91,10 @@ color: white;
     font-family: 'Spline Sans', sans-serif;
     font-size: 6vh;
     text-align: center;
+}
+.PText div h3{
+text-align: center;
+padding-bottom: 1vh;
 }
 .ProfileName {
 display: flex;
@@ -155,7 +159,12 @@ justify-content: center;
   transition: 0.3s;
 }
 
-
+.ProfileLogoutButton{
+    background-color: white;
+    color:rgb(38, 38, 38);
+    border-radius: 10px;
+    font-size: 3vh;
+}
 
 .TempAddButton button{
     display: flex;

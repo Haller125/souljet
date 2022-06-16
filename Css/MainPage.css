@@ -242,13 +242,10 @@ footer div div div span a{
     position: fixed; /* fixed */
     top: -150px;
     transition: 0.4s;
-    border: 2px solid rgb(138, 138, 138);
-    box-shadow: 0px 5px 10px rgb(175, 175, 175);
     border-radius: 10px;
     padding: 10px;
     padding-left: 30px;
     padding-right: 30px;
-    background-color:white;
 }
 
 .change2{
@@ -323,9 +320,7 @@ nav{
     padding-top: 18px; /*2%*/
     font-family: 'Lato', sans-serif;
 }
-nav div ul li a{
-    border: 1px solid black;
-}
+
 nav div ul li{
     padding-left: 2vw; /*0.5em*/
     padding-right: 2vw; /*0.5em*/
@@ -442,7 +437,6 @@ button:hover {
     width: 60%;
     padding: 10px;
     background-color: #ffffff;
-    border-radius: 15px;
 }
 
 .articleTR{

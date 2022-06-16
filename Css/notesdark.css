@@ -2,7 +2,7 @@ body{
     /*
     background-color: #1a1a1a
     */
-    background-image: linear-gradient(rgba(4,9,30,0.5),rgba(4,9,30,0.5)),url(../Images/purple-mountains.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.75),rgba(4,9,30,0.75)),url(../Images/purple-mountains.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -10,15 +10,14 @@ body{
 .NotesBody{
     background: #3e3333;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-    background: -webkit-linear-gradient(rgb(133, 214, 215), rgb(179, 191, 104));
+    background: -webkit-linear-gradient(rgb(15, 17, 17), rgb(24, 25, 16));
 
 }
 
 .NoteBlock a{
     background: #c55555;
-    color: #f4eeff;
-    background: -webkit-linear-gradient(rgb(121, 221, 222), rgb(82, 174, 157));
-
+    color: rgb(38, 38, 38);
+    background: -webkit-linear-gradient(rgb(193, 214, 214), rgb(115, 161, 153));
 }
 
 .NoteBlock a:hover::before,
@@ -33,10 +32,10 @@ body{
 }
 
 .TempAddButton button{
-    background: -webkit-linear-gradient(rgb(95, 169, 170), rgb(100, 211, 190));
+    background: -webkit-linear-gradient(rgb(193, 214, 214), rgb(115, 161, 153));
 
     border: 2px solid #424874;
-    color: #424874;
+    color: rgb(38, 38, 38);
 }
 .TempAddButton button:hover::before,
 .TempAddButton button:hover::after {
@@ -52,23 +51,28 @@ body{
 }
 
 
+.navbar-nav{
+    background-color: rgb(38, 38, 38);
+    box-shadow: 0px 5px 10px rgb(54, 54, 54);
+    border: 2px solid rgb(75, 75, 75);
+}
 .navbar .navbar-nav .nav-link{
-    color: #ffb19b;
-
+    color: #ffffff;
+    background-color: rgb(38, 38, 38);
 }
 .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link.active {
-    background-color: #555;
-    color: white;
-    color: #ffb19b;
-}
+    color: rgb(38, 38, 38);
+    background-color: #ffffff;
 
+}
 .quarter-circle {
+    border:none;
     background-color:  white;
 }
 
 /*-- Burger-collapse animation --*/
 .bar1, .bar2, .bar3 {
-    background-color: #ffb19b;
+    background-color: rgb(38, 38, 38);
 }
 
 .line-box {
@@ -92,4 +96,38 @@ button:hover {
 /*-- DarkThemeSwitcher --*/
 .theme {
     background: #222222;
+}
+
+.Footer h1{
+    color: black;
+}
+footer{
+    background-color: rgb(49, 49, 49);
+    color: rgb(86, 116, 146);
+}
+footer h1{
+    color: #e7e7e7;
+
+}
+.creators-footer{
+    color:rgb(100, 146, 182);
+    
+}
+.col-lg-4 div span a{
+    color:rgb(100, 146, 182);
+}
+/*-- navigation bar --*/
+.row div p{
+    color:rgb(100, 146, 182);
+}
+.row div span{
+    color:rgb(100, 146, 182);
+}
+.col-lg-4 p{
+    color:rgb(100, 146, 182);
+    
+}
+.TextC{
+    color:rgb(28, 41, 50);
+
 }
