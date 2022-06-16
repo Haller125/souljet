@@ -1,67 +1,75 @@
-
-.ProfileBody{  
-    width: 90%;  
+.ProfileBody{
+    width: 70%;
     margin: 60px auto;  
     padding-top: 4vh;  
     box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-    border-radius: 0.5vh;
+    border-radius: 10%;
+}
 
+.ProfileTop{
+    margin: 2em;
 }
-.ProfileH1{
-    font-size: 7vh;
-    width: 100%;
-    margin: 0px;
-    padding-bottom: 20px;
-    font-family: 'Spline Sans', sans-serif;
+
+.ProfilePicture div{
+    width: 250px;
+    height: 250px;
+    background-image: url('Images/altynbek.jpg');
+    background-position: -25px -20px;
+    border-radius: 50%;
+    background-size: cover;
 }
-.ProfilePicture{
+
+.ProfileInfo {
+    margin-top: 1em;
+    margin-left: 2em;
+    font-size: 5vh;
+    word-wrap: break-word;
+}
+
+.ProfileLogout{
+    background-color: transparent;
+    border: 1px solid black;
+    font-weight: 600;
+    font-size: 3.5vh;
+    float: right;
+    margin-top: -0.5vh;
+}
+
+.ProfileBar{
+    padding: 8px;
+    /*background-color: rgb(36, 44, 111);*/
+    background: -webkit-linear-gradient(#f6a494, #ffa089);
     display: flex;
-    justify-content: center;
-    margin-bottom: 2vh;
+    justify-content:space-evenly;
+    align-items: center;
 }
-.ProfilePicture img{
-width: 70vh;
-height: auto;
+
+.ProfileBar div a{
+    font-size: 4vh;
+    font-family: 'Spline Sans', sans-serif;
+    padding: 8px;
+    color: white;
 }
+
+.Reg-btn{
+    margin-top: 10px;
+    border: 0;
+    margin-bottom: 10px;
+}
+/*=============================Dont use*/
 .InputField h1{
     font-size: 9vh;
     color:black;
     font-family: 'Spline Sans', sans-serif;
 }
 
-.ProfileBar{
-    padding: 8px;
-background-color: rgb(36, 44, 111);
-background: -webkit-linear-gradient(rgb(24, 29, 72), rgb(51, 62, 163));
-
-    display: flex;
-    justify-content:space-evenly;
-    align-items: center;
-}
-.ProfileBar a{
-    text-decoration: none;
-font-size: 4vh;
-font-family: 'Spline Sans', sans-serif;
-border-radius: 10px;
-padding: 8px;
-color: white;
-}
-.Reg-btn{
-    margin-top: 10px;
-    border: 0;
-    margin-bottom: 10px;
-}
-
 .InputBar{
     display: flex;
     height: 7vh;
     background-color: #A6B1E1;
-    margin: 4vh;
-    margin-top: 5px;
-    margin-bottom: 4vh;
+    margin: 5px 4vh 4vh 4vh;
     border-radius: 1vh;
     font-size: 2.5vh;
-
 }
 
 .InputBar h1{
@@ -92,10 +100,7 @@ color: white;
     font-size: 6vh;
     text-align: center;
 }
-.ProfileName {
-display: flex;
-justify-content: center;
-}
+
 .BlackoWhite{
     display: flex;
     justify-content: space-around;
@@ -112,7 +117,7 @@ justify-content: center;
 .WhiteB{
     width: 12vh;
     background-color: white;
-    height: 12vh;    
+    height: 12vh;
     border-radius: 9vh;
     margin: 2vh;
     text-decoration: none;
@@ -137,10 +142,9 @@ justify-content: center;
     text-align: center;
     font-size: 6vh;
     font-family: 'Akshar', sans-serif;
-    font-family: 'Spline Sans', sans-serif;
+    /*font-family: 'Spline Sans', sans-serif;*/
     font-weight: 400;
 }
-
 
 .NoteBlock:hover::before,
 .NoteBlock:hover::after {
@@ -154,8 +158,6 @@ justify-content: center;
   background-color: #efefef;
   transition: 0.3s;
 }
-
-
 
 .TempAddButton button{
     display: flex;
@@ -182,5 +184,15 @@ justify-content: center;
   transition: 0.2s;
 }
 
+@media screen and (max-width: 480px) {
+    .ProfilePicture div{
+        width: 100px;
+        height: 100px;
+        background-position: center;
+    }
 
-
+    .ProfileInfo {
+        margin-left: 0;
+        font-size: 3vh;
+    }
+}
