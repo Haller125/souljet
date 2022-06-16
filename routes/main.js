@@ -201,6 +201,22 @@ router.get('/notes/:category/delete/:id', isAuth, async (req, res) => {
   }
 });
 
+router.get('/notes/:category/status/:id/:status', isAuth, async (req, res) => {
+  try{
+  let category = req.params.category;
+  let id = req.params.id;
+  let status = req.params.status;
+  
+  await todo.updateOne({ _id: id }, { $set: { status: status } });
+
+  res.redirect('back');
+  }catch(e){
+    res.render('ErrorPage',{
+      error: e,
+    });
+  }
+});
+
 router.get('/notes/:category/delete', isAuth, async (req, res) => {
   try{
   let category = req.params.category;
@@ -358,6 +374,7 @@ router.get('/user/delete/:id', adminIsAuth, async function(req, res) {
   try{
     let id = req.params.id;
     await users.deleteOne({_id: id});
+    await todo.delete({user_id: id});
     res.redirect('/adminPage');
   }catch(e){
     res.render('ErrorPage',{
